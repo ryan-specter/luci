@@ -1,0 +1,108 @@
+/**
+ * Front page — hero, Meet Luci, portal hub (lime shell in home-shell.css).
+ */
+
+body.luci-front-page .luci-meet-hero,
+body.luci-front-page .luci-meet-journey {
+	background-color: var(--luci-lime, #c1ff00) !important;
+	color: var(--luci-brown, #602700);
+}
+
+/* Hero — larger, bolder lander type */
+body.luci-front-page .luci-home-hero__title {
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+	font-size: clamp(2.25rem, 6vw, 3.75rem);
+	font-weight: 800;
+	line-height: 1.05;
+	letter-spacing: 0.03em;
+	color: var(--luci-brown, #602700);
+}
+
+body.luci-front-page .luci-home-hero__promo-headline {
+	font-size: clamp(1.75rem, 3.2vw, 2.35rem);
+	line-height: 1.2;
+}
+
+body.luci-front-page .luci-home-hero__promo-sub {
+	font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+	line-height: 1.5;
+}
+
+body.luci-front-page .luci-home-hero__input,
+body.luci-front-page .luci-home-hero__submit {
+	font-size: 1.125rem;
+	padding: 0.9rem 1.15rem;
+}
+
+body.luci-front-page .luci-home-hero__panel.home-hero-text {
+	background: color-mix(in srgb, var(--luci-olive, #214f0c) 78%, #000 22%);
+	padding: 1.5rem 1.75rem 1.75rem;
+}
+
+/* Portal hub — bold, legible */
+body.luci-front-page .luci-home-below-hero__inner {
+	padding: clamp(2.5rem, 5vw, 4rem) 1rem clamp(3rem, 6vw, 4.5rem);
+}
+
+body.luci-front-page .luci-portal-hub__title {
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+	font-size: clamp(2rem, 4.5vw, 2.875rem);
+	font-weight: 800;
+	letter-spacing: -0.02em;
+	line-height: 1.1;
+	margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
+	color: var(--luci-brown, #602700);
+}
+
+body.luci-front-page .luci-portal-tile,
+body.luci-front-page .luci-portal-tile__label {
+	color: var(--luci-brown, #602700);
+}
+
+body.luci-front-page .luci-portal-tile__icon {
+	color: var(--luci-brown, #602700);
+	background: rgba(255, 255, 255, 0.4);
+}
+
+body.luci-front-page .luci-portal-tile:hover .luci-portal-tile__label {
+	text-decoration: underline;
+	text-underline-offset: 0.15em;
+}
+
+body.luci-front-page .luci-hero-extra,
+body.luci-front-page .luci-hero-extra p {
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+	font-size: clamp(1.125rem, 2vw, 1.375rem);
+	line-height: 1.65;
+	max-width: 44rem;
+}
+
+body.luci-front-page .luci-hero-extra h2,
+body.luci-front-page .luci-hero-extra h3 {
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+	font-weight: 800;
+	font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+	margin: 2rem 0 0.85rem;
+}
+
+body.luci-front-page .luci-hero-extra ul {
+	font-size: clamp(1.0625rem, 1.8vw, 1.25rem);
+	line-height: 1.6;
+}
+
+body.luci-front-page .luci-disclaimer {
+	font-size: 0.8125rem;
+	opacity: 0.85;
+	margin-top: 2rem;
+}
+
+/* Avoid triple disclaimer from page content + template */
+body.luci-front-page .luci-hero-extra .luci-disclaimer {
+	display: none;
+}
+
+body.luci-front-page .luci-tax-disclaimer {
+	background: var(--luci-lime, #c1ff00);
+	color: var(--luci-brown, #602700);
+	border-top-color: rgba(96, 39, 0, 0.12);
+}

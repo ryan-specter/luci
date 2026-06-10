@@ -1,0 +1,551 @@
+/* Luci Brand — design tokens from Luci Error Pages (Canva) */
+@font-face {
+	font-family: "Horizon";
+	src: url("../fonts/Horizon.woff2") format("woff2"),
+		url("../fonts/Horizon.woff") format("woff"),
+		url("../fonts/Horizon.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+:root {
+	--luci-lime: #c1ff00;
+	--luci-lime-rgb: 193, 255, 0;
+	--luci-brown: #602700;
+	--luci-brown-rgb: 96, 39, 0;
+	--luci-white: #ffffff;
+	--luci-cream: #fffef8;
+	--luci-font-heading: "Horizon", "Arial Black", "Impact", sans-serif;
+	--luci-font-body: "Playfair Display", Georgia, "Times New Roman", serif;
+	--luci-radius-card: 0;
+	--luci-frame: clamp(1rem, 4vw, 4.625rem);
+	--luci-max-width: 82.375rem;
+	--luci-heading-size: clamp(2.5rem, 6vw, 4.666rem);
+	--luci-body-size: clamp(1.25rem, 2.5vw, 2.666rem);
+	--luci-line-heading: 1.12;
+	--luci-line-body: 1.38;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	font-family: var(--luci-font-body);
+	font-size: 1.0625rem;
+	line-height: 1.6;
+	color: var(--luci-brown);
+	background: var(--luci-lime);
+	-webkit-font-smoothing: antialiased;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+a {
+	color: var(--luci-brown);
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.15em;
+}
+
+a:hover {
+	opacity: 0.85;
+}
+
+.luci-heading,
+h1,
+h2,
+h3,
+h4,
+.luci-site-title {
+	font-family: var(--luci-font-heading);
+	font-weight: 400;
+	color: var(--luci-brown);
+	line-height: var(--luci-line-heading);
+	letter-spacing: 0;
+	text-transform: none;
+}
+
+h1,
+.luci-hero-title {
+	font-size: var(--luci-heading-size);
+	margin: 0 0 0.5rem;
+}
+
+h2 {
+	font-size: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+h3 {
+	font-size: clamp(1.35rem, 3vw, 2rem);
+}
+
+.luci-lead {
+	font-size: 1.25rem;
+	line-height: var(--luci-line-body);
+}
+
+/* Layout shell */
+.luci-site {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.luci-site-main {
+	flex: 1;
+}
+
+/* Header */
+.luci-header {
+	background: var(--luci-lime);
+	border-bottom: 2px solid var(--luci-brown);
+}
+
+.luci-header-inner {
+	max-width: var(--luci-max-width);
+	margin: 0 auto;
+	padding: 0.75rem clamp(1rem, 3vw, 2rem);
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.luci-brand {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	text-decoration: none;
+	color: var(--luci-brown);
+}
+
+.luci-brand:hover {
+	opacity: 1;
+}
+
+.luci-brand img,
+.custom-logo {
+	width: auto;
+	height: 3.25rem;
+}
+
+.luci-site-title {
+	font-size: 1.5rem;
+	margin: 0;
+}
+
+.luci-header-actions {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	flex-wrap: wrap;
+}
+
+.luci-locale {
+	font-family: var(--luci-font-body);
+	font-size: 0.9rem;
+}
+
+.luci-nav-primary ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.25rem 1.25rem;
+}
+
+.luci-nav-primary a {
+	font-family: var(--luci-font-body);
+	font-size: 1rem;
+	text-decoration: none;
+	font-weight: 500;
+}
+
+.luci-nav-toggle {
+	display: none;
+	background: var(--luci-brown);
+	color: var(--luci-lime);
+	border: none;
+	padding: 0.5rem 0.85rem;
+	font-family: var(--luci-font-heading);
+	cursor: pointer;
+}
+
+/* Buttons */
+.luci-btn {
+	display: inline-block;
+	font-family: var(--luci-font-body);
+	font-size: 1rem;
+	font-weight: 600;
+	padding: 0.65rem 1.35rem;
+	border: 2px solid var(--luci-brown);
+	border-radius: 0;
+	cursor: pointer;
+	text-decoration: none;
+	transition: background 0.15s, color 0.15s;
+}
+
+.luci-btn-primary {
+	background: var(--luci-brown);
+	color: var(--luci-lime);
+}
+
+.luci-btn-primary:hover {
+	background: var(--luci-lime);
+	color: var(--luci-brown);
+	opacity: 1;
+}
+
+.luci-btn-secondary {
+	background: var(--luci-lime);
+	color: var(--luci-brown);
+}
+
+.luci-btn-secondary:hover {
+	background: var(--luci-brown);
+	color: var(--luci-lime);
+	opacity: 1;
+}
+
+/* White card frame (error pages + content sections) */
+.luci-card-frame {
+	background: var(--luci-lime);
+	padding: var(--luci-frame);
+}
+
+.luci-card {
+	background: var(--luci-white);
+	position: relative;
+	max-width: var(--luci-max-width);
+	margin: 0 auto;
+	min-height: 28rem;
+	padding: clamp(2rem, 5vw, 4.625rem);
+	box-shadow: inset 0 0 0 0 var(--luci-lime);
+}
+
+.luci-card::before {
+	content: "";
+	position: absolute;
+	inset: var(--luci-frame);
+	border: 0;
+	pointer-events: none;
+	background: transparent;
+}
+
+/* Front page */
+.luci-hero {
+	background: var(--luci-lime);
+	padding: var(--luci-frame) var(--luci-frame) 2rem;
+}
+
+.luci-hero-card {
+	background: var(--luci-white);
+	max-width: var(--luci-max-width);
+	margin: 0 auto;
+	padding: clamp(2rem, 5vw, 3.5rem);
+}
+
+.luci-hero-tagline {
+	font-size: var(--luci-body-size);
+	line-height: var(--luci-line-body);
+	margin: 0 0 1.5rem;
+	max-width: 42rem;
+}
+
+.luci-domain-search {
+	margin: 1.5rem 0 2rem;
+	padding: 1.5rem;
+	background: var(--luci-cream);
+	border: 2px solid var(--luci-brown);
+}
+
+.luci-account-panels {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 1.5rem;
+	margin: 2rem 0;
+}
+
+.luci-account-panel {
+	padding: 1.75rem;
+	border: 2px solid var(--luci-brown);
+	background: var(--luci-cream);
+}
+
+.luci-account-panel h2 {
+	margin-top: 0;
+	font-size: 1.5rem;
+}
+
+.luci-products-strip {
+	background: var(--luci-white);
+	border-top: 2px solid var(--luci-brown);
+	border-bottom: 2px solid var(--luci-brown);
+}
+
+.luci-products-strip-inner {
+	max-width: var(--luci-max-width);
+	margin: 0 auto;
+	padding: 2rem clamp(1rem, 3vw, 2rem);
+}
+
+.luci-product-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 1.25rem;
+	margin-top: 1.5rem;
+}
+
+.luci-product-tile {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 1.25rem;
+	border: 2px solid var(--luci-brown);
+	text-decoration: none;
+	color: var(--luci-brown);
+	background: var(--luci-lime);
+	transition: transform 0.15s;
+}
+
+.luci-product-tile:hover {
+	transform: translateY(-2px);
+	opacity: 1;
+	background: var(--luci-brown);
+	color: var(--luci-lime);
+}
+
+.luci-product-tile .luci-heading {
+	font-size: 1.15rem;
+	margin: 0.5rem 0 0;
+}
+
+/* Page content */
+.luci-content {
+	background: var(--luci-white);
+	max-width: var(--luci-max-width);
+	margin: 0 auto;
+	padding: clamp(2rem, 5vw, 3.5rem) clamp(1rem, 3vw, 2rem);
+	min-height: 40vh;
+}
+
+.luci-content .entry-content {
+	max-width: 52rem;
+}
+
+.luci-content .entry-content > * + * {
+	margin-top: 1.25rem;
+}
+
+/* Reseller product pods on interior pages (widget roots only — not inputs) */
+.luci-content .entry-content .rstore-product,
+.luci-content .entry-content .rstore-domain-search,
+.luci-content .entry-content .rstore-domain-transfer,
+.luci-content .entry-content .rstore-domain,
+.luci-content .entry-content .widget.rstore-domain {
+	margin: 1.25rem 0;
+	padding: 1.25rem;
+	border: 2px solid var(--luci-brown);
+	background: var(--luci-cream);
+}
+
+.luci-product-grid-hosting {
+	display: grid;
+	gap: 1rem;
+}
+
+@media (min-width: 640px) {
+	.luci-content .entry-content {
+		max-width: 56rem;
+	}
+}
+
+/* Error page layout — full-screen branded card */
+body.luci-error-page .luci-header,
+body.luci-error-page .luci-footer {
+	display: none;
+}
+
+body.luci-error-page .luci-site-main {
+	padding: 0;
+}
+
+.luci-error-wrap {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: var(--luci-frame);
+}
+
+.luci-error-card {
+	width: 100%;
+	max-width: var(--luci-max-width);
+	background: var(--luci-white);
+	padding: clamp(2rem, 5vw, 4.625rem);
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1.5rem;
+	text-align: center;
+}
+
+@media (min-width: 768px) {
+	.luci-error-card {
+		grid-template-columns: 1fr 1fr;
+		text-align: left;
+		align-items: center;
+	}
+
+	.luci-error-card.luci-error-card--stack {
+		grid-template-columns: 1fr;
+		text-align: center;
+	}
+}
+
+.luci-error-visual img {
+	margin: 0 auto;
+	max-height: 22rem;
+	width: auto;
+}
+
+.luci-error-copy .luci-error-headline {
+	font-size: var(--luci-heading-size);
+	line-height: var(--luci-line-heading);
+	margin: 0 0 0.75rem;
+}
+
+.luci-error-copy p {
+	font-size: clamp(1.1rem, 2vw, 1.75rem);
+	line-height: var(--luci-line-body);
+	margin: 0.35rem 0;
+}
+
+.luci-error-logo {
+	width: 6rem;
+	margin: 2rem auto 0;
+}
+
+.luci-error-actions {
+	margin-top: 1.5rem;
+}
+
+/* Footer */
+.luci-footer {
+	background: var(--luci-brown);
+	color: var(--luci-lime);
+	margin-top: auto;
+}
+
+.luci-footer-inner {
+	max-width: var(--luci-max-width);
+	margin: 0 auto;
+	padding: 2rem clamp(1rem, 3vw, 2rem);
+}
+
+.luci-footer a {
+	color: var(--luci-lime);
+}
+
+.luci-footer-nav ul {
+	list-style: none;
+	margin: 0 0 1rem;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem 1.5rem;
+}
+
+.luci-footer-disclaimer {
+	font-size: 0.875rem;
+	opacity: 0.9;
+	margin: 1rem 0 0;
+}
+
+.luci-footer-bottom {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+	margin-top: 1.5rem;
+	padding-top: 1rem;
+	border-top: 1px solid rgba(193, 255, 0, 0.35);
+}
+
+/* Reseller placeholder */
+.luci-reseller-placeholder {
+	padding: 1rem 1.25rem;
+	border: 2px dashed var(--luci-brown);
+	background: var(--luci-cream);
+	font-style: italic;
+}
+
+/* Responsive nav */
+@media (max-width: 900px) {
+	.luci-nav-toggle {
+		display: block;
+	}
+
+	.luci-nav-primary {
+		display: none;
+		width: 100%;
+	}
+
+	.luci-nav-primary.is-open {
+		display: block;
+	}
+
+	.luci-nav-primary ul {
+		flex-direction: column;
+		padding: 0.5rem 0;
+	}
+}
+
+/* WordPress core */
+.alignwide {
+	max-width: var(--luci-max-width);
+}
+
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+	background-color: var(--luci-white);
+	clip: auto !important;
+	clip-path: none;
+	color: var(--luci-brown);
+	display: block;
+	font-size: 0.875rem;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
+}

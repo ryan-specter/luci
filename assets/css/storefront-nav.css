@@ -1,0 +1,329 @@
+/**
+ * Primary nav + portal hub — GoDaddy secureserver parity (bold links, mega panels).
+ */
+
+/* Logo — 70px height (secureserver / luci.ltd utility bar) */
+#luci-hcs-header .topnav-logo-wrap .luci-brand__logo,
+#luci-hcs-header .topnav-logo-wrap .custom-logo,
+#luci-hcs-header .topnav-logo-wrap img#registrar,
+#luci-hcs-header .topnav-logo.pl-large-logo img,
+#luci-hcs-header .utility-bar .topnav-logo-wrap img {
+	width: auto !important;
+	max-width: none !important;
+	height: 70px !important;
+	max-height: 70px !important;
+	object-fit: contain;
+}
+
+#luci-hcs-header .topnav-logo-wrap .topnav-logo,
+#luci-hcs-header .topnav-logo-wrap .logo-img {
+	display: inline-flex;
+	align-items: center;
+	min-height: 70px;
+}
+
+#luci-hcs-header .utility-bar.single-use-header .utility-bar-flex {
+	min-height: var(--luci-util-bar-height, calc(var(--luci-logo-height, 70px) + 0.5rem));
+	align-items: center;
+}
+
+@media (max-width: 767px) {
+	#luci-hcs-header .topnav-logo-wrap .luci-brand__logo,
+	#luci-hcs-header .topnav-logo-wrap .custom-logo,
+	#luci-hcs-header .topnav-logo-wrap img#registrar,
+	#luci-hcs-header .topnav-logo.pl-large-logo img,
+	#luci-hcs-header .utility-bar .topnav-logo-wrap img {
+		height: 44px !important;
+		max-height: 44px !important;
+		max-width: min(168px, 46vw) !important;
+		width: auto !important;
+	}
+
+	#luci-hcs-header .topnav-logo-wrap .topnav-logo,
+	#luci-hcs-header .topnav-logo-wrap .logo-img {
+		min-height: 44px;
+	}
+
+	#luci-hcs-header .utility-bar.single-use-header .utility-bar-flex {
+		min-height: calc(44px + 0.5rem);
+	}
+}
+
+@media (max-width: 575px) {
+	#luci-hcs-header .utility-right-nav .basic-phone-text,
+	#luci-hcs-header .utility-right-nav .help-link-text,
+	#luci-hcs-header .mrkt-selector-tray-label {
+		display: none !important;
+	}
+
+	#luci-hcs-header .utility-right-nav .basic-phone-btn,
+	#luci-hcs-header .utility-right-nav .help-link,
+	#luci-hcs-header .utility-right-nav .tray-toggle {
+		padding-inline: 0.5rem;
+	}
+}
+
+/* Main topnav row — white on inner pages only */
+body:not(.luci-home-shell) #luci-hcs-header .top,
+body:not(.luci-home-shell) #luci-hcs-header .topnav {
+	background: var(--luci-white, #fff);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+#luci-hcs-header .topnav .product-nav-container {
+	margin: 0 auto;
+	padding: 0 10px;
+}
+
+#luci-hcs-header .topnav-items {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: stretch;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	gap: 0;
+}
+
+#luci-hcs-header .topnav-item {
+	position: relative;
+	display: flex;
+	align-items: stretch;
+	margin: 0;
+}
+
+/* Direct nav links — bold like secureserver (Home regular) */
+#luci-hcs-header .topnav-direct-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	padding: 0 1rem;
+	min-height: var(--luci-nav-height, 64px);
+	font-family: var(--luci-font-nav);
+	font-size: 1rem;
+	line-height: 1.2;
+	color: var(--luci-black, #111);
+	text-decoration: none;
+	white-space: nowrap;
+	cursor: pointer;
+}
+
+#luci-hcs-header .topnav-item:not(.menu-item-home) .topnav-direct-link {
+	font-weight: 700;
+}
+
+/* Override GoDaddy reseller-sales-header logo cap */
+#luci-hcs-header .topnav-logo.pl-large-logo,
+#luci-hcs-header .topnav-logo.pl-large-logo.white-logo-bg {
+	padding: 0.25rem 0;
+}
+
+#luci-hcs-header .topnav-item.menu-item-home .topnav-direct-link {
+	font-weight: 400;
+}
+
+#luci-hcs-header .topnav-direct-link:hover,
+#luci-hcs-header .topnav-direct-link:focus {
+	text-decoration: none;
+	background: rgba(0, 0, 0, 0.04);
+}
+
+#luci-hcs-header .topnav-direct-link .chevron-down {
+	display: inline-flex;
+	align-items: center;
+	pointer-events: none;
+}
+
+#luci-hcs-header .topnav-direct-link .chevron-down svg {
+	width: 1.25rem;
+	height: 1.25rem;
+}
+
+/* Mega panel — click-only (legacy; panels hidden in parity CSS) */
+#luci-hcs-header .topnav-item.has-mega .luci-mega-panel {
+	display: none !important;
+	position: absolute;
+	left: 0;
+	top: 100%;
+	z-index: 110;
+	min-width: 16rem;
+	padding: 1rem 1.25rem 1.25rem;
+	background: #fff;
+	box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+	border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+#luci-hcs-header .topnav-item.has-mega.is-open .luci-mega-panel {
+	display: block !important;
+}
+
+#luci-hcs-header .luci-mega-panel__title {
+	margin: 0 0 0.75rem;
+	font-family: var(--luci-font-heading);
+	font-size: 1.5rem;
+	font-weight: 400;
+	color: var(--luci-black);
+}
+
+#luci-hcs-header .luci-mega-panel__links {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#luci-hcs-header .luci-mega-panel__links a {
+	display: block;
+	padding: 0.35rem 0;
+	color: var(--luci-black);
+	text-decoration: none;
+	font-weight: 400;
+	font-size: 0.95rem;
+}
+
+#luci-hcs-header .luci-mega-panel__links a:hover {
+	text-decoration: underline;
+}
+
+/* Utility bar links — match help / account row */
+#luci-hcs-header .utility-right-nav .luci-cart-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	color: var(--luci-brown, #602700);
+	text-decoration: none;
+	min-height: var(--luci-util-bar-height);
+	padding: 0 0.5rem;
+}
+
+#luci-hcs-header .utility-right-nav .luci-cart-link:hover,
+#luci-hcs-header .utility-right-nav .luci-cart-link:focus-visible {
+	color: var(--luci-brown, #602700);
+	text-decoration: underline;
+	opacity: 0.9;
+}
+
+#luci-hcs-header .utility-right-nav .luci-cart-link .luci-icon {
+	color: var(--luci-brown, #602700);
+}
+
+#luci-hcs-header .utility-right-nav .luci-cart-link .luci-cart-badge {
+	display: none !important;
+}
+
+/* Home portal hub */
+.luci-portal-hub {
+	margin: 2rem 0 1.5rem;
+}
+
+.luci-portal-hub__title {
+	font-family: var(--luci-font-heading);
+	font-size: 1.75rem;
+	font-weight: 400;
+	margin: 0 0 1.25rem;
+	color: var(--luci-black);
+}
+
+.luci-portal-hub__grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+	gap: 1.25rem 1.5rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.luci-portal-tile {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	text-decoration: none;
+	color: var(--luci-black);
+	gap: 0.5rem;
+}
+
+.luci-portal-tile:hover .luci-portal-tile__label {
+	text-decoration: underline;
+}
+
+.luci-portal-tile__icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 3rem;
+	border-top: 3px solid #2dd4bf;
+	width: 100%;
+	padding-top: 0.5rem;
+}
+
+.luci-portal-tile__icon .luci-icon {
+	max-height: none;
+}
+
+.luci-portal-tile__label {
+	font-size: 0.9rem;
+	line-height: 1.3;
+}
+
+.luci-hero--portal .luci-hero-card {
+	max-width: 1140px;
+}
+
+.luci-domain-search--hero {
+	margin: 1.5rem 0 0;
+}
+
+.luci-domain-search--outbound .luci-domain-search__lead {
+	margin: 0.5rem 0 1rem;
+	max-width: 36rem;
+}
+
+.luci-domain-search__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+}
+
+.luci-outbound-links {
+	list-style: none;
+	margin: 1.25rem 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+}
+
+.luci-domain-search--hero .luci-domain-search__label {
+	display: block;
+	font-weight: 600;
+	margin-bottom: 0.5rem;
+}
+
+/* Hub page quick actions */
+.luci-hub-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin: 1rem 0 1.5rem;
+}
+
+.luci-hub-actions .luci-btn {
+	text-decoration: none;
+}
+
+/* Full-width Hydra trays not used in WordPress shell */
+#luci-hcs-header .topnav-items .tray-fullwidth.luci-product-tray-panel {
+	display: none !important;
+}
+
+#luci-hcs-header .topnav-items .topnav-direct-link {
+	position: relative;
+	z-index: 2;
+}
+
+/* Ensure utility + nav links are always clickable above overlays */
+#luci-hcs-header .utility-right-nav a,
+#luci-hcs-header .topnav-direct-link,
+#luci-hcs-header .luci-mega-panel a {
+	pointer-events: auto;
+}

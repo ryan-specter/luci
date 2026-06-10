@@ -1,0 +1,322 @@
+/**
+ * Mobile layout — site-wide gutters, header, content shell, footer.
+ */
+
+:root {
+	--luci-gutter: clamp(1rem, 4.5vw, 1.5rem);
+	--luci-gutter-lg: clamp(1.25rem, 5vw, 2rem);
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+}
+
+body.luci-standalone,
+body.luci-standalone.ux-app {
+	overflow-x: hidden;
+	max-width: 100%;
+}
+
+/* Inner pages — cream/white shell (not full-page lime) */
+body.luci-standalone:not(.luci-home-shell):not(.luci-error-fullscreen-page) {
+	background: var(--luci-bg, #f7f6f2) !important;
+	color: var(--luci-brown, #602700);
+}
+
+body.luci-standalone:not(.luci-home-shell) .luci-site-main {
+	background: var(--luci-bg, #f7f6f2) !important;
+	padding: var(--luci-gutter) var(--luci-gutter) clamp(2rem, 6vw, 3rem);
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 100%;
+}
+
+/* Legacy card frame (index / single) */
+.luci-card-frame {
+	width: 100%;
+	max-width: 75rem;
+	margin: 0 auto;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.luci-card-frame .luci-content {
+	background: var(--luci-white, #fff);
+	border: 1px solid rgba(96, 39, 0, 0.1);
+	border-radius: 8px;
+	padding: var(--luci-gutter-lg);
+	box-sizing: border-box;
+}
+
+/* Content card — readable padding on all pages */
+.luci-site-content,
+.luci-page-area {
+	width: 100%;
+	max-width: 75rem;
+	margin: 0 auto;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.luci-content-shell {
+	background: var(--luci-white, #fff);
+	border: 1px solid rgba(96, 39, 0, 0.1);
+	border-radius: 8px;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.luci-page-main article {
+	background: transparent;
+	border: 0;
+}
+
+.luci-page-main .entry-content {
+	padding: 0 var(--luci-gutter-lg) var(--luci-gutter-lg);
+	margin: 0;
+	max-width: none;
+	background: transparent;
+	border: 0;
+}
+
+.luci-page-main .entry-header {
+	padding: var(--luci-gutter-lg) var(--luci-gutter-lg) 0;
+}
+
+.luci-page-main .entry-title {
+	margin: 0 0 0.75rem;
+	font-size: clamp(1.75rem, 5vw, 2.5rem);
+	line-height: 1.15;
+}
+
+/* WordPress block / media — prevent overflow */
+.entry-content img,
+.entry-content figure,
+.entry-content iframe,
+.entry-content video,
+.entry-content embed,
+.entry-content .wp-block-image img {
+	max-width: 100% !important;
+	height: auto !important;
+}
+
+.entry-content figure {
+	margin-inline: 0;
+}
+
+.entry-content ul,
+.entry-content ol {
+	padding-inline-start: 1.35rem;
+}
+
+.entry-content p,
+.entry-content li,
+.entry-content .luci-lead {
+	font-size: clamp(1.05rem, 2.8vw, 1.2rem);
+	line-height: 1.6;
+}
+
+/* Hub cards — single column on narrow screens */
+@media (max-width: 640px) {
+	.luci-category-cards {
+		grid-template-columns: 1fr;
+	}
+
+	.luci-outbound-links {
+		flex-direction: column;
+	}
+
+	.luci-outbound-links .luci-btn {
+		width: 100%;
+		min-width: 0;
+	}
+}
+
+/* Header utility bar — logo + actions on one row */
+@media (max-width: 991px) {
+	#luci-hcs-header .utility-bar-flex {
+		flex-wrap: nowrap;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0.35rem var(--luci-gutter);
+		gap: 0.5rem;
+		min-height: auto;
+	}
+
+	#luci-hcs-header .utility-left-nav {
+		flex: 0 1 auto;
+		min-width: 0;
+		justify-content: flex-start;
+	}
+
+	#luci-hcs-header .utility-right-nav {
+		flex: 0 1 auto;
+		justify-content: flex-end;
+		flex-wrap: nowrap;
+		gap: 0.15rem 0.35rem;
+		min-width: 0;
+	}
+
+	#luci-hcs-header .utility-right-nav .luci-account-link,
+	#luci-hcs-header .utility-right-nav .luci-cart-link,
+	#luci-hcs-header .utility-right-nav .help-link,
+	#luci-hcs-header .utility-right-nav .basic-phone-btn {
+		min-height: 44px;
+		padding-inline: 0.4rem;
+	}
+
+	#luci-hcs-header .topnav {
+		height: auto !important;
+		min-height: 0 !important;
+	}
+
+	#luci-hcs-header .topnav .product-nav-container {
+		padding-inline: var(--luci-gutter) !important;
+	}
+
+	#luci-hcs-header .top.luci-header__nav {
+		min-height: 0;
+	}
+
+	/* GoDaddy logo background chip */
+	#luci-hcs-header .topnav-logo.white-logo-bg,
+	#luci-hcs-header .topnav-logo.pl-large-logo {
+		background: transparent !important;
+		padding: 0 !important;
+	}
+}
+
+/* Homepage — consistent horizontal gutters */
+@media (max-width: 991px) {
+	body.luci-front-page .luci-meet-hero,
+	body.luci-front-page .luci-meet-journey,
+	body.luci-front-page .luci-home-below-hero__inner {
+		padding-inline: var(--luci-gutter) !important;
+		box-sizing: border-box;
+	}
+
+	body.luci-front-page .luci-meet-hero__inner,
+	body.luci-front-page .luci-portal-hub {
+		width: 100%;
+		max-width: 100%;
+	}
+
+	body.luci-front-page .luci-meet-step__inner {
+		grid-template-columns: 1fr;
+		text-align: center;
+	}
+
+	body.luci-front-page .luci-meet-step--right .luci-meet-step__copy,
+	body.luci-front-page .luci-meet-step--left .luci-meet-step__copy {
+		text-align: center;
+		order: unset;
+	}
+
+	body.luci-front-page .luci-meet-step--right .luci-meet-step__figure {
+		order: unset;
+	}
+
+	body.luci-front-page .luci-meet-step--right .luci-meet-step__img,
+	body.luci-front-page .luci-meet-step--left .luci-meet-step__img {
+		margin-inline: auto;
+	}
+
+	body.luci-front-page .luci-portal-tile {
+		min-height: 3.25rem;
+		touch-action: manipulation;
+	}
+
+	/* Domain search pill — keep horizontal layout (same as desktop) */
+	body.luci-front-page .luci-meet-domain-search {
+		max-width: 100%;
+		margin-inline: auto;
+	}
+
+	body.luci-front-page .luci-meet-domain-search__pill {
+		flex-direction: row;
+		align-items: stretch;
+	}
+
+	body.luci-front-page .luci-meet-domain-search__submit {
+		width: auto;
+		border-left: 2px solid var(--luci-brown, #602700);
+		border-top: 0;
+		border-radius: 0 999px 999px 0;
+	}
+}
+
+/* Tax disclaimer + footer — full bleed */
+.luci-tax-disclaimer {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.luci-tax-disclaimer .container {
+	padding-inline: var(--luci-gutter) !important;
+	max-width: 100% !important;
+	width: 100% !important;
+	box-sizing: border-box;
+}
+
+#luci-hcs-footer.reseller-footer {
+	width: 100% !important;
+	max-width: 100% !important;
+	margin: 0;
+	box-sizing: border-box;
+	overflow-x: hidden;
+}
+
+#luci-hcs-footer .reseller-container {
+	width: 100% !important;
+	max-width: 100% !important;
+	padding: var(--luci-gutter-lg) var(--luci-gutter) !important;
+	box-sizing: border-box;
+}
+
+/* Footer stack — mobile / narrow only (do not force column on desktop) */
+@media (max-width: 767px) {
+	#luci-hcs-footer .reseller-footer-links {
+		display: flex !important;
+		flex-direction: column !important;
+		align-items: flex-start !important;
+		flex-wrap: nowrap !important;
+		gap: 0.65rem !important;
+		width: 100%;
+	}
+
+	#luci-hcs-footer .reseller-footer-links li {
+		width: 100%;
+		margin: 0;
+	}
+
+	#luci-hcs-footer .reseller-footer-links a {
+		display: block;
+		padding: 0.35rem 0;
+		font-size: 1.05rem;
+	}
+
+	#luci-hcs-footer .reseller-footer-utos {
+		font-size: 0.9rem;
+		line-height: 1.55;
+		margin: 1rem 0;
+	}
+
+	#luci-hcs-footer .reseller-footer-legal {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem 1.25rem;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+}
+
+/* One disclaimer — hide duplicate in page body when tax bar is present */
+body.luci-standalone:has(.luci-tax-disclaimer) .entry-content .luci-disclaimer,
+body.luci-standalone:has(.luci-tax-disclaimer) .luci-hero-extra .luci-disclaimer {
+	display: none !important;
+}
+
+body.luci-front-page:has(.luci-tax-disclaimer) .luci-home-below-hero > .luci-disclaimer {
+	display: none !important;
+}

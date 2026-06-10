@@ -1,0 +1,253 @@
+/**
+ * Luci-owned UI replacing non-embeddable GoDaddy Hydra components.
+ */
+
+/* Cart — icon only (no badge / reseller widget sync) */
+#luci-hcs-header .utility-right-nav .luci-cart-link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--luci-brown, #602700);
+	text-decoration: none;
+	min-height: var(--luci-util-bar-height, 70px);
+	padding: 0 0.5rem;
+}
+
+#luci-hcs-header .utility-right-nav .luci-cart-link:hover,
+#luci-hcs-header .utility-right-nav .luci-cart-link:focus-visible {
+	color: var(--luci-brown, #602700);
+	opacity: 0.85;
+}
+
+#luci-hcs-header .utility-right-nav .luci-cart-link .luci-icon {
+	color: var(--luci-brown, #602700);
+}
+
+#luci-hcs-header .luci-cart-badge,
+#luci-hcs-header .luci-rstore-cart-host {
+	display: none !important;
+}
+
+/* Utility bar myLuci Account — same row style as Help */
+#luci-hcs-header .utility-right-nav .luci-account-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	color: inherit;
+	text-decoration: none;
+	min-height: var(--luci-util-bar-height, 70px);
+	padding: 0 0.5rem;
+}
+
+#luci-hcs-header .utility-right-nav .luci-account-link:hover,
+#luci-hcs-header .utility-right-nav .luci-account-link:focus-visible {
+	text-decoration: underline;
+}
+
+#luci-hcs-header .utility-right-nav .luci-account-tray {
+	display: none !important;
+}
+
+#luci-hcs-header .utility-right-nav .tray-toggle {
+	touch-action: manipulation;
+	-webkit-tap-highlight-color: rgba(96, 39, 0, 0.12);
+}
+
+#luci-hcs-header .luci-market-selector,
+#luci-hcs-footer .currency-selector-wrapper {
+	display: none !important;
+}
+
+#luci-hcs-header .utility-right-nav .luci-account-tray .chevron-down {
+	display: inline-flex;
+	align-items: center;
+	margin-inline-start: 0.15rem;
+}
+
+/* Utility bar cart tray */
+#luci-hcs-header .utility-right-nav .luci-cart-tray {
+	position: relative;
+}
+
+#luci-hcs-header .utility-right-nav .luci-cart-tray .tray-toggle {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	background: none;
+	border: none;
+	color: inherit;
+	font: inherit;
+	cursor: pointer;
+	padding: 0 0.5rem;
+	min-height: var(--luci-util-bar-height);
+}
+
+#luci-hcs-header .luci-cart-badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 1.25rem;
+	height: 1.25rem;
+	padding: 0 0.35rem;
+	margin-left: 0.25rem;
+	border-radius: 999px;
+	background: var(--luci-lime, #c1ff00);
+	color: #111;
+	font-size: 0.7rem;
+	font-weight: 700;
+	line-height: 1;
+}
+
+#luci-hcs-header .utility-right-nav .luci-cart-tray-panel {
+	position: absolute;
+	right: 0;
+	top: 100%;
+	z-index: 120;
+	min-width: 20rem;
+	max-width: min(28rem, 95vw);
+	background: #fff;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+	border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+#luci-hcs-header .luci-cart-tray-panel .tray-content {
+	padding: 1.25rem 1.5rem 1.5rem;
+	position: relative;
+}
+
+#luci-hcs-header .tray-close {
+	position: absolute;
+	top: 0.75rem;
+	right: 0.75rem;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0.25rem;
+	color: inherit;
+}
+
+#luci-hcs-header .ux-button {
+	display: inline-block;
+	margin-top: 0.5rem;
+	padding: 0.5rem 1rem;
+	text-decoration: none;
+	border-radius: 4px;
+	font-weight: 600;
+	cursor: pointer;
+	border: none;
+	font-family: var(--luci-font-nav);
+}
+
+#luci-hcs-header .ux-button-primary {
+	background: #111;
+	color: #fff;
+}
+
+#luci-hcs-header .ux-button-secondary {
+	background: #f5f5f5;
+	color: #111;
+}
+
+#luci-hcs-header .luci-cart-tray-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin-top: 1rem;
+}
+
+/* Product mega-menu trays */
+#luci-hcs-header .topnav .tray-menu.is-open .tray-toggle {
+	font-weight: 600;
+}
+
+#luci-hcs-header .luci-product-tray-panel.tray-dropdown {
+	position: fixed;
+	left: 0;
+	right: 0;
+	z-index: 110;
+	background: #fff;
+	box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+	border-top: 1px solid rgba(0, 0, 0, 0.08);
+	max-height: min(70vh, 32rem);
+	overflow: auto;
+}
+
+#luci-hcs-header .luci-product-tray-panel .tray-content {
+	max-width: 75rem;
+	margin: 0 auto;
+	padding: 1.5rem 1.25rem 2rem;
+	position: relative;
+}
+
+#luci-hcs-header .luci-product-tray-panel .tray-title {
+	margin: 0 0 1rem;
+	font-family: var(--luci-font-heading);
+}
+
+#luci-hcs-header .luci-product-tray-panel .column-layout .column {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#luci-hcs-header .luci-product-tray-panel .column a {
+	display: block;
+	padding: 0.4rem 0;
+	color: inherit;
+	text-decoration: none;
+}
+
+#luci-hcs-header .luci-product-tray-panel .column a:hover {
+	text-decoration: underline;
+}
+
+#luci-hcs-header .topnav-items .tray-toggle {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.25rem;
+	background: none;
+	border: none;
+	font: inherit;
+	color: inherit;
+	cursor: pointer;
+	padding: 0;
+}
+
+#luci-hcs-header .topnav-items .topnav-nontray-btn {
+	text-decoration: none;
+	color: inherit;
+}
+
+/* Reseller product widgets in page content */
+.luci-product-grid .rstore-product,
+.entry-content .luci-product-grid .rstore-product {
+	border: 1px solid rgba(96, 39, 0, 0.15);
+	padding: 1.25rem;
+	background: #fff;
+}
+
+.entry-content > .rstore-product + .rstore-product {
+	margin-top: 1rem;
+}
+
+@media (min-width: 48rem) {
+	.entry-content:has(> .rstore-product + .rstore-product) {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+		gap: 1rem;
+	}
+
+	.entry-content:has(> .rstore-product + .rstore-product) > .rstore-product {
+		margin-top: 0;
+	}
+}
+
+/* Utility bar — compact single row on tablet / mobile */
+@media (max-width: 991px) {
+	#luci-hcs-header .utility-right-nav .luci-cart-link,
+	#luci-hcs-header .utility-right-nav .luci-account-link,
+	#luci-hcs-header .utility-right-nav .help-link,
+	#luci-hcs-header .utility-right-nav .basic-phone-btn {
+		min-height: 44px;
+	}
+}

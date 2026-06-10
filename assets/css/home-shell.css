@@ -1,0 +1,166 @@
+/**
+ * Homepage visual shell — lime background, lime header/nav, white content card.
+ * Applied to all WordPress pages via body.luci-home-shell (see inc/page-shell.php).
+ */
+
+body.luci-home-shell.luci-standalone,
+body.luci-home-shell.luci-standalone.ux-app,
+body.luci-home-shell #main.luci-site-main,
+body.luci-home-shell .luci-home-below-hero,
+body.luci-home-shell .luci-home-below-hero__inner {
+	background-color: var(--luci-lime, #c1ff00) !important;
+	color: var(--luci-brown, #602700);
+}
+
+body.luci-home-shell .luci-site-main {
+	min-height: 0;
+	padding: 0;
+	max-width: none;
+}
+
+/* Header — seamless lime (same as front page) */
+body.luci-home-shell .luci-header-shell .top,
+body.luci-home-shell .luci-header-shell .luci-top,
+body.luci-home-shell #luci-hcs-header.luci-store-header,
+body.luci-home-shell #luci-hcs-header .utility-bar.single-use-header,
+body.luci-home-shell #luci-hcs-header .top.luci-header__nav,
+body.luci-home-shell #luci-hcs-header .top section,
+body.luci-home-shell #luci-hcs-header .topnav,
+body.luci-home-shell #luci-hcs-header .top .product-nav-container,
+body.luci-home-shell #luci-hcs-header .top .product-nav-row {
+	background-color: var(--luci-lime, #c1ff00) !important;
+	background: var(--luci-lime, #c1ff00) !important;
+	border-bottom-color: rgba(96, 39, 0, 0.1) !important;
+}
+
+body.luci-home-shell #luci-hcs-header .topnav {
+	height: auto !important;
+	min-height: 3.75rem;
+}
+
+body.luci-home-shell .luci-header-shell #luci-topnav-items .tray-toggle,
+body.luci-home-shell .luci-header-shell #luci-topnav-items .luci-nav-dropdown__trigger,
+body.luci-home-shell .luci-header-shell #luci-topnav-items .topnav-nontray-btn {
+	padding: 1.2rem 1.45rem !important;
+	font-size: 1.33rem !important;
+	font-weight: 700 !important;
+	min-height: 4.7rem !important;
+	line-height: 1.2 !important;
+	align-items: center !important;
+}
+
+@media (min-width: 1200px) {
+	body.luci-home-shell .luci-header-shell #luci-topnav-items .tray-toggle,
+	body.luci-home-shell .luci-header-shell #luci-topnav-items .luci-nav-dropdown__trigger {
+		font-size: 1.4rem !important;
+		padding: 1.3rem 1.7rem !important;
+	}
+}
+
+@media (max-width: 991px) {
+	body.luci-home-shell .luci-header-shell #luci-topnav-items .tray-toggle,
+	body.luci-home-shell .luci-header-shell #luci-topnav-items .luci-nav-dropdown__trigger,
+	body.luci-home-shell .luci-header-shell #luci-topnav-items .topnav-nontray-btn {
+		color: var(--luci-brown, #602700) !important;
+		opacity: 1 !important;
+	}
+}
+
+body.luci-home-shell .luci-header-shell .topnav .product-nav-row {
+	align-items: center !important;
+	min-height: 3.75rem;
+}
+
+body.luci-home-shell #luci-hcs-header .utility-right-nav .basic-phone-btn,
+body.luci-home-shell #luci-hcs-header .utility-right-nav .help-link,
+body.luci-home-shell #luci-hcs-header .utility-right-nav .tray-toggle,
+body.luci-home-shell #luci-hcs-header .utility-right-nav .luci-cart-link,
+body.luci-home-shell #luci-hcs-header .topnav .tray-toggle,
+body.luci-home-shell #luci-hcs-header .topnav .topnav-direct-link,
+body.luci-home-shell #luci-hcs-header .topnav .luci-nav-dropdown__trigger {
+	color: var(--luci-brown, #602700);
+}
+
+body.luci-home-shell #luci-hcs-header .topnav .tray-toggle:hover,
+body.luci-home-shell #luci-hcs-header .topnav .luci-nav-dropdown__trigger:hover,
+body.luci-home-shell #luci-hcs-header .utility-right-nav a:hover,
+body.luci-home-shell #luci-hcs-header .utility-right-nav button:hover {
+	background: rgba(96, 39, 0, 0.08);
+}
+
+body.luci-home-shell #luci-hcs-header .luci-topnav-toggle {
+	border-color: var(--luci-brown, #602700);
+	color: var(--luci-brown, #602700);
+	background: rgba(255, 255, 255, 0.55);
+}
+
+/* Page content — white card on lime (reuses homepage below-hero spacing) */
+body.luci-home-shell .luci-home-below-hero__inner {
+	padding: clamp(1.5rem, 4vw, 2.5rem) var(--luci-gutter, 1rem) clamp(2.5rem, 5vw, 3.5rem);
+	box-sizing: border-box;
+}
+
+body.luci-home-shell .luci-page-area {
+	max-width: none;
+	margin: 0;
+	padding: 0;
+}
+
+body.luci-home-shell .luci-page-card {
+	background: var(--luci-white, #fff);
+	border: 2px solid rgba(96, 39, 0, 0.12);
+	border-radius: 12px;
+	box-shadow: 4px 4px 0 rgba(96, 39, 0, 0.15);
+	box-sizing: border-box;
+	max-width: 75rem;
+	margin: 0 auto;
+	padding: var(--luci-gutter-lg, clamp(1.25rem, 4vw, 2rem));
+}
+
+/* Flat landing pages (bespoke) — no white card */
+body.luci-home-shell .luci-landing-page,
+body.luci-home-shell .luci-landing-page__inner {
+	background: transparent !important;
+	box-shadow: none;
+	border: 0;
+	padding: 0;
+	max-width: none;
+}
+
+body.luci-home-shell .luci-landing-page {
+	width: 100%;
+}
+
+body.luci-home-shell .luci-page-card--narrow {
+	max-width: 48rem;
+}
+
+body.luci-home-shell .luci-page-card .entry-header {
+	padding: 0 0 0.5rem;
+}
+
+body.luci-home-shell .luci-page-card .entry-title {
+	font-family: var(--luci-font-heading, "Playfair Display", serif);
+	font-size: clamp(2rem, 5vw, 2.75rem);
+	line-height: 1.1;
+	color: var(--luci-brown, #602700);
+	margin: 0 0 0.75rem;
+}
+
+body.luci-home-shell .luci-page-card .entry-content {
+	padding: 0;
+	margin: 0;
+	max-width: none;
+	background: transparent;
+	border: 0;
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+	font-size: 1.05rem;
+	line-height: 1.55;
+	color: var(--luci-brown, #602700);
+}
+
+body.luci-home-shell .luci-tax-disclaimer {
+	background: var(--luci-lime, #c1ff00);
+	color: var(--luci-brown, #602700);
+	border-top-color: rgba(96, 39, 0, 0.12);
+}

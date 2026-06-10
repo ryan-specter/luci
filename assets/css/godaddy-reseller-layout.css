@@ -1,0 +1,214 @@
+/**
+ * Luci — layout tokens + overrides on GoDaddy reseller-sales-header.css
+ * Matches luci.ltd / reseller-dynamic-theme v22.
+ */
+
+@property --⚠️-accentcolor {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: #c1ff00;
+}
+
+@property --⚠️-bgcolor {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: #ffffff;
+}
+
+@property --⚠️-headingfont {
+	syntax: "*";
+	inherits: false;
+	initial-value: "Playfair Display", "Arial Black", sans-serif;
+}
+
+@property --⚠️-roundness {
+	syntax: "<length-percentage>";
+	inherits: false;
+	initial-value: 8px;
+}
+
+:root {
+	--luci-lime: #c1ff00;
+	--luci-brown: #602700;
+	--luci-olive: #214f0c;
+	--luci-white: #ffffff;
+	--luci-black: #111111;
+	--luci-nav-height: 64px;
+	--luci-util-bar-height: calc(var(--luci-logo-height, 70px) + 0.5rem);
+	--luci-logo-height: 70px;
+	--luci-font-nav: "Open Sans", Arial, "Helvetica Neue", Helvetica, sans-serif;
+	--luci-font-heading: "Playfair Display", "Arial Black", sans-serif;
+	--luci-font-body: "Open Sans", Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+/* Base — align with ux-app / storefront body */
+body.luci-standalone:not(.luci-error-fullscreen-page),
+body.luci-standalone.ux-app:not(.luci-error-fullscreen-page) {
+	font-family: var(--luci-font-body);
+	color: var(--luci-black);
+	background: var(--luci-white);
+	margin: 0;
+	line-height: 1.5;
+}
+
+body.luci-standalone .luci-site-main {
+	background: var(--luci-white);
+	min-height: 50vh;
+}
+
+/* Product page titles use Playfair like storefront */
+body.luci-storefront-product .entry-title,
+body.luci-storefront-product h1.page-title,
+body.luci-storefront-product .luci-heading--product {
+	font-family: var(--luci-font-heading);
+	font-weight: 700;
+	color: var(--luci-black);
+}
+
+/* Header shell */
+#luci-hcs-header.luci-store-header {
+	position: relative;
+	z-index: 100;
+}
+
+/* Utility bar logo — sized in storefront-nav.css (GoDaddy parity) */
+
+/* WP cart / login in utility bar */
+#luci-hcs-header .utility-right-nav .rstore-login,
+#luci-hcs-header .utility-right-nav .rstore-cart,
+#luci-hcs-header .utility-right-nav .rstore-cart-button {
+	display: inline-flex;
+	align-items: center;
+	min-height: var(--luci-util-bar-height);
+}
+
+#luci-hcs-header .utility-right-nav .rstore-login a {
+	color: inherit;
+	text-decoration: none;
+	font-weight: 400;
+}
+
+/* Market tray (WP-rendered) */
+#luci-hcs-header .tray-menu.market-selector .tray-dropdown {
+	min-width: 18rem;
+	max-height: 70vh;
+	overflow: auto;
+}
+
+#luci-hcs-header .market-selector-content .market-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#luci-hcs-header .market-selector-content .market-list button {
+	display: block;
+	width: 100%;
+	text-align: left;
+	background: none;
+	border: none;
+	padding: 0.45rem 0;
+	font: inherit;
+	cursor: pointer;
+	color: inherit;
+}
+
+#luci-hcs-header .market-selector-content .market-list button:hover,
+#luci-hcs-header .market-selector-content .market-list button.is-active {
+	font-weight: 700;
+}
+
+#luci-hcs-header .mrkt-selector-tray-name {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+}
+
+/* Merch in topnav */
+#luci-hcs-header .topnav-items .luci-merch-link--nav {
+	display: inline-flex;
+	align-items: center;
+}
+
+/* Secondary nav — use GoDaddy secondarynav when present */
+#luci-hcs-header + .secondarynav,
+.luci-secondarynav.secondarynav {
+	display: block;
+}
+
+/* Footer currency selector (WP) */
+.reseller-footer .currency-selector-wrapper .luci-currency-select {
+	appearance: none;
+	background: transparent;
+	border: 0;
+	color: #fff;
+	font-family: var(--luci-font-nav);
+	font-size: 1rem;
+	font-weight: 400;
+	padding: 0 1.25rem 0 0;
+	cursor: pointer;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath fill='%23fff' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+
+.reseller-footer .currency-selector-wrapper .luci-currency-select:focus {
+	outline: 2px solid var(--luci-lime);
+	outline-offset: 2px;
+}
+
+/* Tax disclaimer above footer (storefront pattern) */
+.luci-tax-disclaimer {
+	font-size: 0.875rem;
+	text-align: center;
+	padding: 0.75rem 1rem;
+	color: var(--luci-black);
+	background: var(--luci-white);
+	border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.luci-tax-disclaimer .container {
+	max-width: 1140px;
+	margin: 0 auto;
+}
+
+/* Product cards — lime CTA like secureserver storefront */
+body.luci-standalone .rstore-add-to-cart,
+body.luci-standalone .rstore-product .btn,
+body.luci-standalone .rstore-product button[type="submit"],
+body.luci-standalone a.rstore-button {
+	background: var(--luci-lime) !important;
+	color: var(--luci-black) !important;
+	border: none !important;
+	border-radius: var(--⚠️-roundness, 8px) !important;
+	font-family: var(--luci-font-nav) !important;
+	font-weight: 700 !important;
+	padding: 0.55rem 1.25rem !important;
+}
+
+body.luci-standalone .rstore-product .price,
+body.luci-standalone .rstore-list-product .price {
+	color: var(--luci-lime);
+	font-weight: 700;
+}
+
+/* Hide mobile menu toggle on desktop (Hydra uses hamburger only <992px) */
+@media (min-width: 992px) {
+	#luci-hcs-header .luci-topnav-toggle {
+		display: none !important;
+	}
+}
+
+@media (max-width: 991px) {
+	#luci-hcs-header .luci-topnav-toggle {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		margin: 0.5rem 0;
+		padding: 0.45rem 0.85rem;
+		border: 1px solid var(--luci-black);
+		background: var(--luci-white);
+		font-family: var(--luci-font-nav);
+		cursor: pointer;
+	}
+}

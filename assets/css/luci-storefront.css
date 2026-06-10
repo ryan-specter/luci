@@ -1,0 +1,403 @@
+/* Luci Brand — overrides on Turnkey Storefront / Primer (GoDaddy reseller layout) */
+
+:root {
+	--luci-lime: #c1ff00;
+	--luci-lime-muted: #d8ff66;
+	--luci-brown: #602700;
+	--luci-white: #ffffff;
+	--luci-bg: #f7f6f2;
+	--luci-font-heading: "Playfair Display", "Arial Black", serif;
+	--luci-font-body: "Open Sans", Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+/* Global: white/cream body — lime only header + category bar + footer accent */
+body.luci-turnkey-child,
+body.luci-standalone:not(.luci-home-shell) {
+	font-family: var(--luci-font-body);
+	color: var(--luci-brown);
+	background: var(--luci-bg);
+}
+
+body.luci-front-page.luci-standalone {
+	font-family: var(--luci-font-body);
+	color: var(--luci-brown);
+	background: var(--luci-lime, #c1ff00);
+}
+
+body.luci-turnkey-child #page,
+body.luci-turnkey-child .site-content,
+body.luci-standalone:not(.luci-home-shell) .luci-site-main {
+	background: var(--luci-bg);
+}
+
+.luci-heading,
+h1.entry-title,
+h1.page-title,
+h2.luci-heading,
+.site-title {
+	font-family: var(--luci-font-heading) !important;
+	font-weight: 400;
+	color: var(--luci-brown);
+}
+
+/* Turnkey: white utility row, lime product navigation (luci.ltd structure) */
+body.luci-turnkey-child .utility-bar {
+	background: var(--luci-white) !important;
+	border-bottom: 1px solid rgba(96, 39, 0, 0.12) !important;
+	color: var(--luci-brown) !important;
+}
+
+body.luci-turnkey-child .utility-bar a {
+	color: var(--luci-brown) !important;
+}
+
+body.luci-turnkey-child .site-header,
+body.luci-turnkey-child .main-navigation,
+body.luci-turnkey-child .navigation-top,
+body.luci-turnkey-child #site-navigation,
+body.luci-turnkey-child .site-header-wrapper {
+	background: var(--luci-lime) !important;
+	border-bottom: 2px solid var(--luci-brown) !important;
+}
+
+body.luci-turnkey-child .main-navigation a,
+body.luci-turnkey-child .main-navigation .menu-item a,
+body.luci-turnkey-child #site-navigation a,
+body.luci-turnkey-child .site-title a {
+	color: var(--luci-brown) !important;
+	font-family: var(--luci-font-body);
+	font-weight: 500;
+}
+
+body.luci-turnkey-child .main-navigation a:hover,
+body.luci-turnkey-child .main-navigation a:focus,
+body.luci-turnkey-child .main-navigation .current-menu-item > a {
+	text-decoration: underline;
+	text-underline-offset: 0.12em;
+	opacity: 1;
+}
+
+body.luci-turnkey-child .site-branding,
+body.luci-turnkey-child .custom-logo-link {
+	background: transparent;
+}
+
+/* Standalone topnav: white bar on inner pages; homepage uses lime shell */
+body.luci-standalone:not(.luci-home-shell) .luci-top,
+body.luci-standalone:not(.luci-home-shell) .top {
+	background: var(--luci-white);
+}
+
+body.luci-front-page.luci-standalone .luci-top,
+body.luci-front-page.luci-standalone .top,
+body.luci-front-page.luci-standalone .topnav {
+	background-color: var(--luci-lime, #c1ff00) !important;
+}
+
+/* Legacy category bar (superseded by .secondarynav) */
+.luci-category-bar {
+	display: none;
+}
+
+/* Page / archive content area */
+.luci-page-area,
+.luci-storefront-archive,
+.luci-product-single {
+	max-width: 75rem;
+	margin: 0 auto;
+	padding: 2rem clamp(1rem, 4.5vw, 1.5rem) 3rem;
+	box-sizing: border-box;
+}
+
+.luci-page-main .entry-content,
+.luci-storefront-archive .site-main {
+	background: var(--luci-white);
+	padding: 2rem;
+	border: 1px solid rgba(96, 39, 0, 0.1);
+}
+
+.luci-lead {
+	font-size: 1.2rem;
+	line-height: 1.55;
+	margin: 0 0 1.5rem;
+}
+
+.luci-disclaimer {
+	font-size: 0.875rem;
+	opacity: 0.85;
+	margin-top: 2rem;
+}
+
+/* Hub category cards (page hubs) */
+.luci-category-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+	gap: 1rem;
+	margin: 1.5rem 0;
+}
+
+.luci-category-card {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 7rem;
+	padding: 1.25rem;
+	background: var(--luci-white);
+	border: 2px solid var(--luci-brown);
+	text-decoration: none;
+	color: var(--luci-brown);
+	transition: background 0.15s, color 0.15s;
+}
+
+.luci-category-card:hover {
+	background: var(--luci-brown);
+	color: var(--luci-lime);
+}
+
+.luci-category-card__title {
+	font-size: 1.15rem;
+	margin: 0 0 0.5rem;
+}
+
+.luci-category-card__cta {
+	font-size: 0.9rem;
+	font-family: var(--luci-font-body);
+}
+
+.luci-hub-all {
+	margin-top: 1.5rem;
+}
+
+/* Outbound secureserver link lists (WordPress hub pages) */
+.luci-outbound-links {
+	list-style: none;
+	margin: 1.5rem 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+}
+
+.luci-outbound-links .luci-btn {
+	min-width: 12rem;
+	text-align: center;
+}
+
+body.luci-secureserver-shell .luci-page-main .entry-content {
+	max-width: 48rem;
+}
+
+.luci-domain-search--outbound .luci-domain-search__lead {
+	max-width: 36rem;
+}
+
+/* Product list on category archives */
+.luci-product-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: 1rem;
+}
+
+.luci-product-list__item {
+	background: var(--luci-white);
+	border: 1px solid rgba(96, 39, 0, 0.15);
+	border-radius: 6px;
+	padding: 1.25rem;
+	box-shadow: 0 1px 6px rgba(102, 102, 102, 0.12);
+}
+
+.luci-product-list__link {
+	text-decoration: none;
+	color: var(--luci-brown);
+	display: block;
+}
+
+.luci-product-list__title {
+	font-family: var(--luci-font-heading);
+	font-size: 1.25rem;
+	margin: 0 0 0.35rem;
+}
+
+.luci-product-list__cta {
+	font-size: 0.9rem;
+	font-weight: 600;
+}
+
+.luci-product-list__excerpt {
+	margin: 0.75rem 0 0;
+	font-size: 0.9rem;
+	line-height: 1.45;
+}
+
+/* Turnkey product cards in content — compact grid when wrapped */
+.luci-product-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+	gap: 1rem;
+	margin: 1rem 0 2rem;
+}
+
+.luci-widget-panel {
+	background: var(--luci-white);
+	border: 1px solid rgba(96, 39, 0, 0.15);
+	padding: 1.25rem;
+	margin: 1rem 0;
+}
+
+.luci-widget-panel--spaced {
+	margin-top: 1rem;
+}
+
+.luci-section {
+	margin-bottom: 2rem;
+}
+
+.luci-section .luci-heading {
+	margin-top: 0;
+}
+
+/* Match Turnkey rstore product pods */
+body.luci-turnkey-child article.rstore-product,
+body.luci-turnkey-child article.rstore-list-product {
+	font-family: var(--luci-font-body);
+}
+
+/* Buttons */
+.luci-btn {
+	display: inline-block;
+	padding: 0.6rem 1.2rem;
+	border: 2px solid var(--luci-brown);
+	font-family: var(--luci-font-body);
+	font-weight: 600;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.luci-btn-primary {
+	background: var(--luci-brown);
+	color: var(--luci-lime);
+}
+
+.luci-btn-secondary {
+	background: var(--luci-white);
+	color: var(--luci-brown);
+}
+
+/* Footer — black reseller footer (godaddy-reseller-layout.css) */
+body.luci-turnkey-child .site-footer {
+	background: #111;
+	color: #fff;
+}
+
+body.luci-turnkey-child .site-footer a {
+	color: #fff;
+}
+
+/* Front page — hero handled by home-hero.css */
+.luci-hero {
+	background: var(--luci-bg);
+	padding: 2rem 1rem;
+}
+
+body.luci-front-page .luci-site-main {
+	padding: 0;
+	max-width: none;
+}
+
+body.luci-front-page .luci-home-hero {
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
+	width: 100vw;
+	max-width: 100vw;
+}
+
+.luci-hero-card {
+	max-width: 75rem;
+	margin: 0 auto;
+	background: var(--luci-white);
+	padding: 2rem;
+	border: 1px solid rgba(96, 39, 0, 0.1);
+}
+
+.luci-account-panels {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 1rem;
+	margin: 1.5rem 0;
+}
+
+.luci-account-panel {
+	padding: 1.25rem;
+	border: 1px solid rgba(96, 39, 0, 0.2);
+	background: var(--luci-bg);
+}
+
+.luci-products-strip {
+	background: var(--luci-white);
+	border-top: 1px solid rgba(96, 39, 0, 0.1);
+	padding: 2rem 1rem;
+}
+
+.luci-products-strip-inner {
+	max-width: 75rem;
+	margin: 0 auto;
+}
+
+.luci-product-grid .luci-product-tile,
+.luci-product-tile {
+	border: 2px solid var(--luci-brown);
+	background: var(--luci-white);
+	color: var(--luci-brown);
+	padding: 1rem;
+	text-decoration: none;
+}
+
+.luci-product-tile:hover {
+	background: var(--luci-brown);
+	color: var(--luci-lime);
+}
+
+@media (max-width: 768px) {
+	.luci-category-bar__inner {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}
+
+/* Merch store (Spreadshop) */
+.luci-merch-link {
+	font-weight: 600;
+	text-decoration: underline;
+	text-underline-offset: 0.12em;
+	color: var(--luci-brown);
+}
+
+.luci-topnav .luci-merch-link--nav {
+	text-decoration: none;
+}
+
+.luci-topnav .luci-merch-link--nav:hover {
+	text-decoration: underline;
+}
+
+.luci-merch-link--utility,
+.luci-utility-merch-injected {
+	margin-left: 0.75rem;
+}
+
+.luci-merch-link--nav {
+	font-family: var(--luci-font-body);
+}
+
+.luci-footer-merch {
+	margin: 0.75rem 0 0;
+	font-size: 0.95rem;
+}
+
+body.luci-turnkey-child .site-footer .luci-footer-merch a {
+	color: var(--luci-brown);
+}
+
+.luci-utility-bar .luci-merch-link {
+	font-size: 0.9rem;
+}

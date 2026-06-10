@@ -1,0 +1,72 @@
+/**
+ * GoDaddy Reseller Store widget overrides for Luci brand.
+ */
+
+.rstore-domain-search,
+.rstore-domain-search-results,
+.rstore-product {
+	font-family: var(--luci-font-body);
+	color: var(--luci-brown);
+}
+
+.rstore-domain-search input[type="text"],
+.rstore-domain-search input[type="search"],
+.rstore-domain-search select {
+	font-family: var(--luci-font-body);
+	border: 2px solid var(--luci-brown);
+	border-radius: 0;
+	padding: 0.65rem 1rem;
+	color: var(--luci-brown);
+	background: var(--luci-white);
+}
+
+.rstore-domain-search button,
+.rstore-domain-search .btn,
+.rstore-product .btn,
+.rstore-add-to-cart-form .rstore-add-to-cart,
+.rstore-cart-button,
+a.rstore-button {
+	font-family: var(--luci-font-body) !important;
+	background: var(--luci-lime) !important;
+	color: #111 !important;
+	border: none !important;
+	border-radius: 8px !important;
+	font-weight: 700;
+}
+
+.rstore-domain-search button:hover,
+.rstore-product .btn:hover {
+	filter: brightness(0.95);
+}
+
+.rstore-domain-available,
+.rstore-domain-taken {
+	font-family: var(--luci-font-body);
+}
+
+.rstore-login a {
+	color: var(--luci-brown);
+	font-weight: 600;
+}
+
+.luci-domain-transfer .search-form {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	align-items: center;
+}
+
+.luci-domain-transfer .search-field {
+	flex: 1 1 14rem;
+	min-width: 12rem;
+	font-family: var(--luci-font-body);
+	border: 2px solid var(--luci-brown);
+	padding: 0.65rem 1rem;
+	border-radius: 0;
+}
+
+.luci-domain-transfer-note {
+	margin: 0.75rem 0 0;
+	font-size: 0.9rem;
+	opacity: 0.85;
+}

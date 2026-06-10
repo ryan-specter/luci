@@ -1,0 +1,47 @@
+/**
+ * Luci + Font Awesome — consistent icon sizing (utility bar, nav, portal hub).
+ */
+
+.luci-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 1;
+	vertical-align: middle;
+	pointer-events: none;
+}
+
+.luci-icon--sm {
+	font-size: 0.75rem;
+}
+
+.luci-icon--md {
+	font-size: 1.125rem;
+}
+
+.luci-icon--lg {
+	font-size: 1.35rem;
+}
+
+.luci-icon--xl {
+	font-size: clamp(2.5rem, 6vw, 3.25rem);
+}
+
+.chevron-down .luci-icon,
+.tray-toggle .chevron-down .luci-icon {
+	font-size: 0.65em;
+	margin-inline-start: 0.15em;
+}
+
+#luci-hcs-header .utility-right-nav .luci-icon--md {
+	width: 1.25em;
+	text-align: center;
+}
+
+.luci-portal-tile__icon .luci-portal-tile__glyph {
+	color: currentColor;
+}
+
+.luci-portal-tile__icon .luci-icon--xl {
+	font-size: clamp(2.25rem, 5.5vw, 3rem);
+}

@@ -1,0 +1,123 @@
+/**
+ * Full-screen Luci error pages (404, etc.)
+ */
+
+body.luci-error-fullscreen-page {
+	margin: 0;
+	min-height: 100vh;
+	min-height: 100dvh;
+	overflow-x: hidden;
+	background-color: var(--luci-lime, #c1ff00) !important;
+	color: var(--luci-brown, #602700);
+}
+
+html:has(body.luci-error-fullscreen-page) {
+	background-color: var(--luci-lime, #c1ff00);
+}
+
+body.luci-error-fullscreen-page #wpadminbar {
+	display: none !important;
+}
+
+body.luci-error-fullscreen-page.admin-bar {
+	margin-top: 0 !important;
+	padding-top: 0 !important;
+}
+
+.luci-error-fullscreen {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	min-height: 100dvh;
+	padding: clamp(1.5rem, 5vw, 3rem);
+	padding-bottom: clamp(5rem, 12vh, 7rem);
+	box-sizing: border-box;
+	text-align: center;
+}
+
+.luci-error-fullscreen__inner {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	max-width: 52rem;
+	flex: 1;
+}
+
+.luci-error-fullscreen__figure {
+	margin: 0 0 clamp(1rem, 3vw, 2rem);
+	padding: 0;
+	width: 100%;
+	max-width: min(42rem, 92vw);
+}
+
+.luci-error-fullscreen__cat {
+	display: block;
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+	object-fit: contain;
+}
+
+.luci-error-fullscreen__copy {
+	max-width: 36rem;
+}
+
+.luci-error-fullscreen__title {
+	font-family: var(--luci-font-heading, "Horizon", "Arial Black", Impact, sans-serif);
+	font-size: clamp(2.25rem, 6.5vw, 4.5rem);
+	font-weight: 400;
+	line-height: 1.08;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+	color: var(--luci-brown, #602700);
+	margin: 0 0 clamp(0.75rem, 2vw, 1.25rem);
+}
+
+.luci-error-fullscreen__text {
+	font-family: var(--luci-font-body, "Playfair Display", Georgia, serif);
+	font-size: clamp(1.35rem, 3.5vw, 2.5rem);
+	font-weight: 400;
+	line-height: 1.35;
+	color: var(--luci-brown, #602700);
+	margin: 0.2em 0;
+}
+
+.luci-error-fullscreen__logo {
+	position: fixed;
+	left: clamp(1.25rem, 4vw, 3.5rem);
+	bottom: clamp(1.25rem, 4vw, 3rem);
+	z-index: 10;
+	display: block;
+	line-height: 0;
+	transition: opacity 0.15s ease;
+}
+
+.luci-error-fullscreen__logo:hover {
+	opacity: 0.85;
+}
+
+.luci-error-fullscreen__logo img {
+	width: auto;
+	height: clamp(3.5rem, 8vw, 5.5rem);
+	display: block;
+}
+
+@media (max-height: 640px) {
+	.luci-error-fullscreen__figure {
+		max-width: min(28rem, 80vw);
+		margin-bottom: 0.75rem;
+	}
+
+	.luci-error-fullscreen__title {
+		font-size: clamp(1.75rem, 5vw, 2.5rem);
+	}
+
+	.luci-error-fullscreen__text {
+		font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+	}
+}

@@ -1,0 +1,4086 @@
+/* css/godaddy-fonts.css */
+/* GoDaddy UX fonts — matches luci.ltd / secureserver (local + CDN fallback) */
+
+@font-face {
+	font-family: "Open Sans";
+	font-weight: 400;
+	font-style: normal;
+	src:
+		url("https://img6.wsimg.com/ux-assets/@ux/fonts/4.8.0/OpenSans-regular.woff2") format("woff2"),
+		url("https://img6.wsimg.com/ux-assets/@ux/fonts/4.8.0/OpenSans-regular.woff") format("woff");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Open Sans";
+	font-weight: 700;
+	font-style: normal;
+	src:
+		url("https://img6.wsimg.com/ux-assets/@ux/fonts/4.8.0/OpenSans-bold.woff2") format("woff2"),
+		url("https://img6.wsimg.com/ux-assets/@ux/fonts/4.8.0/OpenSans-bold.woff") format("woff");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Playfair Display";
+	font-weight: 700;
+	font-style: normal;
+	src:
+		url("https://img6.wsimg.com/ux-assets/@ux/fonts/4.8.0/PlayfairDisplay-bold.woff2") format("woff2"),
+		url("https://img6.wsimg.com/ux-assets/@ux/fonts/4.8.0/PlayfairDisplay-bold.woff") format("woff");
+	font-display: swap;
+}
+
+/* css/godaddy-reseller-layout.css */
+/**
+ * Luci — layout tokens + overrides on GoDaddy reseller-sales-header.css
+ * Matches luci.ltd / reseller-dynamic-theme v22.
+ */
+
+@property --⚠️-accentcolor {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: #c1ff00;
+}
+
+@property --⚠️-bgcolor {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: #ffffff;
+}
+
+@property --⚠️-headingfont {
+	syntax: "*";
+	inherits: false;
+	initial-value: "Playfair Display", "Arial Black", sans-serif;
+}
+
+@property --⚠️-roundness {
+	syntax: "<length-percentage>";
+	inherits: false;
+	initial-value: 8px;
+}
+
+:root {
+	--luci-lime: #c1ff00;
+	--luci-brown: #602700;
+	--luci-olive: #214f0c;
+	--luci-white: #ffffff;
+	--luci-black: #111111;
+	--luci-nav-height: 64px;
+	--luci-util-bar-height: calc(var(--luci-logo-height, 70px) + 0.5rem);
+	--luci-logo-height: 70px;
+	--luci-font-nav: "Open Sans", Arial, "Helvetica Neue", Helvetica, sans-serif;
+	--luci-font-heading: "Playfair Display", "Arial Black", sans-serif;
+	--luci-font-body: "Open Sans", Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+/* Base — align with ux-app / storefront body */
+body.luci-standalone:not(.luci-error-fullscreen-page),
+body.luci-standalone.ux-app:not(.luci-error-fullscreen-page) {
+	font-family: var(--luci-font-body);
+	color: var(--luci-black);
+	background: var(--luci-white);
+	margin: 0;
+	line-height: 1.5;
+}
+
+body.luci-standalone .luci-site-main {
+	background: var(--luci-white);
+	min-height: 50vh;
+}
+
+/* Product page titles use Playfair like storefront */
+body.luci-storefront-product .entry-title,
+body.luci-storefront-product h1.page-title,
+body.luci-storefront-product .luci-heading--product {
+	font-family: var(--luci-font-heading);
+	font-weight: 700;
+	color: var(--luci-black);
+}
+
+/* Header shell */
+#luci-hcs-header.luci-store-header {
+	position: relative;
+	z-index: 100;
+}
+
+/* Utility bar logo — sized in storefront-nav.css (GoDaddy parity) */
+
+/* WP cart / login in utility bar */
+#luci-hcs-header .utility-right-nav .rstore-login,
+#luci-hcs-header .utility-right-nav .rstore-cart,
+#luci-hcs-header .utility-right-nav .rstore-cart-button {
+	display: inline-flex;
+	align-items: center;
+	min-height: var(--luci-util-bar-height);
+}
+
+#luci-hcs-header .utility-right-nav .rstore-login a {
+	color: inherit;
+	text-decoration: none;
+	font-weight: 400;
+}
+
+/* Market tray (WP-rendered) */
+#luci-hcs-header .tray-menu.market-selector .tray-dropdown {
+	min-width: 18rem;
+	max-height: 70vh;
+	overflow: auto;
+}
+
+#luci-hcs-header .market-selector-content .market-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#luci-hcs-header .market-selector-content .market-list button {
+	display: block;
+	width: 100%;
+	text-align: left;
+	background: none;
+	border: none;
+	padding: 0.45rem 0;
+	font: inherit;
+	cursor: pointer;
+	color: inherit;
+}
+
+#luci-hcs-header .market-selector-content .market-list button:hover,
+#luci-hcs-header .market-selector-content .market-list button.is-active {
+	font-weight: 700;
+}
+
+#luci-hcs-header .mrkt-selector-tray-name {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+}
+
+/* Merch in topnav */
+#luci-hcs-header .topnav-items .luci-merch-link--nav {
+	display: inline-flex;
+	align-items: center;
+}
+
+/* Secondary nav — use GoDaddy secondarynav when present */
+#luci-hcs-header + .secondarynav,
+.luci-secondarynav.secondarynav {
+	display: block;
+}
+
+/* Footer currency selector (WP) */
+.reseller-footer .currency-selector-wrapper .luci-currency-select {
+	appearance: none;
+	background: transparent;
+	border: 0;
+	color: #fff;
+	font-family: var(--luci-font-nav);
+	font-size: 1rem;
+	font-weight: 400;
+	padding: 0 1.25rem 0 0;
+	cursor: pointer;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath fill='%23fff' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+
+.reseller-footer .currency-selector-wrapper .luci-currency-select:focus {
+	outline: 2px solid var(--luci-lime);
+	outline-offset: 2px;
+}
+
+/* Tax disclaimer above footer (storefront pattern) */
+.luci-tax-disclaimer {
+	font-size: 0.875rem;
+	text-align: center;
+	padding: 0.75rem 1rem;
+	color: var(--luci-black);
+	background: var(--luci-white);
+	border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.luci-tax-disclaimer .container {
+	max-width: 1140px;
+	margin: 0 auto;
+}
+
+/* Product cards — lime CTA like secureserver storefront */
+body.luci-standalone .rstore-add-to-cart,
+body.luci-standalone .rstore-product .btn,
+body.luci-standalone .rstore-product button[type="submit"],
+body.luci-standalone a.rstore-button {
+	background: var(--luci-lime) !important;
+	color: var(--luci-black) !important;
+	border: none !important;
+	border-radius: var(--⚠️-roundness, 8px) !important;
+	font-family: var(--luci-font-nav) !important;
+	font-weight: 700 !important;
+	padding: 0.55rem 1.25rem !important;
+}
+
+body.luci-standalone .rstore-product .price,
+body.luci-standalone .rstore-list-product .price {
+	color: var(--luci-lime);
+	font-weight: 700;
+}
+
+/* Hide mobile menu toggle on desktop (Hydra uses hamburger only <992px) */
+@media (min-width: 992px) {
+	#luci-hcs-header .luci-topnav-toggle {
+		display: none !important;
+	}
+}
+
+@media (max-width: 991px) {
+	#luci-hcs-header .luci-topnav-toggle {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		margin: 0.5rem 0;
+		padding: 0.45rem 0.85rem;
+		border: 1px solid var(--luci-black);
+		background: var(--luci-white);
+		font-family: var(--luci-font-nav);
+		cursor: pointer;
+	}
+}
+
+/* css/storefront-parity.css */
+/**
+ * Layout parity with GoDaddy Reseller storefront (my.luci.ltd / luci.ltd).
+ * Locks header dimensions to prevent shift when crossing WordPress ↔ storefront.
+ */
+
+:root {
+	--nav-height: 64px;
+	--luci-header-utility-h: var(--luci-util-bar-height, calc(var(--luci-logo-height, 70px) + 0.5rem));
+	--luci-secondarynav-h: 45px;
+	--luci-storefront-green: #c1ff00;
+	--luci-storefront-green-dark: #9dcc00;
+}
+
+/* White body on inner pages — storefront uses #fff, not cream */
+body.luci-standalone.ux-app:not(.luci-home-shell):not(.luci-error-fullscreen-page),
+body.luci-standalone:not(.luci-home-shell):not(.luci-error-fullscreen-page) {
+	background: #fff !important;
+	color: #111;
+}
+
+body.luci-standalone:not(.luci-home-shell) .luci-site-main {
+	background: #fff;
+	padding: 0;
+	max-width: none;
+}
+
+body.luci-front-page .luci-site-main {
+	min-height: 0;
+	background: transparent;
+	padding: 0;
+	max-width: none;
+}
+
+/* Fixed header stack height (white on inner pages; home-page.css overrides front page) */
+body:not(.luci-home-shell) #luci-hcs-header.luci-store-header {
+	position: relative;
+	z-index: 200;
+	background: #fff;
+}
+
+body:not(.luci-home-shell) #luci-hcs-header .utility-bar.single-use-header {
+	background: #fff;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+#luci-hcs-header.luci-store-header {
+	position: relative;
+	z-index: 200;
+}
+
+#luci-hcs-header .utility-bar-flex {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	min-height: var(--luci-header-utility-h);
+	align-items: center;
+}
+
+#luci-hcs-header .utility-left-nav {
+	align-items: center;
+	display: flex;
+}
+
+body:not(.luci-home-shell) #luci-hcs-header .top {
+	background: #fff;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+#luci-hcs-header .top {
+	min-height: var(--nav-height);
+}
+
+#luci-hcs-header .topnav {
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+	font-size: 1rem;
+	height: var(--nav-height);
+}
+
+/* GoDaddy container breakpoints (progressive max-width — matches reseller-sales-header) */
+#luci-hcs-header .topnav .product-nav-container,
+#luci-hcs-header + .secondarynav .product-nav-container {
+	margin-inline: auto;
+	padding-inline: 10px;
+	width: 100%;
+	max-width: 100%;
+}
+
+.luci-tax-disclaimer .container,
+#luci-hcs-footer .reseller-container,
+.luci-home-below-hero__inner,
+.luci-home-hero__inner {
+	margin-inline: auto;
+	padding-inline: 10px;
+	width: 100%;
+	max-width: 100%;
+}
+
+@media (min-width: 768px) {
+	#luci-hcs-header .topnav .product-nav-container,
+	#luci-hcs-header + .secondarynav .product-nav-container,
+	.luci-tax-disclaimer .container,
+	#luci-hcs-footer .reseller-container,
+	.luci-home-below-hero__inner,
+	.luci-home-hero__inner {
+		max-width: 720px;
+	}
+}
+
+@media (min-width: 992px) {
+	#luci-hcs-header .topnav .product-nav-container,
+	#luci-hcs-header + .secondarynav .product-nav-container,
+	.luci-tax-disclaimer .container,
+	#luci-hcs-footer .reseller-container,
+	.luci-home-below-hero__inner,
+	.luci-home-hero__inner {
+		max-width: 940px;
+	}
+}
+
+@media (min-width: 1200px) {
+	#luci-hcs-header .topnav .product-nav-container,
+	#luci-hcs-header + .secondarynav .product-nav-container,
+	.luci-tax-disclaimer .container,
+	#luci-hcs-footer .reseller-container,
+	.luci-home-below-hero__inner,
+	.luci-home-hero__inner {
+		max-width: 1140px;
+	}
+
+	#luci-hcs-header .topnav .tray-toggle,
+	#luci-hcs-header .topnav-direct-link {
+		font-size: 1.125em;
+		padding: 20px 10px;
+		min-height: var(--nav-height);
+	}
+}
+
+@media (min-width: 1720px) {
+	#luci-hcs-header .topnav .product-nav-container,
+	#luci-hcs-header + .secondarynav .product-nav-container,
+	.luci-tax-disclaimer .container,
+	#luci-hcs-footer .reseller-container,
+	.luci-home-below-hero__inner,
+	.luci-home-hero__inner {
+		max-width: 1640px;
+	}
+}
+
+/* Topnav row — match GoDaddy product-nav-row flex layout */
+#luci-hcs-header .topnav .product-nav-row {
+	display: flex !important;
+	flex-wrap: wrap;
+	align-items: stretch;
+	width: 100%;
+}
+
+#luci-hcs-header .topnav .topnav-items,
+#luci-hcs-header .topnav #luci-topnav-items {
+	display: flex !important;
+	flex-flow: row nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: auto;
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+@media (min-width: 992px) {
+	#luci-hcs-header .luci-topnav-toggle {
+		display: none !important;
+	}
+}
+
+@media (max-width: 991px) {
+	#luci-hcs-header .topnav .topnav-items,
+	#luci-hcs-header .topnav #luci-topnav-items {
+		display: none !important;
+		flex-flow: column nowrap;
+		width: 100%;
+		flex: 1 1 100%;
+	}
+
+	#luci-hcs-header .topnav .topnav-items.is-open,
+	#luci-hcs-header .topnav #luci-topnav-items.is-open {
+		display: flex !important;
+		flex-flow: column nowrap !important;
+	}
+
+	/* Touch — never hover-gate visibility */
+	html.luci-coarse-pointer #luci-hcs-header .topnav .tray-toggle:hover,
+	html.luci-coarse-pointer #luci-hcs-header .topnav .topnav-direct-link:hover {
+		background: transparent;
+	}
+
+	#luci-hcs-header .topnav-item.has-dropdown:hover .luci-nav-dropdown__panel:not(.is-visible),
+	#luci-hcs-header .topnav-item.has-dropdown:focus-within .luci-nav-dropdown__panel:not(.is-visible) {
+		display: none !important;
+	}
+
+	#luci-hcs-header .luci-nav-dropdown.is-open .luci-nav-dropdown__panel,
+	#luci-hcs-header .luci-nav-dropdown__panel.is-visible {
+		display: block !important;
+		visibility: visible !important;
+		opacity: 1 !important;
+	}
+
+	#luci-hcs-header .topnav-item.has-dropdown {
+		flex-direction: column !important;
+		align-items: stretch !important;
+		width: 100% !important;
+	}
+
+	#luci-hcs-header .topnav .tray-menu.luci-nav-dropdown {
+		display: flex !important;
+		flex-direction: column !important;
+		align-items: stretch !important;
+		width: 100% !important;
+	}
+
+	#luci-hcs-header .luci-nav-dropdown__panel {
+		position: static !important;
+		width: 100% !important;
+		left: auto !important;
+		top: auto !important;
+		margin-left: 0 !important;
+		float: none !important;
+	}
+}
+
+#luci-hcs-header .topnav-item {
+	display: flex !important;
+	flex: 0 0 auto;
+	align-items: center;
+	margin: 0;
+}
+
+#luci-hcs-header .topnav .tray-menu {
+	position: relative;
+}
+
+#luci-hcs-header .topnav .tray-toggle-wrapper {
+	display: flex;
+	align-items: stretch;
+}
+
+#luci-hcs-header .topnav .tray-toggle,
+#luci-hcs-header .topnav .topnav-direct-link {
+	display: inline-flex !important;
+	align-items: center;
+	gap: 0.25rem;
+	border: 0;
+	background: transparent;
+	cursor: pointer;
+	font-family: var(--luci-font-nav);
+	font-size: 1rem;
+	line-height: 1.2;
+	color: #111;
+	text-decoration: none;
+	padding: 0 10px;
+	min-height: var(--nav-height);
+	white-space: nowrap;
+}
+
+#luci-hcs-header .topnav-item:not(.menu-item-home) .tray-toggle,
+#luci-hcs-header .topnav-item:not(.menu-item-home) .topnav-direct-link {
+	font-weight: 700;
+}
+
+#luci-hcs-header .topnav-item.menu-item-home .tray-toggle,
+#luci-hcs-header .topnav-item.menu-item-home .topnav-direct-link {
+	font-weight: 400;
+}
+
+#luci-hcs-header .topnav .tray-toggle:hover,
+#luci-hcs-header .topnav .topnav-direct-link:hover {
+	background: rgba(0, 0, 0, 0.04);
+	text-decoration: none;
+}
+
+#luci-hcs-header .topnav .tray-toggle-caret {
+	display: none !important;
+}
+
+/* Legacy mega panels — replaced by .luci-nav-dropdown__panel */
+#luci-hcs-header .luci-mega-panel {
+	display: none !important;
+}
+
+/* Utility bar — Help / Sign In / cart row */
+#luci-hcs-header .utility-right-nav {
+	display: flex;
+	align-items: center;
+	flex-wrap: nowrap;
+	gap: 0;
+}
+
+#luci-hcs-header .utility-right-nav .help-link,
+#luci-hcs-header .utility-right-nav .basic-phone-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	color: inherit;
+	text-decoration: none;
+	min-height: var(--luci-header-utility-h);
+	padding: 0 0.5rem;
+	font-size: 1rem;
+	font-weight: 400;
+}
+
+#luci-hcs-header .utility-right-nav .help-link:hover {
+	text-decoration: underline;
+}
+
+#luci-hcs-header .luci-cart-link .help-link-text,
+#luci-hcs-header .luci-cart-link .luci-cart-label {
+	display: none;
+}
+
+#luci-hcs-header .luci-cart-link .luci-icon {
+	font-size: 1.35rem;
+	width: auto;
+	height: auto;
+	line-height: 1;
+}
+
+/* Secondary nav — lime strip (product pages / hub pages) */
+#luci-hcs-header + .secondarynav.luci-secondarynav,
+.secondarynav.luci-secondarynav {
+	display: block;
+	background-color: var(--luci-storefront-green);
+	font-size: 1rem;
+	font-weight: 700;
+	position: relative;
+	z-index: 1;
+	min-height: var(--luci-secondarynav-h);
+}
+
+body.luci-front-page #luci-hcs-header + .secondarynav {
+	display: none;
+}
+
+.secondarynav.luci-secondarynav::before {
+	background-color: var(--luci-storefront-green-dark);
+	content: "";
+	position: absolute;
+	inset-block: 0;
+	inset-inline-start: 0;
+	width: 24%;
+	z-index: 1;
+	display: none;
+}
+
+@media (min-width: 992px) {
+	.secondarynav.luci-secondarynav::before {
+		display: block;
+	}
+}
+
+.secondarynav.luci-secondarynav .secondarynav-items {
+	display: table;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	z-index: 2;
+	width: 100%;
+}
+
+.secondarynav.luci-secondarynav .secondarynav-items li {
+	display: table-cell;
+	padding: 12px 15px;
+	text-align: center;
+	vertical-align: middle;
+	background-color: var(--luci-storefront-green);
+	color: #fff;
+	position: relative;
+}
+
+.secondarynav.luci-secondarynav .secondarynav-items li:first-child {
+	background-color: var(--luci-storefront-green-dark);
+	display: none;
+	white-space: nowrap;
+}
+
+@media (min-width: 992px) {
+	.secondarynav.luci-secondarynav .secondarynav-items li:first-child {
+		display: table-cell;
+		padding: 12px 25px 12px 15px;
+	}
+}
+
+.secondarynav.luci-secondarynav .secondarynav-items li a {
+	color: #fff;
+	text-decoration: none;
+	font-weight: 700;
+}
+
+.secondarynav.luci-secondarynav .secondarynav-items li.active::before {
+	border-block-start: 9px solid var(--luci-storefront-green);
+	border-inline: 12px solid transparent;
+	content: "";
+	position: absolute;
+	inset-block-end: -9px;
+	inset-inline-start: 50%;
+	margin-inline-start: -12px;
+	width: 0;
+	height: 0;
+}
+
+/* Portal hub — storefront icon underline */
+.luci-portal-tile__icon {
+	border-top-color: #00a4a6;
+}
+
+.luci-portal-hub__title {
+	font-family: var(--luci-font-heading, "Playfair Display", serif);
+	font-size: 1.75rem;
+	font-weight: 400;
+}
+
+/* Footer — GoDaddy reseller-footer parity (centered desktop, stacked mobile) */
+#luci-hcs-footer.reseller-footer {
+	background: #000;
+	color: #fff;
+	font-family: var(--luci-font-nav);
+	padding: 1.25rem 0 1.5rem;
+}
+
+#luci-hcs-footer.reseller-footer a {
+	color: #fff;
+}
+
+#luci-hcs-footer .reseller-footer-links {
+	list-style: none;
+	margin: 0 0 0.75rem;
+	padding: 0;
+	width: 100%;
+}
+
+#luci-hcs-footer .reseller-footer-links li + li::before {
+	content: none;
+}
+
+#luci-hcs-footer .reseller-footer-utos {
+	margin: 0.75rem 0;
+	font-size: 0.8125rem;
+	line-height: 1.5;
+	opacity: 0.92;
+}
+
+#luci-hcs-footer .reseller-footer-legal {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#luci-hcs-footer .currency-selector-wrapper {
+	margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+	#luci-hcs-footer .reseller-container {
+		max-width: 1140px;
+		margin-inline: auto;
+		padding-inline: clamp(1.25rem, 4vw, 3.75rem) !important;
+		text-align: center;
+	}
+
+	/* Nav row — centered (GoDaddy .reseller-footer-links) */
+	#luci-hcs-footer .reseller-footer-links {
+		margin: 0 0 1em;
+		padding: 0;
+		text-align: center;
+	}
+
+	#luci-hcs-footer .reseller-footer-links li {
+		display: inline-block;
+		padding: 0.125em 1em;
+		border-left: 1px solid rgba(255, 255, 255, 0.35);
+		width: auto;
+	}
+
+	#luci-hcs-footer .reseller-footer-links li:first-child {
+		border-left: none;
+	}
+
+	#luci-hcs-footer .reseller-footer-links a {
+		display: inline-block;
+		font-size: 1rem;
+	}
+
+	/* Terms — centered small print with divider before legal row */
+	#luci-hcs-footer .reseller-footer-utos {
+		margin: 0 auto;
+		max-width: 520px;
+		font-size: 80%;
+		line-height: 1.5;
+		text-align: center;
+		padding-bottom: 1.25em;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+	}
+
+	/* Legal row — centered below separator */
+	#luci-hcs-footer .reseller-footer-legal {
+		margin: 0;
+		padding: 1.25em 0 0;
+		text-align: center;
+	}
+
+	#luci-hcs-footer .reseller-footer-legal li {
+		display: inline-block;
+		padding: 0.125em 1em;
+		border-left: 1px solid rgba(255, 255, 255, 0.35);
+	}
+
+	#luci-hcs-footer .reseller-footer-legal li:first-child {
+		border-left: none;
+	}
+
+	#luci-hcs-footer .reseller-footer-legal a {
+		font-size: 80%;
+	}
+
+	#luci-hcs-footer .currency-selector-wrapper {
+		margin-top: 0;
+	}
+}
+
+/* Account tray dropdown */
+#luci-hcs-header .account-tray .tray-dropdown {
+	position: absolute;
+	right: 0;
+	top: 100%;
+	z-index: 150;
+	min-width: 18rem;
+	background: #fff;
+	box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+	border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+#luci-hcs-header .account-tray .tray-dropdown[hidden] {
+	display: none !important;
+}
+
+#luci-hcs-header .account-tray.is-open .tray-dropdown {
+	display: block !important;
+}
+
+/* css/fontawesome-subset.css */
+/**
+ * Font Awesome 6 subset — icons used in Luci header + portal hub only.
+ * Replaces full all.min.css (~75KB) for faster first paint.
+ */
+@font-face {
+	font-family: "Font Awesome 6 Free";
+	font-style: normal;
+	font-weight: 900;
+	font-display: swap;
+	src: url("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/webfonts/fa-solid-900.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Font Awesome 6 Brands";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/webfonts/fa-brands-400.woff2") format("woff2");
+}
+
+.fa-solid,
+.fa-brands,
+.fas,
+.fab {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	display: inline-block;
+	font-style: normal;
+	font-variant: normal;
+	line-height: 1;
+	text-rendering: auto;
+}
+
+.fa-solid,
+.fas {
+	font-family: "Font Awesome 6 Free";
+	font-weight: 900;
+}
+
+.fa-brands,
+.fab {
+	font-family: "Font Awesome 6 Brands";
+	font-weight: 400;
+}
+
+.fa-phone::before { content: "\f095"; }
+.fa-globe::before { content: "\f0ac"; }
+.fa-circle-question::before { content: "\f059"; }
+.fa-user::before { content: "\f007"; }
+.fa-chevron-down::before { content: "\f078"; }
+.fa-xmark::before { content: "\f00d"; }
+.fa-cart-shopping::before { content: "\f07a"; }
+.fa-bars::before { content: "\f0c9"; }
+.fa-id-card::before { content: "\f2c2"; }
+.fa-magnifying-glass::before { content: "\f002"; }
+.fa-right-left::before { content: "\f362"; }
+.fa-envelope::before { content: "\f0e0"; }
+.fa-window-maximize::before { content: "\f2d0"; }
+.fa-lock::before { content: "\f023"; }
+.fa-server::before { content: "\f233"; }
+.fa-wordpress::before { content: "\f19a"; }
+.fa-palette::before { content: "\f53f"; }
+.fa-pen-ruler::before { content: "\f5ae"; }
+
+/* css/luci-icons.css */
+/**
+ * Luci + Font Awesome — consistent icon sizing (utility bar, nav, portal hub).
+ */
+
+.luci-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 1;
+	vertical-align: middle;
+	pointer-events: none;
+}
+
+.luci-icon--sm {
+	font-size: 0.75rem;
+}
+
+.luci-icon--md {
+	font-size: 1.125rem;
+}
+
+.luci-icon--lg {
+	font-size: 1.35rem;
+}
+
+.luci-icon--xl {
+	font-size: clamp(2.5rem, 6vw, 3.25rem);
+}
+
+.chevron-down .luci-icon,
+.tray-toggle .chevron-down .luci-icon {
+	font-size: 0.65em;
+	margin-inline-start: 0.15em;
+}
+
+#luci-hcs-header .utility-right-nav .luci-icon--md {
+	width: 1.25em;
+	text-align: center;
+}
+
+.luci-portal-tile__icon .luci-portal-tile__glyph {
+	color: currentColor;
+}
+
+.luci-portal-tile__icon .luci-icon--xl {
+	font-size: clamp(2.25rem, 5.5vw, 3rem);
+}
+
+/* css/luci-storefront.css */
+/* Luci Brand — overrides on Turnkey Storefront / Primer (GoDaddy reseller layout) */
+
+:root {
+	--luci-lime: #c1ff00;
+	--luci-lime-muted: #d8ff66;
+	--luci-brown: #602700;
+	--luci-white: #ffffff;
+	--luci-bg: #f7f6f2;
+	--luci-font-heading: "Playfair Display", "Arial Black", serif;
+	--luci-font-body: "Open Sans", Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+/* Global: white/cream body — lime only header + category bar + footer accent */
+body.luci-turnkey-child,
+body.luci-standalone:not(.luci-home-shell) {
+	font-family: var(--luci-font-body);
+	color: var(--luci-brown);
+	background: var(--luci-bg);
+}
+
+body.luci-front-page.luci-standalone {
+	font-family: var(--luci-font-body);
+	color: var(--luci-brown);
+	background: var(--luci-lime, #c1ff00);
+}
+
+body.luci-turnkey-child #page,
+body.luci-turnkey-child .site-content,
+body.luci-standalone:not(.luci-home-shell) .luci-site-main {
+	background: var(--luci-bg);
+}
+
+.luci-heading,
+h1.entry-title,
+h1.page-title,
+h2.luci-heading,
+.site-title {
+	font-family: var(--luci-font-heading) !important;
+	font-weight: 400;
+	color: var(--luci-brown);
+}
+
+/* Turnkey: white utility row, lime product navigation (luci.ltd structure) */
+body.luci-turnkey-child .utility-bar {
+	background: var(--luci-white) !important;
+	border-bottom: 1px solid rgba(96, 39, 0, 0.12) !important;
+	color: var(--luci-brown) !important;
+}
+
+body.luci-turnkey-child .utility-bar a {
+	color: var(--luci-brown) !important;
+}
+
+body.luci-turnkey-child .site-header,
+body.luci-turnkey-child .main-navigation,
+body.luci-turnkey-child .navigation-top,
+body.luci-turnkey-child #site-navigation,
+body.luci-turnkey-child .site-header-wrapper {
+	background: var(--luci-lime) !important;
+	border-bottom: 2px solid var(--luci-brown) !important;
+}
+
+body.luci-turnkey-child .main-navigation a,
+body.luci-turnkey-child .main-navigation .menu-item a,
+body.luci-turnkey-child #site-navigation a,
+body.luci-turnkey-child .site-title a {
+	color: var(--luci-brown) !important;
+	font-family: var(--luci-font-body);
+	font-weight: 500;
+}
+
+body.luci-turnkey-child .main-navigation a:hover,
+body.luci-turnkey-child .main-navigation a:focus,
+body.luci-turnkey-child .main-navigation .current-menu-item > a {
+	text-decoration: underline;
+	text-underline-offset: 0.12em;
+	opacity: 1;
+}
+
+body.luci-turnkey-child .site-branding,
+body.luci-turnkey-child .custom-logo-link {
+	background: transparent;
+}
+
+/* Standalone topnav: white bar on inner pages; homepage uses lime shell */
+body.luci-standalone:not(.luci-home-shell) .luci-top,
+body.luci-standalone:not(.luci-home-shell) .top {
+	background: var(--luci-white);
+}
+
+body.luci-front-page.luci-standalone .luci-top,
+body.luci-front-page.luci-standalone .top,
+body.luci-front-page.luci-standalone .topnav {
+	background-color: var(--luci-lime, #c1ff00) !important;
+}
+
+/* Legacy category bar (superseded by .secondarynav) */
+.luci-category-bar {
+	display: none;
+}
+
+/* Page / archive content area */
+.luci-page-area,
+.luci-storefront-archive,
+.luci-product-single {
+	max-width: 75rem;
+	margin: 0 auto;
+	padding: 2rem clamp(1rem, 4.5vw, 1.5rem) 3rem;
+	box-sizing: border-box;
+}
+
+.luci-page-main .entry-content,
+.luci-storefront-archive .site-main {
+	background: var(--luci-white);
+	padding: 2rem;
+	border: 1px solid rgba(96, 39, 0, 0.1);
+}
+
+.luci-lead {
+	font-size: 1.2rem;
+	line-height: 1.55;
+	margin: 0 0 1.5rem;
+}
+
+.luci-disclaimer {
+	font-size: 0.875rem;
+	opacity: 0.85;
+	margin-top: 2rem;
+}
+
+/* Hub category cards (page hubs) */
+.luci-category-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+	gap: 1rem;
+	margin: 1.5rem 0;
+}
+
+.luci-category-card {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 7rem;
+	padding: 1.25rem;
+	background: var(--luci-white);
+	border: 2px solid var(--luci-brown);
+	text-decoration: none;
+	color: var(--luci-brown);
+	transition: background 0.15s, color 0.15s;
+}
+
+.luci-category-card:hover {
+	background: var(--luci-brown);
+	color: var(--luci-lime);
+}
+
+.luci-category-card__title {
+	font-size: 1.15rem;
+	margin: 0 0 0.5rem;
+}
+
+.luci-category-card__cta {
+	font-size: 0.9rem;
+	font-family: var(--luci-font-body);
+}
+
+.luci-hub-all {
+	margin-top: 1.5rem;
+}
+
+/* Outbound secureserver link lists (WordPress hub pages) */
+.luci-outbound-links {
+	list-style: none;
+	margin: 1.5rem 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+}
+
+.luci-outbound-links .luci-btn {
+	min-width: 12rem;
+	text-align: center;
+}
+
+body.luci-secureserver-shell .luci-page-main .entry-content {
+	max-width: 48rem;
+}
+
+.luci-domain-search--outbound .luci-domain-search__lead {
+	max-width: 36rem;
+}
+
+/* Product list on category archives */
+.luci-product-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: 1rem;
+}
+
+.luci-product-list__item {
+	background: var(--luci-white);
+	border: 1px solid rgba(96, 39, 0, 0.15);
+	border-radius: 6px;
+	padding: 1.25rem;
+	box-shadow: 0 1px 6px rgba(102, 102, 102, 0.12);
+}
+
+.luci-product-list__link {
+	text-decoration: none;
+	color: var(--luci-brown);
+	display: block;
+}
+
+.luci-product-list__title {
+	font-family: var(--luci-font-heading);
+	font-size: 1.25rem;
+	margin: 0 0 0.35rem;
+}
+
+.luci-product-list__cta {
+	font-size: 0.9rem;
+	font-weight: 600;
+}
+
+.luci-product-list__excerpt {
+	margin: 0.75rem 0 0;
+	font-size: 0.9rem;
+	line-height: 1.45;
+}
+
+/* Turnkey product cards in content — compact grid when wrapped */
+.luci-product-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+	gap: 1rem;
+	margin: 1rem 0 2rem;
+}
+
+.luci-widget-panel {
+	background: var(--luci-white);
+	border: 1px solid rgba(96, 39, 0, 0.15);
+	padding: 1.25rem;
+	margin: 1rem 0;
+}
+
+.luci-widget-panel--spaced {
+	margin-top: 1rem;
+}
+
+.luci-section {
+	margin-bottom: 2rem;
+}
+
+.luci-section .luci-heading {
+	margin-top: 0;
+}
+
+/* Match Turnkey rstore product pods */
+body.luci-turnkey-child article.rstore-product,
+body.luci-turnkey-child article.rstore-list-product {
+	font-family: var(--luci-font-body);
+}
+
+/* Buttons */
+.luci-btn {
+	display: inline-block;
+	padding: 0.6rem 1.2rem;
+	border: 2px solid var(--luci-brown);
+	font-family: var(--luci-font-body);
+	font-weight: 600;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.luci-btn-primary {
+	background: var(--luci-brown);
+	color: var(--luci-lime);
+}
+
+.luci-btn-secondary {
+	background: var(--luci-white);
+	color: var(--luci-brown);
+}
+
+/* Footer — black reseller footer (godaddy-reseller-layout.css) */
+body.luci-turnkey-child .site-footer {
+	background: #111;
+	color: #fff;
+}
+
+body.luci-turnkey-child .site-footer a {
+	color: #fff;
+}
+
+/* Front page — hero handled by home-hero.css */
+.luci-hero {
+	background: var(--luci-bg);
+	padding: 2rem 1rem;
+}
+
+body.luci-front-page .luci-site-main {
+	padding: 0;
+	max-width: none;
+}
+
+body.luci-front-page .luci-home-hero {
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
+	width: 100vw;
+	max-width: 100vw;
+}
+
+.luci-hero-card {
+	max-width: 75rem;
+	margin: 0 auto;
+	background: var(--luci-white);
+	padding: 2rem;
+	border: 1px solid rgba(96, 39, 0, 0.1);
+}
+
+.luci-account-panels {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 1rem;
+	margin: 1.5rem 0;
+}
+
+.luci-account-panel {
+	padding: 1.25rem;
+	border: 1px solid rgba(96, 39, 0, 0.2);
+	background: var(--luci-bg);
+}
+
+.luci-products-strip {
+	background: var(--luci-white);
+	border-top: 1px solid rgba(96, 39, 0, 0.1);
+	padding: 2rem 1rem;
+}
+
+.luci-products-strip-inner {
+	max-width: 75rem;
+	margin: 0 auto;
+}
+
+.luci-product-grid .luci-product-tile,
+.luci-product-tile {
+	border: 2px solid var(--luci-brown);
+	background: var(--luci-white);
+	color: var(--luci-brown);
+	padding: 1rem;
+	text-decoration: none;
+}
+
+.luci-product-tile:hover {
+	background: var(--luci-brown);
+	color: var(--luci-lime);
+}
+
+@media (max-width: 768px) {
+	.luci-category-bar__inner {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}
+
+/* Merch store (Spreadshop) */
+.luci-merch-link {
+	font-weight: 600;
+	text-decoration: underline;
+	text-underline-offset: 0.12em;
+	color: var(--luci-brown);
+}
+
+.luci-topnav .luci-merch-link--nav {
+	text-decoration: none;
+}
+
+.luci-topnav .luci-merch-link--nav:hover {
+	text-decoration: underline;
+}
+
+.luci-merch-link--utility,
+.luci-utility-merch-injected {
+	margin-left: 0.75rem;
+}
+
+.luci-merch-link--nav {
+	font-family: var(--luci-font-body);
+}
+
+.luci-footer-merch {
+	margin: 0.75rem 0 0;
+	font-size: 0.95rem;
+}
+
+body.luci-turnkey-child .site-footer .luci-footer-merch a {
+	color: var(--luci-brown);
+}
+
+.luci-utility-bar .luci-merch-link {
+	font-size: 0.9rem;
+}
+
+/* css/standalone-layout.css */
+/* Standalone layout — matches GoDaddy luci.ltd header (utility + lime topnav) */
+
+.luci-store-header {
+	position: relative;
+	z-index: 100;
+}
+
+/* Row 1: white utility bar, logo left */
+.luci-utility-bar {
+	background: var(--luci-white, #fff);
+	border-bottom: 1px solid rgba(96, 39, 0, 0.12);
+	font-size: 0.875rem;
+	color: var(--luci-brown, #602700);
+}
+
+.luci-utility-bar-flex {
+	max-width: 1140px;
+	margin: 0 auto;
+	padding: 0 10px;
+	min-height: 2.75rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.75rem;
+	flex-wrap: wrap;
+}
+
+.luci-utility-left {
+	display: flex;
+	align-items: center;
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+.luci-utility-right {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	flex-wrap: wrap;
+	gap: 0.35rem 0.75rem;
+}
+
+.luci-brand--utility {
+	display: inline-flex;
+	align-items: center;
+	text-decoration: none;
+	color: var(--luci-brown, #602700);
+}
+
+.luci-brand--utility:hover {
+	opacity: 1;
+}
+
+.luci-brand__logo,
+.luci-brand--utility .custom-logo {
+	width: auto;
+	max-width: none;
+	height: 70px;
+	max-height: 70px;
+	object-fit: contain;
+}
+
+.luci-utility-bar a {
+	color: var(--luci-brown, #602700);
+	text-decoration: none;
+	font-weight: 400;
+	white-space: nowrap;
+}
+
+.luci-utility-bar a:hover {
+	text-decoration: underline;
+	text-underline-offset: 0.12em;
+}
+
+.luci-utility-region,
+.luci-market-selector__trigger {
+	opacity: 0.9;
+	background: none;
+	border: none;
+	padding: 0;
+	font: inherit;
+	color: inherit;
+	cursor: pointer;
+	text-decoration: underline;
+	text-underline-offset: 0.12em;
+}
+
+.luci-market-selector {
+	position: relative;
+	display: inline-flex;
+}
+
+.luci-market-selector__panel {
+	position: absolute;
+	top: calc(100% + 0.35rem);
+	right: 0;
+	z-index: 200;
+	min-width: 16rem;
+	max-width: min(22rem, 92vw);
+	max-height: min(70vh, 24rem);
+	overflow: auto;
+	background: #fff;
+	border: 2px solid var(--luci-brown, #602700);
+	box-shadow: 0 8px 24px rgba(96, 39, 0, 0.15);
+	padding: 0.65rem 0;
+}
+
+.luci-market-selector__title {
+	margin: 0 0.85rem 0.5rem;
+	font-family: var(--luci-font-heading, "Horizon", Impact, sans-serif);
+	font-size: 0.95rem;
+	color: var(--luci-brown, #602700);
+}
+
+.luci-market-selector__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.luci-market-selector__option {
+	display: block;
+	width: 100%;
+	text-align: left;
+	background: none;
+	border: none;
+	padding: 0.45rem 0.85rem;
+	font: inherit;
+	color: var(--luci-brown, #602700);
+	cursor: pointer;
+}
+
+.luci-market-selector__option:hover,
+.luci-market-selector__option:focus-visible {
+	background: rgba(193, 255, 0, 0.35);
+	outline: none;
+}
+
+.luci-market-selector__option.is-active {
+	font-weight: 600;
+	background: rgba(193, 255, 0, 0.55);
+}
+
+.luci-utility-bar .rstore-login,
+.luci-utility-bar .rstore-cart {
+	display: inline-flex;
+	align-items: center;
+}
+
+/* Row 2: signature lime product topnav */
+.luci-top {
+	background: var(--luci-lime, #c1ff00);
+	border-bottom: 2px solid var(--luci-brown, #602700);
+}
+
+.luci-topnav__inner {
+	max-width: 1140px;
+	margin: 0 auto;
+	padding: 0 10px;
+}
+
+.luci-topnav-toggle {
+	display: none;
+	margin: 0.5rem 0;
+	background: var(--luci-brown, #602700);
+	color: var(--luci-lime, #c1ff00);
+	border: 2px solid var(--luci-brown, #602700);
+	padding: 0.45rem 0.85rem;
+	font-family: var(--luci-font-heading, "Horizon", Impact, sans-serif);
+	font-size: 0.9rem;
+	cursor: pointer;
+}
+
+.luci-topnav-items,
+.luci-topnav-menu > ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: stretch;
+	gap: 0;
+}
+
+.luci-topnav-items > li,
+.luci-topnav-menu > ul > li {
+	margin: 0;
+	display: flex;
+	align-items: stretch;
+}
+
+.luci-topnav-items a,
+.luci-topnav-menu > ul > li > a {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.85rem 1rem;
+	color: var(--luci-brown, #602700);
+	font-family: var(--luci-font-body, "Playfair Display", Georgia, serif);
+	font-size: 1rem;
+	font-weight: 500;
+	text-decoration: none;
+	line-height: 1.25;
+}
+
+.luci-topnav-items a:hover,
+.luci-topnav-items a:focus,
+.luci-topnav-items .current-menu-item > a,
+.luci-topnav-menu > ul > li > a:hover,
+.luci-topnav-menu > ul > li.current-menu-item > a {
+	text-decoration: underline;
+	text-underline-offset: 0.15em;
+	opacity: 1;
+}
+
+.luci-topnav .luci-merch-link--nav {
+	padding: 0.85rem 1rem;
+	text-decoration: none;
+}
+
+.luci-topnav .luci-merch-link--nav:hover {
+	text-decoration: underline;
+}
+
+.luci-card-frame {
+	background: transparent;
+	padding: 0;
+}
+
+.luci-content {
+	max-width: 75rem;
+	margin: 0 auto;
+	padding: 2rem 1rem;
+}
+
+@media (max-width: 991px) {
+	.luci-topnav-toggle {
+		display: inline-block;
+	}
+
+	.luci-topnav-menu {
+		display: none;
+		width: 100%;
+		padding-bottom: 0.5rem;
+	}
+
+	.luci-topnav-menu.is-open {
+		display: block;
+	}
+
+	.luci-topnav-items,
+	.luci-topnav-menu > ul {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.luci-topnav-items a,
+	.luci-topnav-menu > ul > li > a {
+		padding: 0.65rem 0.25rem;
+		width: 100%;
+	}
+
+	.luci-utility-bar-flex {
+		padding-top: 0.35rem;
+		padding-bottom: 0.35rem;
+	}
+}
+
+@media (min-width: 768px) {
+	.luci-utility-bar-flex,
+	.luci-topnav__inner {
+		max-width: 720px;
+	}
+}
+
+@media (min-width: 992px) {
+	.luci-utility-bar-flex,
+	.luci-topnav__inner {
+		max-width: 940px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.luci-utility-bar-flex,
+	.luci-topnav__inner {
+		max-width: 1140px;
+	}
+}
+
+/* css/luci-header-layout.css */
+/**
+ * Luci header shell — reliable two-row layout (utility + product nav).
+ * Overrides conflicting GoDaddy reseller-sales-header rules.
+ */
+
+.luci-header-shell {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.luci-header-shell .luci-header__utility {
+	flex: 0 0 auto;
+	width: 100%;
+}
+
+.luci-header-shell .luci-header__nav.top {
+	flex: 0 0 auto;
+	width: 100%;
+	display: block;
+	clear: both;
+	position: relative;
+	z-index: 100;
+}
+
+.luci-header-shell .topnav {
+	width: 100%;
+	height: auto;
+	min-height: var(--nav-height, 64px);
+	position: relative;
+}
+
+body.luci-front-page .luci-header-shell .topnav,
+body.luci-front-page .luci-header-shell .top.luci-header__nav {
+	background-color: var(--luci-lime, #c1ff00) !important;
+}
+
+.luci-header-shell .topnav .product-nav-container {
+	overflow: visible !important;
+	width: 100%;
+}
+
+.luci-header-shell .topnav .product-nav-row {
+	display: flex !important;
+	flex-wrap: wrap;
+	align-items: center;
+	width: 100%;
+	gap: 0;
+}
+
+.luci-header-shell #luci-topnav-items {
+	display: flex !important;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: flex-start;
+	list-style: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	width: 100%;
+	flex: 1 1 auto;
+	min-height: var(--nav-height, 64px);
+	gap: 0;
+}
+
+.luci-header-shell #luci-topnav-items > .topnav-item {
+	display: flex !important;
+	flex: 0 0 auto;
+	align-items: center;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	position: relative;
+}
+
+.luci-header-shell #luci-topnav-items .tray-menu {
+	position: relative;
+	display: flex;
+	align-items: stretch;
+}
+
+.luci-header-shell #luci-topnav-items .tray-toggle-wrapper {
+	display: flex;
+	align-items: stretch;
+}
+
+.luci-header-shell #luci-topnav-items .tray-toggle,
+.luci-header-shell #luci-topnav-items .tray-toggle.luci-nav-dropdown__trigger {
+	display: inline-flex !important;
+	align-items: center;
+	gap: 0.2rem;
+	padding: 0.65rem 0.85rem !important;
+	min-height: var(--nav-height, 64px);
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif) !important;
+	font-size: 0.9375rem;
+	font-weight: 700;
+	line-height: 1.2;
+	letter-spacing: 0.01em;
+	white-space: nowrap;
+	border: 0;
+	background: transparent;
+	color: inherit;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.luci-header-shell #luci-topnav-items .menu-item-home .tray-toggle {
+	font-weight: 500;
+}
+
+.luci-header-shell #luci-topnav-items .chevron-down {
+	display: inline-flex;
+	align-items: center;
+	margin-inline-start: 0.1rem;
+}
+
+/* Dropdown panels */
+.luci-header-shell .luci-nav-dropdown__panel {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 400;
+	min-width: 15rem;
+	margin: 0;
+	padding: 0.35rem 0;
+	list-style: none;
+	background: #fff;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	box-shadow: 0 14px 36px rgba(0, 0, 0, 0.14);
+	border-radius: 4px;
+}
+
+.luci-header-shell .luci-nav-dropdown__panel[hidden]:not(.is-visible) {
+	display: none !important;
+}
+
+.luci-header-shell .luci-nav-dropdown.is-open .luci-nav-dropdown__panel,
+.luci-header-shell .luci-nav-dropdown__panel.is-visible {
+	display: block !important;
+	visibility: visible !important;
+	opacity: 1 !important;
+}
+
+/* Click-only — hide hover/focus panels unless opened via JS (.is-visible) */
+.luci-header-shell .topnav-item.has-dropdown:hover .luci-nav-dropdown__panel:not(.is-visible),
+.luci-header-shell .topnav-item.has-dropdown:focus-within .luci-nav-dropdown__panel:not(.is-visible),
+#luci-hcs-header .topnav-item.has-dropdown:hover .luci-nav-dropdown__panel:not(.is-visible),
+#luci-hcs-header .topnav-item.has-dropdown:focus-within .luci-nav-dropdown__panel:not(.is-visible) {
+	display: none !important;
+}
+
+.luci-header-shell .luci-nav-dropdown.is-open .luci-nav-dropdown__panel,
+.luci-header-shell .luci-nav-dropdown__panel.is-visible,
+#luci-hcs-header .luci-nav-dropdown.is-open .luci-nav-dropdown__panel,
+#luci-hcs-header .luci-nav-dropdown__panel.is-visible {
+	display: block !important;
+	visibility: visible !important;
+	opacity: 1 !important;
+	pointer-events: auto !important;
+}
+
+.luci-header-shell .luci-nav-dropdown__panel a {
+	display: block;
+	padding: 0.5rem 1rem;
+	color: #111;
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+	font-size: 0.9375rem;
+	font-weight: 500;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+.luci-header-shell .luci-nav-dropdown__panel a:hover,
+.luci-header-shell .luci-nav-dropdown__panel a:focus {
+	background: rgba(0, 0, 0, 0.05);
+	text-decoration: none;
+}
+
+.luci-header-shell .luci-nav-dropdown__panel .luci-nav-dropdown__overview {
+	font-weight: 700;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+	margin-bottom: 0.2rem;
+}
+
+/* Neutralise GoDaddy floats / hidden nav */
+.luci-header-shell .topnav .topnav-logo,
+.luci-header-shell .utility-bar .topnav-logo {
+	float: none !important;
+	position: static !important;
+	width: auto !important;
+	inset: auto !important;
+}
+
+@media (min-width: 992px) {
+	.luci-header-shell .luci-topnav-toggle {
+		display: none !important;
+	}
+
+	.luci-header-shell #luci-topnav-items {
+		flex-flow: row nowrap;
+	}
+}
+
+@media (max-width: 991px) {
+	.luci-header-shell .luci-topnav-toggle {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin: 0.35rem 0;
+		padding: 0.5rem 0.85rem;
+		font-family: var(--luci-font-nav);
+		font-weight: 700;
+		border: 2px solid currentColor;
+		background: rgba(255, 255, 255, 0.5);
+		cursor: pointer;
+		-webkit-tap-highlight-color: transparent;
+		touch-action: manipulation;
+	}
+
+	.luci-header-shell .luci-topnav-toggle,
+	.luci-header-shell #luci-topnav-items .luci-nav-dropdown__trigger,
+	.luci-header-shell #luci-topnav-items .tray-toggle {
+		touch-action: manipulation;
+	}
+
+	.luci-header-shell #luci-topnav-items {
+		display: none !important;
+		flex-direction: column;
+		align-items: stretch;
+		width: 100%;
+		padding-bottom: 0.5rem;
+	}
+
+	.luci-header-shell #luci-topnav-items.is-open {
+		display: flex !important;
+	}
+
+	.luci-header-shell #luci-topnav-items .tray-toggle {
+		width: 100%;
+		justify-content: flex-start;
+	}
+
+	.luci-header-shell #luci-topnav-items .tray-menu.luci-nav-dropdown {
+		flex-direction: column;
+		align-items: stretch;
+		width: 100%;
+	}
+
+	.luci-header-shell .luci-nav-dropdown__panel {
+		position: static !important;
+		top: auto !important;
+		left: auto !important;
+		width: 100% !important;
+		min-width: 0 !important;
+		box-shadow: none;
+		border: 0;
+		background: rgba(0, 0, 0, 0.04);
+		margin: 0 0 0.35rem 0 !important;
+		padding: 0.25rem 0;
+		float: none !important;
+	}
+
+}
+
+/* css/mobile-nav.css */
+/**
+ * Mobile / touch navigation — hamburger, instant tap targets, +25% scale.
+ */
+
+:root {
+	--luci-mobile-nav-scale: 1.25;
+}
+
+/* Three-bar hamburger */
+.luci-hamburger {
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 6px;
+	width: calc(1.375rem * var(--luci-mobile-nav-scale));
+	height: calc(1rem * var(--luci-mobile-nav-scale));
+	flex-shrink: 0;
+}
+
+.luci-hamburger__bar {
+	display: block;
+	width: 100%;
+	height: 3px;
+	background-color: currentColor;
+	border-radius: 1px;
+	transition: transform 0.22s ease, opacity 0.22s ease;
+}
+
+.luci-topnav-toggle.is-active .luci-hamburger__bar:nth-child(1) {
+	transform: translateY(9px) rotate(45deg);
+}
+
+.luci-topnav-toggle.is-active .luci-hamburger__bar:nth-child(2) {
+	opacity: 0;
+}
+
+.luci-topnav-toggle.is-active .luci-hamburger__bar:nth-child(3) {
+	transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Mobile / narrow — click-only submenus (no hover flash) */
+@media (max-width: 991px) {
+	html.luci-nav-mobile .luci-header-shell .topnav-item.has-dropdown:hover .luci-nav-dropdown__panel:not(.is-visible),
+	html.luci-nav-mobile #luci-hcs-header .topnav-item.has-dropdown:hover .luci-nav-dropdown__panel:not(.is-visible),
+	html.luci-nav-mobile .luci-header-shell .topnav-item.has-dropdown:focus-within .luci-nav-dropdown__panel:not(.is-visible),
+	html.luci-nav-mobile #luci-hcs-header .topnav-item.has-dropdown:focus-within .luci-nav-dropdown__panel:not(.is-visible) {
+		display: none !important;
+	}
+
+	html.luci-nav-mobile .luci-header-shell .luci-nav-dropdown.is-open .luci-nav-dropdown__panel,
+	html.luci-nav-mobile .luci-header-shell .luci-nav-dropdown__panel.is-visible,
+	html.luci-nav-mobile #luci-hcs-header .luci-nav-dropdown.is-open .luci-nav-dropdown__panel,
+	html.luci-nav-mobile #luci-hcs-header .luci-nav-dropdown__panel.is-visible {
+		display: block !important;
+		visibility: visible !important;
+		opacity: 1 !important;
+		height: auto !important;
+		overflow: visible !important;
+		pointer-events: auto !important;
+	}
+
+	/* Dimmed backdrop behind overlay pane */
+	.luci-mobile-nav-backdrop {
+		position: fixed;
+		inset: 0;
+		z-index: 450;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		background: rgba(96, 39, 0, 0.45);
+		cursor: pointer;
+		-webkit-tap-highlight-color: transparent;
+	}
+
+	.luci-mobile-nav-backdrop[hidden] {
+		display: none !important;
+	}
+
+	/* Full-height overlay pane over page content */
+	body.luci-mobile-nav-open #luci-hcs-header .topnav #luci-topnav-items.is-open,
+	body.luci-mobile-nav-open .luci-header-shell #luci-topnav-items.is-open {
+		position: fixed !important;
+		left: 0 !important;
+		right: 0 !important;
+		top: var(--luci-mobile-nav-top, 7.5rem) !important;
+		bottom: 0 !important;
+		width: 100% !important;
+		max-width: 100% !important;
+		max-height: none !important;
+		height: auto !important;
+		flex: none !important;
+		z-index: 460;
+		margin: 0 !important;
+		padding: 1rem 1.25rem 2rem !important;
+		background: #fffef8;
+		box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
+		overflow-y: auto;
+		overflow-x: hidden;
+		-webkit-overflow-scrolling: touch;
+		overscroll-behavior: contain;
+	}
+
+	body.luci-home-shell.luci-mobile-nav-open #luci-hcs-header .topnav #luci-topnav-items.is-open,
+	body.luci-home-shell.luci-mobile-nav-open .luci-header-shell #luci-topnav-items.is-open {
+		background: var(--luci-lime, #c1ff00);
+	}
+
+	body.luci-mobile-nav-open .luci-header-shell .luci-header__nav.top,
+	body.luci-mobile-nav-open #luci-hcs-header .top.luci-header__nav {
+		position: relative;
+		z-index: 455;
+	}
+
+	body.luci-mobile-nav-open #luci-hcs-header.luci-store-header,
+	body.luci-mobile-nav-open .luci-header-shell {
+		position: relative;
+		z-index: 470;
+	}
+
+	#luci-hcs-header .luci-topnav-toggle,
+	.luci-header-shell .luci-topnav-toggle {
+		display: inline-flex !important;
+		align-items: center;
+		justify-content: center;
+		gap: 0.625rem;
+		min-width: calc(2.75rem * var(--luci-mobile-nav-scale));
+		min-height: calc(2.75rem * var(--luci-mobile-nav-scale));
+		padding: 0.65rem 0.95rem;
+		order: -1;
+		flex: 0 0 auto;
+		z-index: 120;
+		position: relative;
+		touch-action: manipulation;
+		-webkit-tap-highlight-color: rgba(96, 39, 0, 0.15);
+	}
+
+	#luci-hcs-header .topnav .product-nav-row {
+		flex-wrap: wrap;
+		align-items: center;
+		position: relative;
+		z-index: 110;
+	}
+
+	.luci-topnav-toggle__label {
+		font-size: calc(0.9375rem * var(--luci-mobile-nav-scale));
+		font-weight: 700;
+	}
+
+	#luci-hcs-header .topnav #luci-topnav-items.is-open,
+	.luci-header-shell #luci-topnav-items.is-open {
+		display: flex !important;
+		flex-flow: column nowrap !important;
+		visibility: visible !important;
+		opacity: 1 !important;
+		width: 100% !important;
+	}
+
+	body.luci-mobile-nav-open {
+		overflow: hidden;
+	}
+
+	#luci-hcs-header .topnav #luci-topnav-items.is-open > .topnav-item,
+	.luci-header-shell #luci-topnav-items.is-open > .topnav-item {
+		display: flex !important;
+		flex-direction: column !important;
+		align-items: stretch !important;
+		visibility: visible !important;
+		opacity: 1 !important;
+		width: 100% !important;
+		flex: 0 0 auto !important;
+	}
+
+	/* Accordion — submenu lists stack under their heading, not beside it */
+	#luci-hcs-header .topnav .tray-menu.luci-nav-dropdown,
+	.luci-header-shell #luci-topnav-items .tray-menu.luci-nav-dropdown {
+		display: flex !important;
+		flex-direction: column !important;
+		align-items: stretch !important;
+		width: 100% !important;
+		position: relative !important;
+	}
+
+	#luci-hcs-header .topnav .tray-menu .tray-toggle-wrapper,
+	.luci-header-shell #luci-topnav-items .tray-menu .tray-toggle-wrapper {
+		display: block !important;
+		width: 100% !important;
+	}
+
+	#luci-hcs-header .topnav .tray-menu:not(.luci-nav-dropdown),
+	.luci-header-shell #luci-topnav-items .tray-menu:not(.luci-nav-dropdown) {
+		display: block !important;
+		width: 100% !important;
+	}
+
+	.luci-header-shell #luci-topnav-items .tray-toggle,
+	.luci-header-shell #luci-topnav-items .luci-nav-dropdown__trigger,
+	.luci-header-shell #luci-topnav-items .topnav-nontray-btn,
+	#luci-hcs-header .topnav .tray-toggle,
+	#luci-hcs-header .topnav .topnav-direct-link,
+	#luci-hcs-header .topnav .luci-nav-dropdown__trigger {
+		font-size: calc(1rem * var(--luci-mobile-nav-scale)) !important;
+		min-height: calc(3.25rem * var(--luci-mobile-nav-scale)) !important;
+		padding: calc(0.85rem * var(--luci-mobile-nav-scale)) calc(1rem * var(--luci-mobile-nav-scale)) !important;
+		color: var(--luci-brown, #602700) !important;
+		opacity: 1 !important;
+		visibility: visible !important;
+		touch-action: manipulation;
+		-webkit-tap-highlight-color: rgba(96, 39, 0, 0.12);
+		cursor: pointer;
+	}
+
+	body:not(.luci-home-shell) .luci-header-shell #luci-topnav-items .tray-toggle,
+	body:not(.luci-home-shell) #luci-hcs-header .topnav .tray-toggle {
+		color: #111 !important;
+	}
+
+	.luci-header-shell #luci-topnav-items .luci-nav-dropdown__trigger {
+		display: flex !important;
+		align-items: center;
+		justify-content: space-between;
+		width: 100% !important;
+		gap: 0.85rem;
+		text-align: left;
+	}
+
+	.luci-header-shell #luci-topnav-items .luci-nav-dropdown__label {
+		flex: 1 1 auto;
+		pointer-events: none;
+	}
+
+	.luci-header-shell #luci-topnav-items .luci-nav-dropdown__caret {
+		display: inline-flex !important;
+		align-items: center;
+		justify-content: center;
+		flex: 0 0 auto;
+		width: calc(2.2rem * var(--luci-mobile-nav-scale));
+		height: calc(2.2rem * var(--luci-mobile-nav-scale));
+		border-radius: 6px;
+		background: rgba(0, 0, 0, 0.08);
+		pointer-events: none;
+	}
+
+	.luci-header-shell #luci-topnav-items .luci-nav-dropdown__caret .luci-icon {
+		font-size: calc(0.85rem * var(--luci-mobile-nav-scale));
+	}
+
+	.luci-header-shell #luci-topnav-items .luci-nav-dropdown.is-open .luci-nav-dropdown__caret {
+		transform: rotate(180deg);
+		background: rgba(0, 0, 0, 0.14);
+	}
+
+	.luci-header-shell .luci-nav-dropdown__panel,
+	#luci-hcs-header .luci-nav-dropdown__panel {
+		position: static !important;
+		top: auto !important;
+		left: auto !important;
+		right: auto !important;
+		width: 100% !important;
+		min-width: 0 !important;
+		max-width: 100% !important;
+		box-shadow: none;
+		border: 0;
+		border-radius: 0;
+		background: rgba(0, 0, 0, 0.06) !important;
+		margin: 0 0 0.5rem 0 !important;
+		padding: 0.35rem 0 !important;
+		max-height: none;
+		overflow: visible;
+		float: none !important;
+	}
+
+	.luci-header-shell .luci-nav-dropdown__panel li,
+	#luci-hcs-header .luci-nav-dropdown__panel li {
+		display: block !important;
+		width: 100% !important;
+	}
+
+	.luci-header-shell .luci-nav-dropdown__panel a,
+	#luci-hcs-header .luci-nav-dropdown__panel a {
+		font-size: calc(0.9375rem * var(--luci-mobile-nav-scale)) !important;
+		padding: calc(0.65rem * var(--luci-mobile-nav-scale)) calc(1rem * var(--luci-mobile-nav-scale)) !important;
+		min-height: calc(2.75rem * var(--luci-mobile-nav-scale));
+		display: flex !important;
+		align-items: center;
+		opacity: 1 !important;
+		visibility: visible !important;
+		color: #111 !important;
+		touch-action: manipulation;
+	}
+
+	/* Active tap feedback (not hover-only) */
+	.luci-header-shell #luci-topnav-items .tray-toggle:active,
+	.luci-header-shell #luci-topnav-items .luci-nav-dropdown__trigger:active,
+	#luci-hcs-header .topnav .tray-toggle:active,
+	#luci-hcs-header .topnav .luci-nav-dropdown__trigger:active {
+		background: rgba(0, 0, 0, 0.1) !important;
+	}
+
+	body.luci-front-page .luci-header-shell #luci-topnav-items .tray-toggle:active,
+	body.luci-front-page .luci-header-shell #luci-topnav-items .luci-nav-dropdown__trigger:active {
+		background: rgba(96, 39, 0, 0.12) !important;
+	}
+}
+
+@media (max-width: 479px) {
+	.luci-topnav-toggle__label {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
+	}
+
+	#luci-hcs-header .luci-topnav-toggle,
+	.luci-header-shell .luci-topnav-toggle {
+		padding: 0.7rem;
+	}
+}
+
+@media (min-width: 992px) {
+	#luci-hcs-header .luci-topnav-toggle,
+	.luci-header-shell .luci-topnav-toggle {
+		display: none !important;
+	}
+}
+
+/* Utility bar + icons +25% on touch / narrow viewports */
+@media (max-width: 991px) {
+	#luci-hcs-header .utility-right-nav .luci-icon--md {
+		font-size: calc(1.125rem * var(--luci-mobile-nav-scale));
+	}
+
+	#luci-hcs-header .utility-right-nav .basic-phone-btn,
+	#luci-hcs-header .utility-right-nav .help-link,
+	#luci-hcs-header .utility-right-nav .tray-toggle {
+		min-height: calc(2.5rem * var(--luci-mobile-nav-scale));
+		padding: calc(0.5rem * var(--luci-mobile-nav-scale));
+		touch-action: manipulation;
+	}
+
+	#luci-hcs-header .topnav-logo-wrap .luci-brand__logo,
+	#luci-hcs-header .topnav-logo-wrap img#registrar {
+		height: calc(44px * var(--luci-mobile-nav-scale)) !important;
+		max-height: calc(44px * var(--luci-mobile-nav-scale)) !important;
+	}
+}
+
+/* css/storefront-nav.css */
+/**
+ * Primary nav + portal hub — GoDaddy secureserver parity (bold links, mega panels).
+ */
+
+/* Logo — 70px height (secureserver / luci.ltd utility bar) */
+#luci-hcs-header .topnav-logo-wrap .luci-brand__logo,
+#luci-hcs-header .topnav-logo-wrap .custom-logo,
+#luci-hcs-header .topnav-logo-wrap img#registrar,
+#luci-hcs-header .topnav-logo.pl-large-logo img,
+#luci-hcs-header .utility-bar .topnav-logo-wrap img {
+	width: auto !important;
+	max-width: none !important;
+	height: 70px !important;
+	max-height: 70px !important;
+	object-fit: contain;
+}
+
+#luci-hcs-header .topnav-logo-wrap .topnav-logo,
+#luci-hcs-header .topnav-logo-wrap .logo-img {
+	display: inline-flex;
+	align-items: center;
+	min-height: 70px;
+}
+
+#luci-hcs-header .utility-bar.single-use-header .utility-bar-flex {
+	min-height: var(--luci-util-bar-height, calc(var(--luci-logo-height, 70px) + 0.5rem));
+	align-items: center;
+}
+
+@media (max-width: 767px) {
+	#luci-hcs-header .topnav-logo-wrap .luci-brand__logo,
+	#luci-hcs-header .topnav-logo-wrap .custom-logo,
+	#luci-hcs-header .topnav-logo-wrap img#registrar,
+	#luci-hcs-header .topnav-logo.pl-large-logo img,
+	#luci-hcs-header .utility-bar .topnav-logo-wrap img {
+		height: 44px !important;
+		max-height: 44px !important;
+		max-width: min(168px, 46vw) !important;
+		width: auto !important;
+	}
+
+	#luci-hcs-header .topnav-logo-wrap .topnav-logo,
+	#luci-hcs-header .topnav-logo-wrap .logo-img {
+		min-height: 44px;
+	}
+
+	#luci-hcs-header .utility-bar.single-use-header .utility-bar-flex {
+		min-height: calc(44px + 0.5rem);
+	}
+}
+
+@media (max-width: 575px) {
+	#luci-hcs-header .utility-right-nav .basic-phone-text,
+	#luci-hcs-header .utility-right-nav .help-link-text,
+	#luci-hcs-header .mrkt-selector-tray-label {
+		display: none !important;
+	}
+
+	#luci-hcs-header .utility-right-nav .basic-phone-btn,
+	#luci-hcs-header .utility-right-nav .help-link,
+	#luci-hcs-header .utility-right-nav .tray-toggle {
+		padding-inline: 0.5rem;
+	}
+}
+
+/* Main topnav row — white on inner pages only */
+body:not(.luci-home-shell) #luci-hcs-header .top,
+body:not(.luci-home-shell) #luci-hcs-header .topnav {
+	background: var(--luci-white, #fff);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+#luci-hcs-header .topnav .product-nav-container {
+	margin: 0 auto;
+	padding: 0 10px;
+}
+
+#luci-hcs-header .topnav-items {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: stretch;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	gap: 0;
+}
+
+#luci-hcs-header .topnav-item {
+	position: relative;
+	display: flex;
+	align-items: stretch;
+	margin: 0;
+}
+
+/* Direct nav links — bold like secureserver (Home regular) */
+#luci-hcs-header .topnav-direct-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	padding: 0 1rem;
+	min-height: var(--luci-nav-height, 64px);
+	font-family: var(--luci-font-nav);
+	font-size: 1rem;
+	line-height: 1.2;
+	color: var(--luci-black, #111);
+	text-decoration: none;
+	white-space: nowrap;
+	cursor: pointer;
+}
+
+#luci-hcs-header .topnav-item:not(.menu-item-home) .topnav-direct-link {
+	font-weight: 700;
+}
+
+/* Override GoDaddy reseller-sales-header logo cap */
+#luci-hcs-header .topnav-logo.pl-large-logo,
+#luci-hcs-header .topnav-logo.pl-large-logo.white-logo-bg {
+	padding: 0.25rem 0;
+}
+
+#luci-hcs-header .topnav-item.menu-item-home .topnav-direct-link {
+	font-weight: 400;
+}
+
+#luci-hcs-header .topnav-direct-link:hover,
+#luci-hcs-header .topnav-direct-link:focus {
+	text-decoration: none;
+	background: rgba(0, 0, 0, 0.04);
+}
+
+#luci-hcs-header .topnav-direct-link .chevron-down {
+	display: inline-flex;
+	align-items: center;
+	pointer-events: none;
+}
+
+#luci-hcs-header .topnav-direct-link .chevron-down svg {
+	width: 1.25rem;
+	height: 1.25rem;
+}
+
+/* Mega panel — click-only (legacy; panels hidden in parity CSS) */
+#luci-hcs-header .topnav-item.has-mega .luci-mega-panel {
+	display: none !important;
+	position: absolute;
+	left: 0;
+	top: 100%;
+	z-index: 110;
+	min-width: 16rem;
+	padding: 1rem 1.25rem 1.25rem;
+	background: #fff;
+	box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+	border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+#luci-hcs-header .topnav-item.has-mega.is-open .luci-mega-panel {
+	display: block !important;
+}
+
+#luci-hcs-header .luci-mega-panel__title {
+	margin: 0 0 0.75rem;
+	font-family: var(--luci-font-heading);
+	font-size: 1.5rem;
+	font-weight: 400;
+	color: var(--luci-black);
+}
+
+#luci-hcs-header .luci-mega-panel__links {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#luci-hcs-header .luci-mega-panel__links a {
+	display: block;
+	padding: 0.35rem 0;
+	color: var(--luci-black);
+	text-decoration: none;
+	font-weight: 400;
+	font-size: 0.95rem;
+}
+
+#luci-hcs-header .luci-mega-panel__links a:hover {
+	text-decoration: underline;
+}
+
+/* Utility bar links — match help / account row */
+#luci-hcs-header .utility-right-nav .luci-cart-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	color: var(--luci-brown, #602700);
+	text-decoration: none;
+	min-height: var(--luci-util-bar-height);
+	padding: 0 0.5rem;
+}
+
+#luci-hcs-header .utility-right-nav .luci-cart-link:hover,
+#luci-hcs-header .utility-right-nav .luci-cart-link:focus-visible {
+	color: var(--luci-brown, #602700);
+	text-decoration: underline;
+	opacity: 0.9;
+}
+
+#luci-hcs-header .utility-right-nav .luci-cart-link .luci-icon {
+	color: var(--luci-brown, #602700);
+}
+
+#luci-hcs-header .utility-right-nav .luci-cart-link .luci-cart-badge {
+	display: none !important;
+}
+
+/* Home portal hub */
+.luci-portal-hub {
+	margin: 2rem 0 1.5rem;
+}
+
+.luci-portal-hub__title {
+	font-family: var(--luci-font-heading);
+	font-size: 1.75rem;
+	font-weight: 400;
+	margin: 0 0 1.25rem;
+	color: var(--luci-black);
+}
+
+.luci-portal-hub__grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+	gap: 1.25rem 1.5rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.luci-portal-tile {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	text-decoration: none;
+	color: var(--luci-black);
+	gap: 0.5rem;
+}
+
+.luci-portal-tile:hover .luci-portal-tile__label {
+	text-decoration: underline;
+}
+
+.luci-portal-tile__icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 3rem;
+	border-top: 3px solid #2dd4bf;
+	width: 100%;
+	padding-top: 0.5rem;
+}
+
+.luci-portal-tile__icon .luci-icon {
+	max-height: none;
+}
+
+.luci-portal-tile__label {
+	font-size: 0.9rem;
+	line-height: 1.3;
+}
+
+.luci-hero--portal .luci-hero-card {
+	max-width: 1140px;
+}
+
+.luci-domain-search--hero {
+	margin: 1.5rem 0 0;
+}
+
+.luci-domain-search--outbound .luci-domain-search__lead {
+	margin: 0.5rem 0 1rem;
+	max-width: 36rem;
+}
+
+.luci-domain-search__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+}
+
+.luci-outbound-links {
+	list-style: none;
+	margin: 1.25rem 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+}
+
+.luci-domain-search--hero .luci-domain-search__label {
+	display: block;
+	font-weight: 600;
+	margin-bottom: 0.5rem;
+}
+
+/* Hub page quick actions */
+.luci-hub-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin: 1rem 0 1.5rem;
+}
+
+.luci-hub-actions .luci-btn {
+	text-decoration: none;
+}
+
+/* Full-width Hydra trays not used in WordPress shell */
+#luci-hcs-header .topnav-items .tray-fullwidth.luci-product-tray-panel {
+	display: none !important;
+}
+
+#luci-hcs-header .topnav-items .topnav-direct-link {
+	position: relative;
+	z-index: 2;
+}
+
+/* Ensure utility + nav links are always clickable above overlays */
+#luci-hcs-header .utility-right-nav a,
+#luci-hcs-header .topnav-direct-link,
+#luci-hcs-header .luci-mega-panel a {
+	pointer-events: auto;
+}
+
+/* css/hydra-replacements.css */
+/**
+ * Luci-owned UI replacing non-embeddable GoDaddy Hydra components.
+ */
+
+/* Cart — icon only (no badge / reseller widget sync) */
+#luci-hcs-header .utility-right-nav .luci-cart-link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--luci-brown, #602700);
+	text-decoration: none;
+	min-height: var(--luci-util-bar-height, 70px);
+	padding: 0 0.5rem;
+}
+
+#luci-hcs-header .utility-right-nav .luci-cart-link:hover,
+#luci-hcs-header .utility-right-nav .luci-cart-link:focus-visible {
+	color: var(--luci-brown, #602700);
+	opacity: 0.85;
+}
+
+#luci-hcs-header .utility-right-nav .luci-cart-link .luci-icon {
+	color: var(--luci-brown, #602700);
+}
+
+#luci-hcs-header .luci-cart-badge,
+#luci-hcs-header .luci-rstore-cart-host {
+	display: none !important;
+}
+
+/* Utility bar myLuci Account — same row style as Help */
+#luci-hcs-header .utility-right-nav .luci-account-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	color: inherit;
+	text-decoration: none;
+	min-height: var(--luci-util-bar-height, 70px);
+	padding: 0 0.5rem;
+}
+
+#luci-hcs-header .utility-right-nav .luci-account-link:hover,
+#luci-hcs-header .utility-right-nav .luci-account-link:focus-visible {
+	text-decoration: underline;
+}
+
+#luci-hcs-header .utility-right-nav .luci-account-tray {
+	display: none !important;
+}
+
+#luci-hcs-header .utility-right-nav .tray-toggle {
+	touch-action: manipulation;
+	-webkit-tap-highlight-color: rgba(96, 39, 0, 0.12);
+}
+
+#luci-hcs-header .luci-market-selector,
+#luci-hcs-footer .currency-selector-wrapper {
+	display: none !important;
+}
+
+#luci-hcs-header .utility-right-nav .luci-account-tray .chevron-down {
+	display: inline-flex;
+	align-items: center;
+	margin-inline-start: 0.15rem;
+}
+
+/* Utility bar cart tray */
+#luci-hcs-header .utility-right-nav .luci-cart-tray {
+	position: relative;
+}
+
+#luci-hcs-header .utility-right-nav .luci-cart-tray .tray-toggle {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	background: none;
+	border: none;
+	color: inherit;
+	font: inherit;
+	cursor: pointer;
+	padding: 0 0.5rem;
+	min-height: var(--luci-util-bar-height);
+}
+
+#luci-hcs-header .luci-cart-badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 1.25rem;
+	height: 1.25rem;
+	padding: 0 0.35rem;
+	margin-left: 0.25rem;
+	border-radius: 999px;
+	background: var(--luci-lime, #c1ff00);
+	color: #111;
+	font-size: 0.7rem;
+	font-weight: 700;
+	line-height: 1;
+}
+
+#luci-hcs-header .utility-right-nav .luci-cart-tray-panel {
+	position: absolute;
+	right: 0;
+	top: 100%;
+	z-index: 120;
+	min-width: 20rem;
+	max-width: min(28rem, 95vw);
+	background: #fff;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+	border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+#luci-hcs-header .luci-cart-tray-panel .tray-content {
+	padding: 1.25rem 1.5rem 1.5rem;
+	position: relative;
+}
+
+#luci-hcs-header .tray-close {
+	position: absolute;
+	top: 0.75rem;
+	right: 0.75rem;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0.25rem;
+	color: inherit;
+}
+
+#luci-hcs-header .ux-button {
+	display: inline-block;
+	margin-top: 0.5rem;
+	padding: 0.5rem 1rem;
+	text-decoration: none;
+	border-radius: 4px;
+	font-weight: 600;
+	cursor: pointer;
+	border: none;
+	font-family: var(--luci-font-nav);
+}
+
+#luci-hcs-header .ux-button-primary {
+	background: #111;
+	color: #fff;
+}
+
+#luci-hcs-header .ux-button-secondary {
+	background: #f5f5f5;
+	color: #111;
+}
+
+#luci-hcs-header .luci-cart-tray-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin-top: 1rem;
+}
+
+/* Product mega-menu trays */
+#luci-hcs-header .topnav .tray-menu.is-open .tray-toggle {
+	font-weight: 600;
+}
+
+#luci-hcs-header .luci-product-tray-panel.tray-dropdown {
+	position: fixed;
+	left: 0;
+	right: 0;
+	z-index: 110;
+	background: #fff;
+	box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+	border-top: 1px solid rgba(0, 0, 0, 0.08);
+	max-height: min(70vh, 32rem);
+	overflow: auto;
+}
+
+#luci-hcs-header .luci-product-tray-panel .tray-content {
+	max-width: 75rem;
+	margin: 0 auto;
+	padding: 1.5rem 1.25rem 2rem;
+	position: relative;
+}
+
+#luci-hcs-header .luci-product-tray-panel .tray-title {
+	margin: 0 0 1rem;
+	font-family: var(--luci-font-heading);
+}
+
+#luci-hcs-header .luci-product-tray-panel .column-layout .column {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#luci-hcs-header .luci-product-tray-panel .column a {
+	display: block;
+	padding: 0.4rem 0;
+	color: inherit;
+	text-decoration: none;
+}
+
+#luci-hcs-header .luci-product-tray-panel .column a:hover {
+	text-decoration: underline;
+}
+
+#luci-hcs-header .topnav-items .tray-toggle {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.25rem;
+	background: none;
+	border: none;
+	font: inherit;
+	color: inherit;
+	cursor: pointer;
+	padding: 0;
+}
+
+#luci-hcs-header .topnav-items .topnav-nontray-btn {
+	text-decoration: none;
+	color: inherit;
+}
+
+/* Reseller product widgets in page content */
+.luci-product-grid .rstore-product,
+.entry-content .luci-product-grid .rstore-product {
+	border: 1px solid rgba(96, 39, 0, 0.15);
+	padding: 1.25rem;
+	background: #fff;
+}
+
+.entry-content > .rstore-product + .rstore-product {
+	margin-top: 1rem;
+}
+
+@media (min-width: 48rem) {
+	.entry-content:has(> .rstore-product + .rstore-product) {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+		gap: 1rem;
+	}
+
+	.entry-content:has(> .rstore-product + .rstore-product) > .rstore-product {
+		margin-top: 0;
+	}
+}
+
+/* Utility bar — compact single row on tablet / mobile */
+@media (max-width: 991px) {
+	#luci-hcs-header .utility-right-nav .luci-cart-link,
+	#luci-hcs-header .utility-right-nav .luci-account-link,
+	#luci-hcs-header .utility-right-nav .help-link,
+	#luci-hcs-header .utility-right-nav .basic-phone-btn {
+		min-height: 44px;
+	}
+}
+
+/* css/mobile-layout.css */
+/**
+ * Mobile layout — site-wide gutters, header, content shell, footer.
+ */
+
+:root {
+	--luci-gutter: clamp(1rem, 4.5vw, 1.5rem);
+	--luci-gutter-lg: clamp(1.25rem, 5vw, 2rem);
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+}
+
+body.luci-standalone,
+body.luci-standalone.ux-app {
+	overflow-x: hidden;
+	max-width: 100%;
+}
+
+/* Inner pages — cream/white shell (not full-page lime) */
+body.luci-standalone:not(.luci-home-shell):not(.luci-error-fullscreen-page) {
+	background: var(--luci-bg, #f7f6f2) !important;
+	color: var(--luci-brown, #602700);
+}
+
+body.luci-standalone:not(.luci-home-shell) .luci-site-main {
+	background: var(--luci-bg, #f7f6f2) !important;
+	padding: var(--luci-gutter) var(--luci-gutter) clamp(2rem, 6vw, 3rem);
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 100%;
+}
+
+/* Legacy card frame (index / single) */
+.luci-card-frame {
+	width: 100%;
+	max-width: 75rem;
+	margin: 0 auto;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.luci-card-frame .luci-content {
+	background: var(--luci-white, #fff);
+	border: 1px solid rgba(96, 39, 0, 0.1);
+	border-radius: 8px;
+	padding: var(--luci-gutter-lg);
+	box-sizing: border-box;
+}
+
+/* Content card — readable padding on all pages */
+.luci-site-content,
+.luci-page-area {
+	width: 100%;
+	max-width: 75rem;
+	margin: 0 auto;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.luci-content-shell {
+	background: var(--luci-white, #fff);
+	border: 1px solid rgba(96, 39, 0, 0.1);
+	border-radius: 8px;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.luci-page-main article {
+	background: transparent;
+	border: 0;
+}
+
+.luci-page-main .entry-content {
+	padding: 0 var(--luci-gutter-lg) var(--luci-gutter-lg);
+	margin: 0;
+	max-width: none;
+	background: transparent;
+	border: 0;
+}
+
+.luci-page-main .entry-header {
+	padding: var(--luci-gutter-lg) var(--luci-gutter-lg) 0;
+}
+
+.luci-page-main .entry-title {
+	margin: 0 0 0.75rem;
+	font-size: clamp(1.75rem, 5vw, 2.5rem);
+	line-height: 1.15;
+}
+
+/* WordPress block / media — prevent overflow */
+.entry-content img,
+.entry-content figure,
+.entry-content iframe,
+.entry-content video,
+.entry-content embed,
+.entry-content .wp-block-image img {
+	max-width: 100% !important;
+	height: auto !important;
+}
+
+.entry-content figure {
+	margin-inline: 0;
+}
+
+.entry-content ul,
+.entry-content ol {
+	padding-inline-start: 1.35rem;
+}
+
+.entry-content p,
+.entry-content li,
+.entry-content .luci-lead {
+	font-size: clamp(1.05rem, 2.8vw, 1.2rem);
+	line-height: 1.6;
+}
+
+/* Hub cards — single column on narrow screens */
+@media (max-width: 640px) {
+	.luci-category-cards {
+		grid-template-columns: 1fr;
+	}
+
+	.luci-outbound-links {
+		flex-direction: column;
+	}
+
+	.luci-outbound-links .luci-btn {
+		width: 100%;
+		min-width: 0;
+	}
+}
+
+/* Header utility bar — logo + actions on one row */
+@media (max-width: 991px) {
+	#luci-hcs-header .utility-bar-flex {
+		flex-wrap: nowrap;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0.35rem var(--luci-gutter);
+		gap: 0.5rem;
+		min-height: auto;
+	}
+
+	#luci-hcs-header .utility-left-nav {
+		flex: 0 1 auto;
+		min-width: 0;
+		justify-content: flex-start;
+	}
+
+	#luci-hcs-header .utility-right-nav {
+		flex: 0 1 auto;
+		justify-content: flex-end;
+		flex-wrap: nowrap;
+		gap: 0.15rem 0.35rem;
+		min-width: 0;
+	}
+
+	#luci-hcs-header .utility-right-nav .luci-account-link,
+	#luci-hcs-header .utility-right-nav .luci-cart-link,
+	#luci-hcs-header .utility-right-nav .help-link,
+	#luci-hcs-header .utility-right-nav .basic-phone-btn {
+		min-height: 44px;
+		padding-inline: 0.4rem;
+	}
+
+	#luci-hcs-header .topnav {
+		height: auto !important;
+		min-height: 0 !important;
+	}
+
+	#luci-hcs-header .topnav .product-nav-container {
+		padding-inline: var(--luci-gutter) !important;
+	}
+
+	#luci-hcs-header .top.luci-header__nav {
+		min-height: 0;
+	}
+
+	/* GoDaddy logo background chip */
+	#luci-hcs-header .topnav-logo.white-logo-bg,
+	#luci-hcs-header .topnav-logo.pl-large-logo {
+		background: transparent !important;
+		padding: 0 !important;
+	}
+}
+
+/* Homepage — consistent horizontal gutters */
+@media (max-width: 991px) {
+	body.luci-front-page .luci-meet-hero,
+	body.luci-front-page .luci-meet-journey,
+	body.luci-front-page .luci-home-below-hero__inner {
+		padding-inline: var(--luci-gutter) !important;
+		box-sizing: border-box;
+	}
+
+	body.luci-front-page .luci-meet-hero__inner,
+	body.luci-front-page .luci-portal-hub {
+		width: 100%;
+		max-width: 100%;
+	}
+
+	body.luci-front-page .luci-meet-step__inner {
+		grid-template-columns: 1fr;
+		text-align: center;
+	}
+
+	body.luci-front-page .luci-meet-step--right .luci-meet-step__copy,
+	body.luci-front-page .luci-meet-step--left .luci-meet-step__copy {
+		text-align: center;
+		order: unset;
+	}
+
+	body.luci-front-page .luci-meet-step--right .luci-meet-step__figure {
+		order: unset;
+	}
+
+	body.luci-front-page .luci-meet-step--right .luci-meet-step__img,
+	body.luci-front-page .luci-meet-step--left .luci-meet-step__img {
+		margin-inline: auto;
+	}
+
+	body.luci-front-page .luci-portal-tile {
+		min-height: 3.25rem;
+		touch-action: manipulation;
+	}
+
+	/* Domain search pill — keep horizontal layout (same as desktop) */
+	body.luci-front-page .luci-meet-domain-search {
+		max-width: 100%;
+		margin-inline: auto;
+	}
+
+	body.luci-front-page .luci-meet-domain-search__pill {
+		flex-direction: row;
+		align-items: stretch;
+	}
+
+	body.luci-front-page .luci-meet-domain-search__submit {
+		width: auto;
+		border-left: 2px solid var(--luci-brown, #602700);
+		border-top: 0;
+		border-radius: 0 999px 999px 0;
+	}
+}
+
+/* Tax disclaimer + footer — full bleed */
+.luci-tax-disclaimer {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.luci-tax-disclaimer .container {
+	padding-inline: var(--luci-gutter) !important;
+	max-width: 100% !important;
+	width: 100% !important;
+	box-sizing: border-box;
+}
+
+#luci-hcs-footer.reseller-footer {
+	width: 100% !important;
+	max-width: 100% !important;
+	margin: 0;
+	box-sizing: border-box;
+	overflow-x: hidden;
+}
+
+#luci-hcs-footer .reseller-container {
+	width: 100% !important;
+	max-width: 100% !important;
+	padding: var(--luci-gutter-lg) var(--luci-gutter) !important;
+	box-sizing: border-box;
+}
+
+/* Footer stack — mobile / narrow only (do not force column on desktop) */
+@media (max-width: 767px) {
+	#luci-hcs-footer .reseller-footer-links {
+		display: flex !important;
+		flex-direction: column !important;
+		align-items: flex-start !important;
+		flex-wrap: nowrap !important;
+		gap: 0.65rem !important;
+		width: 100%;
+	}
+
+	#luci-hcs-footer .reseller-footer-links li {
+		width: 100%;
+		margin: 0;
+	}
+
+	#luci-hcs-footer .reseller-footer-links a {
+		display: block;
+		padding: 0.35rem 0;
+		font-size: 1.05rem;
+	}
+
+	#luci-hcs-footer .reseller-footer-utos {
+		font-size: 0.9rem;
+		line-height: 1.55;
+		margin: 1rem 0;
+	}
+
+	#luci-hcs-footer .reseller-footer-legal {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem 1.25rem;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+}
+
+/* One disclaimer — hide duplicate in page body when tax bar is present */
+body.luci-standalone:has(.luci-tax-disclaimer) .entry-content .luci-disclaimer,
+body.luci-standalone:has(.luci-tax-disclaimer) .luci-hero-extra .luci-disclaimer {
+	display: none !important;
+}
+
+body.luci-front-page:has(.luci-tax-disclaimer) .luci-home-below-hero > .luci-disclaimer {
+	display: none !important;
+}
+
+/* css/home-shell.css */
+/**
+ * Homepage visual shell — lime background, lime header/nav, white content card.
+ * Applied to all WordPress pages via body.luci-home-shell (see inc/page-shell.php).
+ */
+
+body.luci-home-shell.luci-standalone,
+body.luci-home-shell.luci-standalone.ux-app,
+body.luci-home-shell #main.luci-site-main,
+body.luci-home-shell .luci-home-below-hero,
+body.luci-home-shell .luci-home-below-hero__inner {
+	background-color: var(--luci-lime, #c1ff00) !important;
+	color: var(--luci-brown, #602700);
+}
+
+body.luci-home-shell .luci-site-main {
+	min-height: 0;
+	padding: 0;
+	max-width: none;
+}
+
+/* Header — seamless lime (same as front page) */
+body.luci-home-shell .luci-header-shell .top,
+body.luci-home-shell .luci-header-shell .luci-top,
+body.luci-home-shell #luci-hcs-header.luci-store-header,
+body.luci-home-shell #luci-hcs-header .utility-bar.single-use-header,
+body.luci-home-shell #luci-hcs-header .top.luci-header__nav,
+body.luci-home-shell #luci-hcs-header .top section,
+body.luci-home-shell #luci-hcs-header .topnav,
+body.luci-home-shell #luci-hcs-header .top .product-nav-container,
+body.luci-home-shell #luci-hcs-header .top .product-nav-row {
+	background-color: var(--luci-lime, #c1ff00) !important;
+	background: var(--luci-lime, #c1ff00) !important;
+	border-bottom-color: rgba(96, 39, 0, 0.1) !important;
+}
+
+body.luci-home-shell #luci-hcs-header .topnav {
+	height: auto !important;
+	min-height: 3.75rem;
+}
+
+body.luci-home-shell .luci-header-shell #luci-topnav-items .tray-toggle,
+body.luci-home-shell .luci-header-shell #luci-topnav-items .luci-nav-dropdown__trigger,
+body.luci-home-shell .luci-header-shell #luci-topnav-items .topnav-nontray-btn {
+	padding: 1.2rem 1.45rem !important;
+	font-size: 1.33rem !important;
+	font-weight: 700 !important;
+	min-height: 4.7rem !important;
+	line-height: 1.2 !important;
+	align-items: center !important;
+}
+
+@media (min-width: 1200px) {
+	body.luci-home-shell .luci-header-shell #luci-topnav-items .tray-toggle,
+	body.luci-home-shell .luci-header-shell #luci-topnav-items .luci-nav-dropdown__trigger {
+		font-size: 1.4rem !important;
+		padding: 1.3rem 1.7rem !important;
+	}
+}
+
+@media (max-width: 991px) {
+	body.luci-home-shell .luci-header-shell #luci-topnav-items .tray-toggle,
+	body.luci-home-shell .luci-header-shell #luci-topnav-items .luci-nav-dropdown__trigger,
+	body.luci-home-shell .luci-header-shell #luci-topnav-items .topnav-nontray-btn {
+		color: var(--luci-brown, #602700) !important;
+		opacity: 1 !important;
+	}
+}
+
+body.luci-home-shell .luci-header-shell .topnav .product-nav-row {
+	align-items: center !important;
+	min-height: 3.75rem;
+}
+
+body.luci-home-shell #luci-hcs-header .utility-right-nav .basic-phone-btn,
+body.luci-home-shell #luci-hcs-header .utility-right-nav .help-link,
+body.luci-home-shell #luci-hcs-header .utility-right-nav .tray-toggle,
+body.luci-home-shell #luci-hcs-header .utility-right-nav .luci-cart-link,
+body.luci-home-shell #luci-hcs-header .topnav .tray-toggle,
+body.luci-home-shell #luci-hcs-header .topnav .topnav-direct-link,
+body.luci-home-shell #luci-hcs-header .topnav .luci-nav-dropdown__trigger {
+	color: var(--luci-brown, #602700);
+}
+
+body.luci-home-shell #luci-hcs-header .topnav .tray-toggle:hover,
+body.luci-home-shell #luci-hcs-header .topnav .luci-nav-dropdown__trigger:hover,
+body.luci-home-shell #luci-hcs-header .utility-right-nav a:hover,
+body.luci-home-shell #luci-hcs-header .utility-right-nav button:hover {
+	background: rgba(96, 39, 0, 0.08);
+}
+
+body.luci-home-shell #luci-hcs-header .luci-topnav-toggle {
+	border-color: var(--luci-brown, #602700);
+	color: var(--luci-brown, #602700);
+	background: rgba(255, 255, 255, 0.55);
+}
+
+/* Page content — white card on lime (reuses homepage below-hero spacing) */
+body.luci-home-shell .luci-home-below-hero__inner {
+	padding: clamp(1.5rem, 4vw, 2.5rem) var(--luci-gutter, 1rem) clamp(2.5rem, 5vw, 3.5rem);
+	box-sizing: border-box;
+}
+
+body.luci-home-shell .luci-page-area {
+	max-width: none;
+	margin: 0;
+	padding: 0;
+}
+
+body.luci-home-shell .luci-page-card {
+	background: var(--luci-white, #fff);
+	border: 2px solid rgba(96, 39, 0, 0.12);
+	border-radius: 12px;
+	box-shadow: 4px 4px 0 rgba(96, 39, 0, 0.15);
+	box-sizing: border-box;
+	max-width: 75rem;
+	margin: 0 auto;
+	padding: var(--luci-gutter-lg, clamp(1.25rem, 4vw, 2rem));
+}
+
+/* Flat landing pages (bespoke) — no white card */
+body.luci-home-shell .luci-landing-page,
+body.luci-home-shell .luci-landing-page__inner {
+	background: transparent !important;
+	box-shadow: none;
+	border: 0;
+	padding: 0;
+	max-width: none;
+}
+
+body.luci-home-shell .luci-landing-page {
+	width: 100%;
+}
+
+body.luci-home-shell .luci-page-card--narrow {
+	max-width: 48rem;
+}
+
+body.luci-home-shell .luci-page-card .entry-header {
+	padding: 0 0 0.5rem;
+}
+
+body.luci-home-shell .luci-page-card .entry-title {
+	font-family: var(--luci-font-heading, "Playfair Display", serif);
+	font-size: clamp(2rem, 5vw, 2.75rem);
+	line-height: 1.1;
+	color: var(--luci-brown, #602700);
+	margin: 0 0 0.75rem;
+}
+
+body.luci-home-shell .luci-page-card .entry-content {
+	padding: 0;
+	margin: 0;
+	max-width: none;
+	background: transparent;
+	border: 0;
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+	font-size: 1.05rem;
+	line-height: 1.55;
+	color: var(--luci-brown, #602700);
+}
+
+body.luci-home-shell .luci-tax-disclaimer {
+	background: var(--luci-lime, #c1ff00);
+	color: var(--luci-brown, #602700);
+	border-top-color: rgba(96, 39, 0, 0.12);
+}
+
+/* css/home-page.css */
+/**
+ * Front page — hero, Meet Luci, portal hub (lime shell in home-shell.css).
+ */
+
+body.luci-front-page .luci-meet-hero,
+body.luci-front-page .luci-meet-journey {
+	background-color: var(--luci-lime, #c1ff00) !important;
+	color: var(--luci-brown, #602700);
+}
+
+/* Hero — larger, bolder lander type */
+body.luci-front-page .luci-home-hero__title {
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+	font-size: clamp(2.25rem, 6vw, 3.75rem);
+	font-weight: 800;
+	line-height: 1.05;
+	letter-spacing: 0.03em;
+	color: var(--luci-brown, #602700);
+}
+
+body.luci-front-page .luci-home-hero__promo-headline {
+	font-size: clamp(1.75rem, 3.2vw, 2.35rem);
+	line-height: 1.2;
+}
+
+body.luci-front-page .luci-home-hero__promo-sub {
+	font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+	line-height: 1.5;
+}
+
+body.luci-front-page .luci-home-hero__input,
+body.luci-front-page .luci-home-hero__submit {
+	font-size: 1.125rem;
+	padding: 0.9rem 1.15rem;
+}
+
+body.luci-front-page .luci-home-hero__panel.home-hero-text {
+	background: color-mix(in srgb, var(--luci-olive, #214f0c) 78%, #000 22%);
+	padding: 1.5rem 1.75rem 1.75rem;
+}
+
+/* Portal hub — bold, legible */
+body.luci-front-page .luci-home-below-hero__inner {
+	padding: clamp(2.5rem, 5vw, 4rem) 1rem clamp(3rem, 6vw, 4.5rem);
+}
+
+body.luci-front-page .luci-portal-hub__title {
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+	font-size: clamp(2rem, 4.5vw, 2.875rem);
+	font-weight: 800;
+	letter-spacing: -0.02em;
+	line-height: 1.1;
+	margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
+	color: var(--luci-brown, #602700);
+}
+
+body.luci-front-page .luci-portal-tile,
+body.luci-front-page .luci-portal-tile__label {
+	color: var(--luci-brown, #602700);
+}
+
+body.luci-front-page .luci-portal-tile__icon {
+	color: var(--luci-brown, #602700);
+	background: rgba(255, 255, 255, 0.4);
+}
+
+body.luci-front-page .luci-portal-tile:hover .luci-portal-tile__label {
+	text-decoration: underline;
+	text-underline-offset: 0.15em;
+}
+
+body.luci-front-page .luci-hero-extra,
+body.luci-front-page .luci-hero-extra p {
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+	font-size: clamp(1.125rem, 2vw, 1.375rem);
+	line-height: 1.65;
+	max-width: 44rem;
+}
+
+body.luci-front-page .luci-hero-extra h2,
+body.luci-front-page .luci-hero-extra h3 {
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+	font-weight: 800;
+	font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+	margin: 2rem 0 0.85rem;
+}
+
+body.luci-front-page .luci-hero-extra ul {
+	font-size: clamp(1.0625rem, 1.8vw, 1.25rem);
+	line-height: 1.6;
+}
+
+body.luci-front-page .luci-disclaimer {
+	font-size: 0.8125rem;
+	opacity: 0.85;
+	margin-top: 2rem;
+}
+
+/* Avoid triple disclaimer from page content + template */
+body.luci-front-page .luci-hero-extra .luci-disclaimer {
+	display: none;
+}
+
+body.luci-front-page .luci-tax-disclaimer {
+	background: var(--luci-lime, #c1ff00);
+	color: var(--luci-brown, #602700);
+	border-top-color: rgba(96, 39, 0, 0.12);
+}
+
+/* css/portal-hub.css */
+/**
+
+ * Home portal hub — “What can we do for you?”
+
+ */
+
+
+
+.luci-portal-hub {
+
+	margin: 0;
+
+	padding-top: clamp(1rem, 3vw, 2rem);
+
+}
+
+
+
+.luci-portal-hub__intro {
+
+	margin: 0 0 clamp(1.5rem, 3vw, 2rem);
+
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+
+	font-size: clamp(1.125rem, 2vw, 1.35rem);
+
+	line-height: 1.5;
+
+	max-width: 36rem;
+
+	color: var(--luci-brown, #602700);
+
+}
+
+
+
+.luci-portal-hub__grid {
+
+	display: grid;
+
+	grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+
+	gap: 1.5rem 1.25rem;
+
+	list-style: none;
+
+	margin: 0;
+
+	padding: 0;
+
+}
+
+
+
+@media (min-width: 768px) {
+
+	.luci-portal-hub__grid {
+
+		grid-template-columns: repeat(4, 1fr);
+
+		gap: 1.75rem 1.5rem;
+
+	}
+
+}
+
+
+
+.luci-portal-tile {
+
+	display: flex;
+
+	flex-direction: column;
+
+	align-items: center;
+
+	text-align: center;
+
+	text-decoration: none;
+
+	color: inherit;
+
+	gap: 0.85rem;
+
+	padding: 0.35rem;
+
+	transition: transform 0.15s ease;
+
+}
+
+
+
+.luci-portal-tile:hover,
+
+.luci-portal-tile:focus-visible {
+
+	transform: translateY(-4px);
+
+}
+
+
+
+.luci-portal-tile__icon {
+
+	display: flex;
+
+	align-items: center;
+
+	justify-content: center;
+
+	width: 100%;
+
+	min-height: 6rem;
+
+	padding: 1.15rem 0.85rem;
+
+	box-sizing: border-box;
+
+	background: rgba(255, 255, 255, 0.45);
+
+	border: 2px solid rgba(96, 39, 0, 0.15);
+
+	border-radius: 14px;
+
+	box-shadow: 3px 3px 0 rgba(96, 39, 0, 0.12);
+
+	transition: border-color 0.15s ease, box-shadow 0.15s ease;
+
+}
+
+
+
+.luci-portal-tile:hover .luci-portal-tile__icon,
+
+.luci-portal-tile:focus-visible .luci-portal-tile__icon {
+
+	border-color: var(--luci-brown, #602700);
+
+	box-shadow: 5px 5px 0 rgba(96, 39, 0, 0.2);
+
+}
+
+
+
+.luci-portal-tile__icon::before {
+
+	display: none !important;
+
+	content: none !important;
+
+}
+
+
+
+.luci-portal-tile__svg,
+.luci-portal-tile__glyph {
+	display: block;
+	color: currentColor;
+	flex-shrink: 0;
+}
+
+
+
+.luci-portal-tile__label {
+
+	display: block;
+
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+
+	font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+
+	font-weight: 800;
+
+	line-height: 1.3;
+
+	max-width: 11rem;
+
+}
+
+
+
+/* css/meet-luci.css */
+/**
+
+ * Meet Luci — homepage hero + illustrated journey.
+
+ */
+
+
+
+.luci-meet-hero {
+
+	background: var(--luci-lime, #c1ff00);
+
+	color: var(--luci-brown, #602700);
+
+	padding: clamp(2.5rem, 6vw, 4rem) 1rem clamp(2rem, 4vw, 3rem);
+
+	overflow: hidden;
+
+}
+
+
+
+.luci-meet-hero__inner {
+
+	max-width: 1140px;
+
+	margin: 0 auto;
+
+	display: flex;
+
+	flex-direction: column;
+
+	align-items: center;
+
+	text-align: center;
+
+	gap: clamp(1.5rem, 3vw, 2.25rem);
+
+}
+
+
+
+.luci-meet-hero__visual {
+
+	position: relative;
+
+	width: 100%;
+
+	max-width: min(52rem, 96vw);
+
+	line-height: 0;
+
+}
+
+
+
+.luci-meet-hero__reach {
+
+	display: block;
+
+	width: 100%;
+
+	height: auto;
+
+	max-height: min(20rem, 48vw);
+
+	object-fit: contain;
+
+	margin: 0 auto;
+
+}
+
+
+
+.luci-meet-hero__copy {
+
+	max-width: 44rem;
+
+}
+
+
+
+.luci-meet-hero__title {
+
+	margin: 0 0 0.5rem;
+
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+
+	font-size: clamp(3.25rem, 10vw, 6rem);
+
+	font-weight: 800;
+
+	line-height: 0.98;
+
+	letter-spacing: -0.03em;
+
+	color: var(--luci-brown, #602700);
+
+}
+
+
+
+.luci-meet-hero__tagline {
+
+	margin: 0 0 1rem;
+
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+
+	font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+
+	font-weight: 600;
+
+	line-height: 1.2;
+
+	color: var(--luci-brown, #602700);
+
+}
+
+
+
+.luci-meet-hero__lede {
+
+	margin: 0 0 1.75rem;
+
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+
+	font-size: clamp(1.125rem, 2.2vw, 1.35rem);
+
+	line-height: 1.55;
+
+	max-width: 38rem;
+
+	margin-inline: auto;
+
+}
+
+
+
+.luci-meet-hero__cta {
+
+	display: inline-block;
+
+	padding: 1rem 2rem;
+
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+
+	font-size: clamp(1.0625rem, 2vw, 1.2rem);
+
+	font-weight: 800;
+
+	text-decoration: none;
+
+	color: var(--luci-lime, #c1ff00);
+
+	background: var(--luci-brown, #602700);
+
+	border: 2px solid var(--luci-brown, #602700);
+
+	border-radius: 999px;
+
+	box-shadow: 4px 4px 0 rgba(96, 39, 0, 0.35);
+
+	transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+}
+
+
+
+.luci-meet-hero__cta:hover,
+
+.luci-meet-hero__cta:focus-visible {
+
+	transform: translate(-2px, -2px);
+
+	box-shadow: 6px 6px 0 rgba(96, 39, 0, 0.4);
+
+	color: var(--luci-lime, #c1ff00);
+
+	text-decoration: none;
+
+}
+
+
+
+/* Journey */
+
+.luci-meet-journey {
+
+	background: var(--luci-lime, #c1ff00);
+
+}
+
+.luci-meet-journey .luci-meet-step {
+
+	content-visibility: auto;
+
+	contain-intrinsic-size: auto 28rem;
+
+}
+
+
+
+.luci-meet-step {
+
+	padding: clamp(2.5rem, 6vw, 4rem) 1rem;
+
+	border-top: 2px solid rgba(96, 39, 0, 0.1);
+
+}
+
+
+
+.luci-meet-step:nth-child(even) {
+
+	background: rgba(255, 255, 255, 0.12);
+
+}
+
+
+
+.luci-meet-step__inner {
+
+	max-width: 1000px;
+
+	margin: 0 auto;
+
+	display: grid;
+
+	gap: clamp(1.5rem, 4vw, 2.5rem);
+
+	align-items: center;
+
+}
+
+
+
+@media (min-width: 768px) {
+
+	.luci-meet-step__inner {
+
+		grid-template-columns: 1fr 1fr;
+
+		gap: 3rem;
+
+	}
+
+
+
+	.luci-meet-step--right .luci-meet-step__figure {
+
+		order: 2;
+
+	}
+
+
+
+	.luci-meet-step--right .luci-meet-step__copy {
+
+		order: 1;
+
+		text-align: right;
+
+	}
+
+
+
+	.luci-meet-step--left .luci-meet-step__copy {
+
+		text-align: left;
+
+	}
+
+}
+
+
+
+.luci-meet-step__figure {
+
+	margin: 0;
+
+	line-height: 0;
+
+}
+
+
+
+.luci-meet-step__img {
+
+	display: block;
+
+	width: 100%;
+
+	max-width: min(24rem, 100%);
+
+	height: auto;
+
+	margin: 0 auto;
+
+	filter: drop-shadow(6px 8px 0 rgba(96, 39, 0, 0.12));
+
+}
+
+
+
+.luci-meet-step--right .luci-meet-step__img {
+
+	margin-inline-start: auto;
+
+	margin-inline-end: 0;
+
+}
+
+
+
+.luci-meet-step--left .luci-meet-step__img {
+
+	margin-inline-start: 0;
+
+	margin-inline-end: auto;
+
+}
+
+
+
+.luci-meet-step__title {
+
+	margin: 0 0 0.75rem;
+
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+
+	font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+
+	font-weight: 800;
+
+	line-height: 1.1;
+
+	letter-spacing: -0.02em;
+
+	color: var(--luci-brown, #602700);
+
+}
+
+
+
+.luci-meet-step__text {
+
+	margin: 0;
+
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+
+	font-size: clamp(1.125rem, 2vw, 1.3rem);
+
+	line-height: 1.55;
+
+	color: var(--luci-brown, #602700);
+
+}
+
+/* Journey domain search — integrated pill (CTA offset shadow) */
+.luci-meet-domain-search {
+	margin: 1.25rem 0 0;
+	width: 100%;
+	max-width: min(36rem, 100%);
+	transition: transform 0.15s ease;
+}
+
+.luci-meet-domain-search:focus-within {
+	transform: translate(-2px, -2px);
+}
+
+.luci-meet-step--right .luci-meet-domain-search {
+	margin-inline-start: auto;
+}
+
+.luci-meet-domain-search__pill {
+	display: flex;
+	align-items: stretch;
+	width: 100%;
+	background: var(--luci-white, #fff);
+	border: 2px solid var(--luci-brown, #602700);
+	border-radius: 999px;
+	overflow: hidden;
+	box-shadow: 4px 4px 0 rgba(96, 39, 0, 0.35);
+	transition: box-shadow 0.15s ease;
+}
+
+.luci-meet-domain-search:focus-within .luci-meet-domain-search__pill {
+	box-shadow: 6px 6px 0 rgba(96, 39, 0, 0.4);
+}
+
+.luci-meet-domain-search__input {
+	flex: 1 1 auto;
+	min-width: 0;
+	margin: 0;
+	padding: 0.9rem 1.15rem;
+	border: 0;
+	border-radius: 0;
+	font-family: var(--luci-font-body, "Open Sans", Arial, sans-serif);
+	font-size: 1rem;
+	line-height: 1.35;
+	color: var(--luci-brown, #602700);
+	background: transparent;
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+.luci-meet-domain-search__input::placeholder {
+	color: rgba(96, 39, 0, 0.45);
+}
+
+.luci-meet-domain-search__input:focus {
+	outline: none;
+	box-shadow: inset 0 0 0 2px var(--luci-lime, #c1ff00);
+}
+
+/* Search button — match hero CTA (brown + lime) inside pill */
+.luci-meet-domain-search__submit {
+	flex: 0 0 auto;
+	margin: 0;
+	padding: 0.9rem 1.65rem;
+	border: 0;
+	border-left: 2px solid var(--luci-brown, #602700);
+	border-radius: 0 999px 999px 0;
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+	font-size: 1rem;
+	font-weight: 800;
+	line-height: 1.35;
+	color: var(--luci-lime, #c1ff00);
+	background: var(--luci-brown, #602700);
+	cursor: pointer;
+	white-space: nowrap;
+	box-shadow: none;
+	transition: filter 0.15s ease;
+}
+
+.luci-meet-domain-search__submit:hover,
+.luci-meet-domain-search__submit:focus-visible {
+	color: var(--luci-lime, #c1ff00);
+	filter: brightness(1.08);
+	transform: none;
+	box-shadow: none;
+}
+
+.luci-meet-step__inline-link {
+	color: var(--luci-brown, #602700);
+	font-weight: 700;
+	text-decoration: underline;
+	text-underline-offset: 0.15em;
+}
+
+.luci-meet-step__inline-link:hover,
+.luci-meet-step__inline-link:focus-visible {
+	color: var(--luci-brown, #602700);
+	opacity: 0.85;
+}
+
+.luci-meet-domain-search__transfer {
+	margin: 0.85rem 0 0;
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+	font-size: clamp(0.9375rem, 1.8vw, 1.05rem);
+	line-height: 1.45;
+}
+
+.luci-meet-domain-search__transfer-link {
+	color: var(--luci-brown, #602700);
+	font-weight: 600;
+	text-decoration: underline;
+	text-underline-offset: 0.15em;
+}
+
+.luci-meet-domain-search__transfer-link:hover,
+.luci-meet-domain-search__transfer-link:focus-visible {
+	color: var(--luci-brown, #602700);
+	opacity: 0.85;
+}
+
+@media (max-width: 520px) {
+	.luci-meet-domain-search__input {
+		padding: 0.75rem 0.9rem;
+		font-size: 0.9375rem;
+	}
+
+	.luci-meet-domain-search__submit {
+		padding: 0.75rem 1.1rem;
+		font-size: 0.9375rem;
+	}
+}
+
+

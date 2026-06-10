@@ -1,0 +1,489 @@
+/**
+
+ * Meet Luci — homepage hero + illustrated journey.
+
+ */
+
+
+
+.luci-meet-hero {
+
+	background: var(--luci-lime, #c1ff00);
+
+	color: var(--luci-brown, #602700);
+
+	padding: clamp(2.5rem, 6vw, 4rem) 1rem clamp(2rem, 4vw, 3rem);
+
+	overflow: hidden;
+
+}
+
+
+
+.luci-meet-hero__inner {
+
+	max-width: 1140px;
+
+	margin: 0 auto;
+
+	display: flex;
+
+	flex-direction: column;
+
+	align-items: center;
+
+	text-align: center;
+
+	gap: clamp(1.5rem, 3vw, 2.25rem);
+
+}
+
+
+
+.luci-meet-hero__visual {
+
+	position: relative;
+
+	width: 100%;
+
+	max-width: min(52rem, 96vw);
+
+	line-height: 0;
+
+}
+
+
+
+.luci-meet-hero__reach {
+
+	display: block;
+
+	width: 100%;
+
+	height: auto;
+
+	max-height: min(20rem, 48vw);
+
+	object-fit: contain;
+
+	margin: 0 auto;
+
+}
+
+
+
+.luci-meet-hero__copy {
+
+	max-width: 44rem;
+
+}
+
+
+
+.luci-meet-hero__title {
+
+	margin: 0 0 0.5rem;
+
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+
+	font-size: clamp(3.25rem, 10vw, 6rem);
+
+	font-weight: 800;
+
+	line-height: 0.98;
+
+	letter-spacing: -0.03em;
+
+	color: var(--luci-brown, #602700);
+
+}
+
+
+
+.luci-meet-hero__tagline {
+
+	margin: 0 0 1rem;
+
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+
+	font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+
+	font-weight: 600;
+
+	line-height: 1.2;
+
+	color: var(--luci-brown, #602700);
+
+}
+
+
+
+.luci-meet-hero__lede {
+
+	margin: 0 0 1.75rem;
+
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+
+	font-size: clamp(1.125rem, 2.2vw, 1.35rem);
+
+	line-height: 1.55;
+
+	max-width: 38rem;
+
+	margin-inline: auto;
+
+}
+
+
+
+.luci-meet-hero__cta {
+
+	display: inline-block;
+
+	padding: 1rem 2rem;
+
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+
+	font-size: clamp(1.0625rem, 2vw, 1.2rem);
+
+	font-weight: 800;
+
+	text-decoration: none;
+
+	color: var(--luci-lime, #c1ff00);
+
+	background: var(--luci-brown, #602700);
+
+	border: 2px solid var(--luci-brown, #602700);
+
+	border-radius: 999px;
+
+	box-shadow: 4px 4px 0 rgba(96, 39, 0, 0.35);
+
+	transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+}
+
+
+
+.luci-meet-hero__cta:hover,
+
+.luci-meet-hero__cta:focus-visible {
+
+	transform: translate(-2px, -2px);
+
+	box-shadow: 6px 6px 0 rgba(96, 39, 0, 0.4);
+
+	color: var(--luci-lime, #c1ff00);
+
+	text-decoration: none;
+
+}
+
+
+
+/* Journey */
+
+.luci-meet-journey {
+
+	background: var(--luci-lime, #c1ff00);
+
+}
+
+.luci-meet-journey .luci-meet-step {
+
+	content-visibility: auto;
+
+	contain-intrinsic-size: auto 28rem;
+
+}
+
+
+
+.luci-meet-step {
+
+	padding: clamp(2.5rem, 6vw, 4rem) 1rem;
+
+	border-top: 2px solid rgba(96, 39, 0, 0.1);
+
+}
+
+
+
+.luci-meet-step:nth-child(even) {
+
+	background: rgba(255, 255, 255, 0.12);
+
+}
+
+
+
+.luci-meet-step__inner {
+
+	max-width: 1000px;
+
+	margin: 0 auto;
+
+	display: grid;
+
+	gap: clamp(1.5rem, 4vw, 2.5rem);
+
+	align-items: center;
+
+}
+
+
+
+@media (min-width: 768px) {
+
+	.luci-meet-step__inner {
+
+		grid-template-columns: 1fr 1fr;
+
+		gap: 3rem;
+
+	}
+
+
+
+	.luci-meet-step--right .luci-meet-step__figure {
+
+		order: 2;
+
+	}
+
+
+
+	.luci-meet-step--right .luci-meet-step__copy {
+
+		order: 1;
+
+		text-align: right;
+
+	}
+
+
+
+	.luci-meet-step--left .luci-meet-step__copy {
+
+		text-align: left;
+
+	}
+
+}
+
+
+
+.luci-meet-step__figure {
+
+	margin: 0;
+
+	line-height: 0;
+
+}
+
+
+
+.luci-meet-step__img {
+
+	display: block;
+
+	width: 100%;
+
+	max-width: min(24rem, 100%);
+
+	height: auto;
+
+	margin: 0 auto;
+
+	filter: drop-shadow(6px 8px 0 rgba(96, 39, 0, 0.12));
+
+}
+
+
+
+.luci-meet-step--right .luci-meet-step__img {
+
+	margin-inline-start: auto;
+
+	margin-inline-end: 0;
+
+}
+
+
+
+.luci-meet-step--left .luci-meet-step__img {
+
+	margin-inline-start: 0;
+
+	margin-inline-end: auto;
+
+}
+
+
+
+.luci-meet-step__title {
+
+	margin: 0 0 0.75rem;
+
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+
+	font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+
+	font-weight: 800;
+
+	line-height: 1.1;
+
+	letter-spacing: -0.02em;
+
+	color: var(--luci-brown, #602700);
+
+}
+
+
+
+.luci-meet-step__text {
+
+	margin: 0;
+
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+
+	font-size: clamp(1.125rem, 2vw, 1.3rem);
+
+	line-height: 1.55;
+
+	color: var(--luci-brown, #602700);
+
+}
+
+/* Journey domain search — integrated pill (CTA offset shadow) */
+.luci-meet-domain-search {
+	margin: 1.25rem 0 0;
+	width: 100%;
+	max-width: min(36rem, 100%);
+	transition: transform 0.15s ease;
+}
+
+.luci-meet-domain-search:focus-within {
+	transform: translate(-2px, -2px);
+}
+
+.luci-meet-step--right .luci-meet-domain-search {
+	margin-inline-start: auto;
+}
+
+.luci-meet-domain-search__pill {
+	display: flex;
+	align-items: stretch;
+	width: 100%;
+	background: var(--luci-white, #fff);
+	border: 2px solid var(--luci-brown, #602700);
+	border-radius: 999px;
+	overflow: hidden;
+	box-shadow: 4px 4px 0 rgba(96, 39, 0, 0.35);
+	transition: box-shadow 0.15s ease;
+}
+
+.luci-meet-domain-search:focus-within .luci-meet-domain-search__pill {
+	box-shadow: 6px 6px 0 rgba(96, 39, 0, 0.4);
+}
+
+.luci-meet-domain-search__input {
+	flex: 1 1 auto;
+	min-width: 0;
+	margin: 0;
+	padding: 0.9rem 1.15rem;
+	border: 0;
+	border-radius: 0;
+	font-family: var(--luci-font-body, "Open Sans", Arial, sans-serif);
+	font-size: 1rem;
+	line-height: 1.35;
+	color: var(--luci-brown, #602700);
+	background: transparent;
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+.luci-meet-domain-search__input::placeholder {
+	color: rgba(96, 39, 0, 0.45);
+}
+
+.luci-meet-domain-search__input:focus {
+	outline: none;
+	box-shadow: inset 0 0 0 2px var(--luci-lime, #c1ff00);
+}
+
+/* Search button — match hero CTA (brown + lime) inside pill */
+.luci-meet-domain-search__submit {
+	flex: 0 0 auto;
+	margin: 0;
+	padding: 0.9rem 1.65rem;
+	border: 0;
+	border-left: 2px solid var(--luci-brown, #602700);
+	border-radius: 0 999px 999px 0;
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+	font-size: 1rem;
+	font-weight: 800;
+	line-height: 1.35;
+	color: var(--luci-lime, #c1ff00);
+	background: var(--luci-brown, #602700);
+	cursor: pointer;
+	white-space: nowrap;
+	box-shadow: none;
+	transition: filter 0.15s ease;
+}
+
+.luci-meet-domain-search__submit:hover,
+.luci-meet-domain-search__submit:focus-visible {
+	color: var(--luci-lime, #c1ff00);
+	filter: brightness(1.08);
+	transform: none;
+	box-shadow: none;
+}
+
+.luci-meet-step__inline-link {
+	color: var(--luci-brown, #602700);
+	font-weight: 700;
+	text-decoration: underline;
+	text-underline-offset: 0.15em;
+}
+
+.luci-meet-step__inline-link:hover,
+.luci-meet-step__inline-link:focus-visible {
+	color: var(--luci-brown, #602700);
+	opacity: 0.85;
+}
+
+.luci-meet-domain-search__transfer {
+	margin: 0.85rem 0 0;
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+	font-size: clamp(0.9375rem, 1.8vw, 1.05rem);
+	line-height: 1.45;
+}
+
+.luci-meet-domain-search__transfer-link {
+	color: var(--luci-brown, #602700);
+	font-weight: 600;
+	text-decoration: underline;
+	text-underline-offset: 0.15em;
+}
+
+.luci-meet-domain-search__transfer-link:hover,
+.luci-meet-domain-search__transfer-link:focus-visible {
+	color: var(--luci-brown, #602700);
+	opacity: 0.85;
+}
+
+@media (max-width: 520px) {
+	.luci-meet-domain-search__input {
+		padding: 0.75rem 0.9rem;
+		font-size: 0.9375rem;
+	}
+
+	.luci-meet-domain-search__submit {
+		padding: 0.75rem 1.1rem;
+		font-size: 0.9375rem;
+	}
+}
+
+

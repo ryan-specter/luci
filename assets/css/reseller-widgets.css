@@ -1,0 +1,194 @@
+/**
+ * GoDaddy Reseller Store widgets — keep search/transfer fields usable under Luci theme CSS.
+ */
+
+.luci-site-main .luci-widget-panel,
+.luci-site-main .luci-domain-search,
+.luci-site-main .rstore-domain-search,
+.luci-site-main .rstore-domain-transfer,
+.luci-site-main .rstore-domain,
+.luci-site-main .widget.rstore-domain,
+.luci-site-main .rstore-product {
+	position: relative;
+	z-index: 2;
+}
+
+/* Shared text field styling (domain search, register, transfer, etc.) */
+.luci-page-main .entry-content .rstore-domain-search input:not([type="hidden"]):not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]),
+.luci-page-main .entry-content .rstore-domain-transfer input:not([type="hidden"]):not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]),
+.luci-page-main .entry-content .rstore-domain input:not([type="hidden"]):not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]),
+.luci-page-main .entry-content .widget.rstore-domain input:not([type="hidden"]):not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]),
+.luci-widget-panel input:not([type="hidden"]):not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]),
+.luci-widget-panel textarea,
+.luci-widget-panel select,
+.rstore-domain-search input[type="text"],
+.rstore-domain-search input[type="search"],
+.rstore-domain-search input[type="url"],
+.rstore-domain-search .search-field,
+.rstore-domain-search select,
+.rstore-domain-transfer input[type="text"],
+.rstore-domain-transfer input[type="search"],
+.rstore-domain-transfer input[type="url"],
+.rstore-domain input[type="text"],
+.rstore-domain input[type="search"],
+.rstore-domain input[type="url"],
+.luci-domain-transfer-input {
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 100%;
+	min-height: 2.75rem;
+	padding: 0.65rem 1rem !important;
+	font-family: var(--luci-font-body, "Open Sans", Arial, sans-serif) !important;
+	font-size: 1rem !important;
+	line-height: 1.4 !important;
+	color: #111 !important;
+	background: #fff !important;
+	border: 2px solid var(--luci-brown, #602700) !important;
+	border-radius: 0;
+	-webkit-appearance: auto;
+	appearance: auto;
+	opacity: 1 !important;
+	visibility: visible !important;
+	pointer-events: auto !important;
+	position: relative;
+	z-index: 3;
+	-webkit-user-select: text !important;
+	user-select: text !important;
+	touch-action: manipulation;
+}
+
+.luci-page-main .entry-content .rstore-domain-search input:focus,
+.luci-page-main .entry-content .rstore-domain-transfer input:focus,
+.luci-page-main .entry-content .rstore-domain input:focus,
+.luci-widget-panel input:focus,
+.luci-domain-transfer-input:focus {
+	outline: 2px solid var(--luci-lime, #c1ff00);
+	outline-offset: 2px;
+}
+
+.rstore-domain-search .form-container .search-form,
+.rstore-domain-search .search-form,
+.rstore-domain-transfer .search-form,
+.rstore-domain .search-form,
+.luci-domain-transfer-form {
+	display: flex !important;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	align-items: stretch;
+	width: 100%;
+}
+
+.rstore-domain-search .form-container .search-form .search-field,
+.rstore-domain-search .search-form .search-field,
+.rstore-domain-transfer .search-field,
+.rstore-domain .search-field,
+.luci-domain-transfer-form .search-field,
+.luci-domain-transfer-form .luci-domain-transfer-input {
+	flex: 1 1 14rem;
+	min-width: 12rem;
+	width: auto !important;
+	display: block !important;
+	margin: 0 !important;
+}
+
+.rstore-domain-search .form-container .search-form .search-submit,
+.rstore-domain-search .search-form .search-submit,
+.rstore-domain-search button[type="submit"],
+.rstore-domain-transfer button[type="submit"],
+.rstore-domain button[type="submit"],
+.luci-domain-transfer-form button[type="submit"] {
+	flex: 0 0 auto;
+	min-height: 2.75rem;
+	display: inline-flex !important;
+	align-items: center;
+	justify-content: center;
+	margin: 0 !important;
+	white-space: nowrap;
+}
+
+.rstore-domain-search,
+.rstore-domain-search-results {
+	min-height: 0;
+}
+
+.luci-widget-panel .rstore-domain-search,
+.luci-widget-panel .rstore-domain,
+.luci-widget-panel .rstore-domain-transfer {
+	background: transparent;
+}
+
+.luci-reseller-widget-empty {
+	padding: 1rem 1.25rem;
+	border: 1px dashed rgba(96, 39, 0, 0.35);
+	background: #fffef8;
+	color: #602700;
+}
+
+.luci-reseller-widget-empty code {
+	font-size: 0.9em;
+}
+
+/* Domain transfer hub (account-first flow) */
+.luci-domain-transfer-hub {
+	max-width: 42rem;
+}
+
+.luci-domain-transfer-lead {
+	margin-bottom: 1.25rem;
+}
+
+.luci-domain-transfer-steps {
+	list-style: none;
+	margin: 0 0 1.5rem;
+	padding: 0;
+	display: grid;
+	gap: 1.25rem;
+}
+
+.luci-domain-transfer-step {
+	padding: 1.25rem 1.5rem;
+	border: 1px solid rgba(96, 39, 0, 0.15);
+	border-radius: 4px;
+	background: #fffef8;
+}
+
+.luci-domain-transfer-step .luci-heading {
+	margin-top: 0;
+}
+
+.luci-domain-transfer-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin: 0.75rem 0 0;
+}
+
+.luci-domain-transfer-quick {
+	margin-top: 1rem;
+	padding-top: 1rem;
+	border-top: 1px solid rgba(96, 39, 0, 0.12);
+}
+
+.luci-domain-transfer-quick summary {
+	cursor: pointer;
+	font-weight: 600;
+	color: #602700;
+}
+
+.luci-domain-transfer-form {
+	margin-top: 0.75rem;
+}
+
+.luci-domain-transfer-note {
+	margin: 0.5rem 0 0;
+	font-size: 0.9rem;
+	color: #444;
+}
+
+/* Closed Hydra trays must not block clicks on page content */
+#luci-hcs-header .tray-dropdown[hidden],
+#luci-hcs-header .luci-product-tray-panel[hidden] {
+	display: none !important;
+	pointer-events: none !important;
+}

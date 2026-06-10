@@ -1,0 +1,551 @@
+/**
+ * Layout parity with GoDaddy Reseller storefront (my.luci.ltd / luci.ltd).
+ * Locks header dimensions to prevent shift when crossing WordPress ↔ storefront.
+ */
+
+:root {
+	--nav-height: 64px;
+	--luci-header-utility-h: var(--luci-util-bar-height, calc(var(--luci-logo-height, 70px) + 0.5rem));
+	--luci-secondarynav-h: 45px;
+	--luci-storefront-green: #c1ff00;
+	--luci-storefront-green-dark: #9dcc00;
+}
+
+/* White body on inner pages — storefront uses #fff, not cream */
+body.luci-standalone.ux-app:not(.luci-home-shell):not(.luci-error-fullscreen-page),
+body.luci-standalone:not(.luci-home-shell):not(.luci-error-fullscreen-page) {
+	background: #fff !important;
+	color: #111;
+}
+
+body.luci-standalone:not(.luci-home-shell) .luci-site-main {
+	background: #fff;
+	padding: 0;
+	max-width: none;
+}
+
+body.luci-front-page .luci-site-main {
+	min-height: 0;
+	background: transparent;
+	padding: 0;
+	max-width: none;
+}
+
+/* Fixed header stack height (white on inner pages; home-page.css overrides front page) */
+body:not(.luci-home-shell) #luci-hcs-header.luci-store-header {
+	position: relative;
+	z-index: 200;
+	background: #fff;
+}
+
+body:not(.luci-home-shell) #luci-hcs-header .utility-bar.single-use-header {
+	background: #fff;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+#luci-hcs-header.luci-store-header {
+	position: relative;
+	z-index: 200;
+}
+
+#luci-hcs-header .utility-bar-flex {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	min-height: var(--luci-header-utility-h);
+	align-items: center;
+}
+
+#luci-hcs-header .utility-left-nav {
+	align-items: center;
+	display: flex;
+}
+
+body:not(.luci-home-shell) #luci-hcs-header .top {
+	background: #fff;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+#luci-hcs-header .top {
+	min-height: var(--nav-height);
+}
+
+#luci-hcs-header .topnav {
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+	font-size: 1rem;
+	height: var(--nav-height);
+}
+
+/* GoDaddy container breakpoints (progressive max-width — matches reseller-sales-header) */
+#luci-hcs-header .topnav .product-nav-container,
+#luci-hcs-header + .secondarynav .product-nav-container {
+	margin-inline: auto;
+	padding-inline: 10px;
+	width: 100%;
+	max-width: 100%;
+}
+
+.luci-tax-disclaimer .container,
+#luci-hcs-footer .reseller-container,
+.luci-home-below-hero__inner,
+.luci-home-hero__inner {
+	margin-inline: auto;
+	padding-inline: 10px;
+	width: 100%;
+	max-width: 100%;
+}
+
+@media (min-width: 768px) {
+	#luci-hcs-header .topnav .product-nav-container,
+	#luci-hcs-header + .secondarynav .product-nav-container,
+	.luci-tax-disclaimer .container,
+	#luci-hcs-footer .reseller-container,
+	.luci-home-below-hero__inner,
+	.luci-home-hero__inner {
+		max-width: 720px;
+	}
+}
+
+@media (min-width: 992px) {
+	#luci-hcs-header .topnav .product-nav-container,
+	#luci-hcs-header + .secondarynav .product-nav-container,
+	.luci-tax-disclaimer .container,
+	#luci-hcs-footer .reseller-container,
+	.luci-home-below-hero__inner,
+	.luci-home-hero__inner {
+		max-width: 940px;
+	}
+}
+
+@media (min-width: 1200px) {
+	#luci-hcs-header .topnav .product-nav-container,
+	#luci-hcs-header + .secondarynav .product-nav-container,
+	.luci-tax-disclaimer .container,
+	#luci-hcs-footer .reseller-container,
+	.luci-home-below-hero__inner,
+	.luci-home-hero__inner {
+		max-width: 1140px;
+	}
+
+	#luci-hcs-header .topnav .tray-toggle,
+	#luci-hcs-header .topnav-direct-link {
+		font-size: 1.125em;
+		padding: 20px 10px;
+		min-height: var(--nav-height);
+	}
+}
+
+@media (min-width: 1720px) {
+	#luci-hcs-header .topnav .product-nav-container,
+	#luci-hcs-header + .secondarynav .product-nav-container,
+	.luci-tax-disclaimer .container,
+	#luci-hcs-footer .reseller-container,
+	.luci-home-below-hero__inner,
+	.luci-home-hero__inner {
+		max-width: 1640px;
+	}
+}
+
+/* Topnav row — match GoDaddy product-nav-row flex layout */
+#luci-hcs-header .topnav .product-nav-row {
+	display: flex !important;
+	flex-wrap: wrap;
+	align-items: stretch;
+	width: 100%;
+}
+
+#luci-hcs-header .topnav .topnav-items,
+#luci-hcs-header .topnav #luci-topnav-items {
+	display: flex !important;
+	flex-flow: row nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: auto;
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+@media (min-width: 992px) {
+	#luci-hcs-header .luci-topnav-toggle {
+		display: none !important;
+	}
+}
+
+@media (max-width: 991px) {
+	#luci-hcs-header .topnav .topnav-items,
+	#luci-hcs-header .topnav #luci-topnav-items {
+		display: none !important;
+		flex-flow: column nowrap;
+		width: 100%;
+		flex: 1 1 100%;
+	}
+
+	#luci-hcs-header .topnav .topnav-items.is-open,
+	#luci-hcs-header .topnav #luci-topnav-items.is-open {
+		display: flex !important;
+		flex-flow: column nowrap !important;
+	}
+
+	/* Touch — never hover-gate visibility */
+	html.luci-coarse-pointer #luci-hcs-header .topnav .tray-toggle:hover,
+	html.luci-coarse-pointer #luci-hcs-header .topnav .topnav-direct-link:hover {
+		background: transparent;
+	}
+
+	#luci-hcs-header .topnav-item.has-dropdown:hover .luci-nav-dropdown__panel:not(.is-visible),
+	#luci-hcs-header .topnav-item.has-dropdown:focus-within .luci-nav-dropdown__panel:not(.is-visible) {
+		display: none !important;
+	}
+
+	#luci-hcs-header .luci-nav-dropdown.is-open .luci-nav-dropdown__panel,
+	#luci-hcs-header .luci-nav-dropdown__panel.is-visible {
+		display: block !important;
+		visibility: visible !important;
+		opacity: 1 !important;
+	}
+
+	#luci-hcs-header .topnav-item.has-dropdown {
+		flex-direction: column !important;
+		align-items: stretch !important;
+		width: 100% !important;
+	}
+
+	#luci-hcs-header .topnav .tray-menu.luci-nav-dropdown {
+		display: flex !important;
+		flex-direction: column !important;
+		align-items: stretch !important;
+		width: 100% !important;
+	}
+
+	#luci-hcs-header .luci-nav-dropdown__panel {
+		position: static !important;
+		width: 100% !important;
+		left: auto !important;
+		top: auto !important;
+		margin-left: 0 !important;
+		float: none !important;
+	}
+}
+
+#luci-hcs-header .topnav-item {
+	display: flex !important;
+	flex: 0 0 auto;
+	align-items: center;
+	margin: 0;
+}
+
+#luci-hcs-header .topnav .tray-menu {
+	position: relative;
+}
+
+#luci-hcs-header .topnav .tray-toggle-wrapper {
+	display: flex;
+	align-items: stretch;
+}
+
+#luci-hcs-header .topnav .tray-toggle,
+#luci-hcs-header .topnav .topnav-direct-link {
+	display: inline-flex !important;
+	align-items: center;
+	gap: 0.25rem;
+	border: 0;
+	background: transparent;
+	cursor: pointer;
+	font-family: var(--luci-font-nav);
+	font-size: 1rem;
+	line-height: 1.2;
+	color: #111;
+	text-decoration: none;
+	padding: 0 10px;
+	min-height: var(--nav-height);
+	white-space: nowrap;
+}
+
+#luci-hcs-header .topnav-item:not(.menu-item-home) .tray-toggle,
+#luci-hcs-header .topnav-item:not(.menu-item-home) .topnav-direct-link {
+	font-weight: 700;
+}
+
+#luci-hcs-header .topnav-item.menu-item-home .tray-toggle,
+#luci-hcs-header .topnav-item.menu-item-home .topnav-direct-link {
+	font-weight: 400;
+}
+
+#luci-hcs-header .topnav .tray-toggle:hover,
+#luci-hcs-header .topnav .topnav-direct-link:hover {
+	background: rgba(0, 0, 0, 0.04);
+	text-decoration: none;
+}
+
+#luci-hcs-header .topnav .tray-toggle-caret {
+	display: none !important;
+}
+
+/* Legacy mega panels — replaced by .luci-nav-dropdown__panel */
+#luci-hcs-header .luci-mega-panel {
+	display: none !important;
+}
+
+/* Utility bar — Help / Sign In / cart row */
+#luci-hcs-header .utility-right-nav {
+	display: flex;
+	align-items: center;
+	flex-wrap: nowrap;
+	gap: 0;
+}
+
+#luci-hcs-header .utility-right-nav .help-link,
+#luci-hcs-header .utility-right-nav .basic-phone-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	color: inherit;
+	text-decoration: none;
+	min-height: var(--luci-header-utility-h);
+	padding: 0 0.5rem;
+	font-size: 1rem;
+	font-weight: 400;
+}
+
+#luci-hcs-header .utility-right-nav .help-link:hover {
+	text-decoration: underline;
+}
+
+#luci-hcs-header .luci-cart-link .help-link-text,
+#luci-hcs-header .luci-cart-link .luci-cart-label {
+	display: none;
+}
+
+#luci-hcs-header .luci-cart-link .luci-icon {
+	font-size: 1.35rem;
+	width: auto;
+	height: auto;
+	line-height: 1;
+}
+
+/* Secondary nav — lime strip (product pages / hub pages) */
+#luci-hcs-header + .secondarynav.luci-secondarynav,
+.secondarynav.luci-secondarynav {
+	display: block;
+	background-color: var(--luci-storefront-green);
+	font-size: 1rem;
+	font-weight: 700;
+	position: relative;
+	z-index: 1;
+	min-height: var(--luci-secondarynav-h);
+}
+
+body.luci-front-page #luci-hcs-header + .secondarynav {
+	display: none;
+}
+
+.secondarynav.luci-secondarynav::before {
+	background-color: var(--luci-storefront-green-dark);
+	content: "";
+	position: absolute;
+	inset-block: 0;
+	inset-inline-start: 0;
+	width: 24%;
+	z-index: 1;
+	display: none;
+}
+
+@media (min-width: 992px) {
+	.secondarynav.luci-secondarynav::before {
+		display: block;
+	}
+}
+
+.secondarynav.luci-secondarynav .secondarynav-items {
+	display: table;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	z-index: 2;
+	width: 100%;
+}
+
+.secondarynav.luci-secondarynav .secondarynav-items li {
+	display: table-cell;
+	padding: 12px 15px;
+	text-align: center;
+	vertical-align: middle;
+	background-color: var(--luci-storefront-green);
+	color: #fff;
+	position: relative;
+}
+
+.secondarynav.luci-secondarynav .secondarynav-items li:first-child {
+	background-color: var(--luci-storefront-green-dark);
+	display: none;
+	white-space: nowrap;
+}
+
+@media (min-width: 992px) {
+	.secondarynav.luci-secondarynav .secondarynav-items li:first-child {
+		display: table-cell;
+		padding: 12px 25px 12px 15px;
+	}
+}
+
+.secondarynav.luci-secondarynav .secondarynav-items li a {
+	color: #fff;
+	text-decoration: none;
+	font-weight: 700;
+}
+
+.secondarynav.luci-secondarynav .secondarynav-items li.active::before {
+	border-block-start: 9px solid var(--luci-storefront-green);
+	border-inline: 12px solid transparent;
+	content: "";
+	position: absolute;
+	inset-block-end: -9px;
+	inset-inline-start: 50%;
+	margin-inline-start: -12px;
+	width: 0;
+	height: 0;
+}
+
+/* Portal hub — storefront icon underline */
+.luci-portal-tile__icon {
+	border-top-color: #00a4a6;
+}
+
+.luci-portal-hub__title {
+	font-family: var(--luci-font-heading, "Playfair Display", serif);
+	font-size: 1.75rem;
+	font-weight: 400;
+}
+
+/* Footer — GoDaddy reseller-footer parity (centered desktop, stacked mobile) */
+#luci-hcs-footer.reseller-footer {
+	background: #000;
+	color: #fff;
+	font-family: var(--luci-font-nav);
+	padding: 1.25rem 0 1.5rem;
+}
+
+#luci-hcs-footer.reseller-footer a {
+	color: #fff;
+}
+
+#luci-hcs-footer .reseller-footer-links {
+	list-style: none;
+	margin: 0 0 0.75rem;
+	padding: 0;
+	width: 100%;
+}
+
+#luci-hcs-footer .reseller-footer-links li + li::before {
+	content: none;
+}
+
+#luci-hcs-footer .reseller-footer-utos {
+	margin: 0.75rem 0;
+	font-size: 0.8125rem;
+	line-height: 1.5;
+	opacity: 0.92;
+}
+
+#luci-hcs-footer .reseller-footer-legal {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#luci-hcs-footer .currency-selector-wrapper {
+	margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+	#luci-hcs-footer .reseller-container {
+		max-width: 1140px;
+		margin-inline: auto;
+		padding-inline: clamp(1.25rem, 4vw, 3.75rem) !important;
+		text-align: center;
+	}
+
+	/* Nav row — centered (GoDaddy .reseller-footer-links) */
+	#luci-hcs-footer .reseller-footer-links {
+		margin: 0 0 1em;
+		padding: 0;
+		text-align: center;
+	}
+
+	#luci-hcs-footer .reseller-footer-links li {
+		display: inline-block;
+		padding: 0.125em 1em;
+		border-left: 1px solid rgba(255, 255, 255, 0.35);
+		width: auto;
+	}
+
+	#luci-hcs-footer .reseller-footer-links li:first-child {
+		border-left: none;
+	}
+
+	#luci-hcs-footer .reseller-footer-links a {
+		display: inline-block;
+		font-size: 1rem;
+	}
+
+	/* Terms — centered small print with divider before legal row */
+	#luci-hcs-footer .reseller-footer-utos {
+		margin: 0 auto;
+		max-width: 520px;
+		font-size: 80%;
+		line-height: 1.5;
+		text-align: center;
+		padding-bottom: 1.25em;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+	}
+
+	/* Legal row — centered below separator */
+	#luci-hcs-footer .reseller-footer-legal {
+		margin: 0;
+		padding: 1.25em 0 0;
+		text-align: center;
+	}
+
+	#luci-hcs-footer .reseller-footer-legal li {
+		display: inline-block;
+		padding: 0.125em 1em;
+		border-left: 1px solid rgba(255, 255, 255, 0.35);
+	}
+
+	#luci-hcs-footer .reseller-footer-legal li:first-child {
+		border-left: none;
+	}
+
+	#luci-hcs-footer .reseller-footer-legal a {
+		font-size: 80%;
+	}
+
+	#luci-hcs-footer .currency-selector-wrapper {
+		margin-top: 0;
+	}
+}
+
+/* Account tray dropdown */
+#luci-hcs-header .account-tray .tray-dropdown {
+	position: absolute;
+	right: 0;
+	top: 100%;
+	z-index: 150;
+	min-width: 18rem;
+	background: #fff;
+	box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+	border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+#luci-hcs-header .account-tray .tray-dropdown[hidden] {
+	display: none !important;
+}
+
+#luci-hcs-header .account-tray.is-open .tray-dropdown {
+	display: block !important;
+}

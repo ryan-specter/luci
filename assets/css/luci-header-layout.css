@@ -1,0 +1,262 @@
+/**
+ * Luci header shell — reliable two-row layout (utility + product nav).
+ * Overrides conflicting GoDaddy reseller-sales-header rules.
+ */
+
+.luci-header-shell {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.luci-header-shell .luci-header__utility {
+	flex: 0 0 auto;
+	width: 100%;
+}
+
+.luci-header-shell .luci-header__nav.top {
+	flex: 0 0 auto;
+	width: 100%;
+	display: block;
+	clear: both;
+	position: relative;
+	z-index: 100;
+}
+
+.luci-header-shell .topnav {
+	width: 100%;
+	height: auto;
+	min-height: var(--nav-height, 64px);
+	position: relative;
+}
+
+body.luci-front-page .luci-header-shell .topnav,
+body.luci-front-page .luci-header-shell .top.luci-header__nav {
+	background-color: var(--luci-lime, #c1ff00) !important;
+}
+
+.luci-header-shell .topnav .product-nav-container {
+	overflow: visible !important;
+	width: 100%;
+}
+
+.luci-header-shell .topnav .product-nav-row {
+	display: flex !important;
+	flex-wrap: wrap;
+	align-items: center;
+	width: 100%;
+	gap: 0;
+}
+
+.luci-header-shell #luci-topnav-items {
+	display: flex !important;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: flex-start;
+	list-style: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	width: 100%;
+	flex: 1 1 auto;
+	min-height: var(--nav-height, 64px);
+	gap: 0;
+}
+
+.luci-header-shell #luci-topnav-items > .topnav-item {
+	display: flex !important;
+	flex: 0 0 auto;
+	align-items: center;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	position: relative;
+}
+
+.luci-header-shell #luci-topnav-items .tray-menu {
+	position: relative;
+	display: flex;
+	align-items: stretch;
+}
+
+.luci-header-shell #luci-topnav-items .tray-toggle-wrapper {
+	display: flex;
+	align-items: stretch;
+}
+
+.luci-header-shell #luci-topnav-items .tray-toggle,
+.luci-header-shell #luci-topnav-items .tray-toggle.luci-nav-dropdown__trigger {
+	display: inline-flex !important;
+	align-items: center;
+	gap: 0.2rem;
+	padding: 0.65rem 0.85rem !important;
+	min-height: var(--nav-height, 64px);
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif) !important;
+	font-size: 0.9375rem;
+	font-weight: 700;
+	line-height: 1.2;
+	letter-spacing: 0.01em;
+	white-space: nowrap;
+	border: 0;
+	background: transparent;
+	color: inherit;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.luci-header-shell #luci-topnav-items .menu-item-home .tray-toggle {
+	font-weight: 500;
+}
+
+.luci-header-shell #luci-topnav-items .chevron-down {
+	display: inline-flex;
+	align-items: center;
+	margin-inline-start: 0.1rem;
+}
+
+/* Dropdown panels */
+.luci-header-shell .luci-nav-dropdown__panel {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 400;
+	min-width: 15rem;
+	margin: 0;
+	padding: 0.35rem 0;
+	list-style: none;
+	background: #fff;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	box-shadow: 0 14px 36px rgba(0, 0, 0, 0.14);
+	border-radius: 4px;
+}
+
+.luci-header-shell .luci-nav-dropdown__panel[hidden]:not(.is-visible) {
+	display: none !important;
+}
+
+.luci-header-shell .luci-nav-dropdown.is-open .luci-nav-dropdown__panel,
+.luci-header-shell .luci-nav-dropdown__panel.is-visible {
+	display: block !important;
+	visibility: visible !important;
+	opacity: 1 !important;
+}
+
+/* Click-only — hide hover/focus panels unless opened via JS (.is-visible) */
+.luci-header-shell .topnav-item.has-dropdown:hover .luci-nav-dropdown__panel:not(.is-visible),
+.luci-header-shell .topnav-item.has-dropdown:focus-within .luci-nav-dropdown__panel:not(.is-visible),
+#luci-hcs-header .topnav-item.has-dropdown:hover .luci-nav-dropdown__panel:not(.is-visible),
+#luci-hcs-header .topnav-item.has-dropdown:focus-within .luci-nav-dropdown__panel:not(.is-visible) {
+	display: none !important;
+}
+
+.luci-header-shell .luci-nav-dropdown.is-open .luci-nav-dropdown__panel,
+.luci-header-shell .luci-nav-dropdown__panel.is-visible,
+#luci-hcs-header .luci-nav-dropdown.is-open .luci-nav-dropdown__panel,
+#luci-hcs-header .luci-nav-dropdown__panel.is-visible {
+	display: block !important;
+	visibility: visible !important;
+	opacity: 1 !important;
+	pointer-events: auto !important;
+}
+
+.luci-header-shell .luci-nav-dropdown__panel a {
+	display: block;
+	padding: 0.5rem 1rem;
+	color: #111;
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+	font-size: 0.9375rem;
+	font-weight: 500;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+.luci-header-shell .luci-nav-dropdown__panel a:hover,
+.luci-header-shell .luci-nav-dropdown__panel a:focus {
+	background: rgba(0, 0, 0, 0.05);
+	text-decoration: none;
+}
+
+.luci-header-shell .luci-nav-dropdown__panel .luci-nav-dropdown__overview {
+	font-weight: 700;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+	margin-bottom: 0.2rem;
+}
+
+/* Neutralise GoDaddy floats / hidden nav */
+.luci-header-shell .topnav .topnav-logo,
+.luci-header-shell .utility-bar .topnav-logo {
+	float: none !important;
+	position: static !important;
+	width: auto !important;
+	inset: auto !important;
+}
+
+@media (min-width: 992px) {
+	.luci-header-shell .luci-topnav-toggle {
+		display: none !important;
+	}
+
+	.luci-header-shell #luci-topnav-items {
+		flex-flow: row nowrap;
+	}
+}
+
+@media (max-width: 991px) {
+	.luci-header-shell .luci-topnav-toggle {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin: 0.35rem 0;
+		padding: 0.5rem 0.85rem;
+		font-family: var(--luci-font-nav);
+		font-weight: 700;
+		border: 2px solid currentColor;
+		background: rgba(255, 255, 255, 0.5);
+		cursor: pointer;
+		-webkit-tap-highlight-color: transparent;
+		touch-action: manipulation;
+	}
+
+	.luci-header-shell .luci-topnav-toggle,
+	.luci-header-shell #luci-topnav-items .luci-nav-dropdown__trigger,
+	.luci-header-shell #luci-topnav-items .tray-toggle {
+		touch-action: manipulation;
+	}
+
+	.luci-header-shell #luci-topnav-items {
+		display: none !important;
+		flex-direction: column;
+		align-items: stretch;
+		width: 100%;
+		padding-bottom: 0.5rem;
+	}
+
+	.luci-header-shell #luci-topnav-items.is-open {
+		display: flex !important;
+	}
+
+	.luci-header-shell #luci-topnav-items .tray-toggle {
+		width: 100%;
+		justify-content: flex-start;
+	}
+
+	.luci-header-shell #luci-topnav-items .tray-menu.luci-nav-dropdown {
+		flex-direction: column;
+		align-items: stretch;
+		width: 100%;
+	}
+
+	.luci-header-shell .luci-nav-dropdown__panel {
+		position: static !important;
+		top: auto !important;
+		left: auto !important;
+		width: 100% !important;
+		min-width: 0 !important;
+		box-shadow: none;
+		border: 0;
+		background: rgba(0, 0, 0, 0.04);
+		margin: 0 0 0.35rem 0 !important;
+		padding: 0.25rem 0;
+		float: none !important;
+	}
+
+}

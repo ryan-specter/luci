@@ -1,0 +1,130 @@
+/**
+ * Homepage hero — secureserver.net home.super / .home-hero parity
+ */
+
+.luci-home-hero.home-hero {
+	position: relative;
+	background-color: var(--luci-lime, #c1ff00);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: cover;
+	color: var(--luci-black, #111);
+	padding: clamp(2rem, 5vw, 3.5rem) 1rem clamp(8rem, 18vw, 14rem);
+	margin: 0;
+	overflow: hidden;
+}
+
+.luci-home-hero__inner {
+	max-width: 1140px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.luci-home-hero__title {
+	font-family: var(--luci-font-nav, "Open Sans", Arial, sans-serif);
+	font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+	font-weight: 800;
+	line-height: 1.1;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+	margin: 0 0 1.5rem;
+	color: var(--luci-black, #111);
+}
+
+.luci-home-hero__panel.home-hero-text {
+	background: color-mix(in srgb, var(--luci-olive, #214f0c) 72%, #000 28%);
+	color: #fff;
+	max-width: 42rem;
+	margin: 0 auto;
+	padding: 1.25rem 1.5rem 1.5rem;
+	border-radius: 2px;
+	text-align: left;
+}
+
+.luci-home-hero__promo-headline {
+	font-family: var(--luci-font-heading, "Playfair Display", serif);
+	font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+	font-weight: 700;
+	margin: 0 0 0.35rem;
+	line-height: 1.25;
+}
+
+.luci-home-hero__promo-sub {
+	font-family: var(--luci-font-body, "Open Sans", Arial, sans-serif);
+	font-size: 0.95rem;
+	line-height: 1.45;
+	margin: 0 0 1rem;
+	opacity: 0.95;
+}
+
+.luci-home-hero__search.search-form {
+	display: flex;
+	margin: 0;
+	width: 100%;
+	max-width: 600px;
+}
+
+.luci-home-hero__search-row {
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+	gap: 0;
+}
+
+.luci-home-hero__input {
+	flex: 1 1 auto;
+	min-width: 0;
+	border: 0;
+	border-radius: 2px 0 0 2px;
+	padding: 0.75rem 1rem;
+	font-size: 1rem;
+	font-family: var(--luci-font-body, "Open Sans", Arial, sans-serif);
+	color: var(--luci-black, #111);
+	background: #fff;
+}
+
+.luci-home-hero__input:focus {
+	outline: 2px solid var(--luci-lime, #c1ff00);
+	outline-offset: 0;
+}
+
+.luci-home-hero__submit.search-form-button {
+	flex: 0 0 auto;
+	border: 0;
+	border-radius: 0 2px 2px 0;
+	padding: 0.75rem 1.5rem;
+	font-size: 1rem;
+	font-weight: 700;
+	font-family: var(--luci-font-body, "Open Sans", Arial, sans-serif);
+	cursor: pointer;
+	background: var(--luci-lime, #c1ff00);
+	color: var(--luci-black, #111);
+}
+
+.luci-home-hero__submit:hover,
+.luci-home-hero__submit:focus {
+	filter: brightness(0.95);
+}
+
+/* Content below hero */
+.luci-home-below-hero {
+	background: var(--luci-white, #fff);
+	padding: 2rem 1rem 3rem;
+}
+
+.luci-home-below-hero__inner {
+	max-width: 1140px;
+	margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+	.luci-home-hero__search-row {
+		flex-direction: column;
+	}
+
+	.luci-home-hero__input,
+	.luci-home-hero__submit {
+		border-radius: 2px;
+		width: 100%;
+	}
+}

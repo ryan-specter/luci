@@ -1,0 +1,31 @@
+/* GoDaddy UX fonts — matches luci.ltd / secureserver (local + CDN fallback) */
+
+@font-face {
+	font-family: "Open Sans";
+	font-weight: 400;
+	font-style: normal;
+	src:
+		url("https://img6.wsimg.com/ux-assets/@ux/fonts/4.8.0/OpenSans-regular.woff2") format("woff2"),
+		url("https://img6.wsimg.com/ux-assets/@ux/fonts/4.8.0/OpenSans-regular.woff") format("woff");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Open Sans";
+	font-weight: 700;
+	font-style: normal;
+	src:
+		url("https://img6.wsimg.com/ux-assets/@ux/fonts/4.8.0/OpenSans-bold.woff2") format("woff2"),
+		url("https://img6.wsimg.com/ux-assets/@ux/fonts/4.8.0/OpenSans-bold.woff") format("woff");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Playfair Display";
+	font-weight: 700;
+	font-style: normal;
+	src:
+		url("https://img6.wsimg.com/ux-assets/@ux/fonts/4.8.0/PlayfairDisplay-bold.woff2") format("woff2"),
+		url("https://img6.wsimg.com/ux-assets/@ux/fonts/4.8.0/PlayfairDisplay-bold.woff") format("woff");
+	font-display: swap;
+}
