@@ -542,25 +542,31 @@ def bespoke_form() -> str:
 def online_store_page() -> str:
     purchase = ONLINE_STORE_BUILDER
     meta = (
-        "Start an online store from £22/month with Luci Website Builder. "
-        "UK ecommerce website: mobile design, SSL, shopping cart, payments, inventory, SEO and hosting included."
+        "Build your own online store from £22/month with Luci Website Builder — a DIY plan you set up yourself. "
+        "Hosting, SSL, cart, and payments included. Prefer a done-for-you site? See our bespoke design service."
     )
     intro = f"""<section class="luci-meet-hero luci-online-store-hero" aria-labelledby="luci-online-store-title">
 <div class="luci-meet-hero__inner">
 <div class="luci-meet-hero__visual" aria-hidden="true"><img class="luci-meet-hero__reach luci-online-store-hero__img" src="/assets/Treats.svg" alt="" width="400" height="280" decoding="async"></div>
 <div class="luci-meet-hero__copy">
-<p class="luci-online-store-eyebrow">Luci Website Builder · Online Store</p>
-<h1 id="luci-online-store-title" class="luci-meet-hero__title">Start an online store that sells for you</h1>
-<p class="luci-meet-hero__tagline">Luci <strong>Online Store</strong> plan — <strong>£22/month</strong> for a complete ecommerce website.</p>
-<p class="luci-meet-hero__lede">Build a professional shop with Luci Website Builder — transparent UK pricing, hosting and SSL included. Sell physical goods, digital downloads, services, and appointments from one simple dashboard, without wrestling plugins or patchwork hosting.</p>
+<p class="luci-online-store-eyebrow">DIY · Luci Website Builder · Online Store</p>
+<h1 id="luci-online-store-title" class="luci-meet-hero__title">Build your own online store</h1>
+<p class="luci-meet-hero__tagline">Luci <strong>Online Store</strong> plan — <strong>£22/month</strong> to design, populate, and publish your shop yourself.</p>
+<p class="luci-meet-hero__lede">This is a <strong>do-it-yourself</strong> website builder: you pick the template, add your products, write the pages, and connect payments. Luci provides the tools, hosting, and SSL — we do not design or build your store for you. Ideal if you are happy rolling up your sleeves and want full control without agency fees.</p>
 <p class="luci-online-store-hero__actions">
-<a class="luci-meet-hero__cta" href="{purchase}" target="_blank" rel="noopener noreferrer">Get started for £22/month</a>
+<a class="luci-meet-hero__cta" href="{purchase}" target="_blank" rel="noopener noreferrer">Start building for £22/month</a>
 </p>
 </div></div></section>"""
+    diy_callout = """<section class="luci-online-store-diy" aria-labelledby="luci-online-store-diy-title">
+<div class="luci-online-store-diy__inner">
+<h2 id="luci-online-store-diy-title" class="luci-meet-step__title luci-online-store-diy__title">A DIY plan — not a done-for-you service</h2>
+<p class="luci-meet-step__text luci-online-store-diy__lead">The Online Store plan is for people who want to <strong>build and manage their own shop</strong>. You will use Luci Website Builder to lay out pages, upload product photos, set prices, and publish when you are ready. Support is available if you get stuck, but the creative and setup work is yours.</p>
+<p class="luci-meet-step__text luci-online-store-diy__bespoke">Would you rather someone else handled it? <a class="luci-meet-step__inline-link" href="/bespoke/">Request a bespoke website enquiry</a> — we can design and build a site around your brand while you stay hands-off.</p>
+</div></section>"""
     features = """<section class="luci-meet-step luci-online-store-features" aria-labelledby="luci-online-store-features-title">
 <div class="luci-online-store-features__inner">
-<h2 id="luci-online-store-features-title" class="luci-meet-step__title luci-online-store-features__title">Everything you need to sell online</h2>
-<p class="luci-meet-step__text luci-online-store-features__lead">The Online Store plan bundles hosting, security, and ecommerce tools so you can focus on products — not plugins and patchwork.</p>
+<h2 id="luci-online-store-features-title" class="luci-meet-step__title luci-online-store-features__title">The toolbox for your DIY shop</h2>
+<p class="luci-meet-step__text luci-online-store-features__lead">Everything below is included in the Online Store plan — you bring the products and content; the builder handles the technical heavy lifting.</p>
 <div class="luci-online-store-features__grid">
 <div class="luci-online-store-features__col">
 <h3 class="luci-online-store-features__heading">Look great on every device</h3>
@@ -600,9 +606,9 @@ def online_store_page() -> str:
 <div class="luci-online-store-steps__col">
 <h2 id="luci-online-store-steps-title" class="luci-meet-step__title">How it works</h2>
 <ol class="luci-online-store-steps__list">
-<li>Choose the <strong>Online Store</strong> plan on our secure storefront — setup takes minutes.</li>
-<li>Pick a template, add your products, and connect payments.</li>
-<li>Publish your shop and start taking orders — we are here if you get stuck.</li>
+<li>Sign up for the <strong>Online Store</strong> plan on our secure storefront.</li>
+<li><strong>You</strong> choose a template, add products, write your pages, and connect payments.</li>
+<li>When <strong>you</strong> are happy with it, publish your shop and start taking orders.</li>
 </ol>
 </div>
 <div class="luci-online-store-steps__col">
@@ -616,11 +622,11 @@ def online_store_page() -> str:
 </div></section>"""
     cta = f"""<section class="luci-online-store-cta" aria-labelledby="luci-online-store-cta-title">
 <div class="luci-online-store-cta__inner">
-<h2 id="luci-online-store-cta-title" class="luci-meet-step__title">Ready to open your shop?</h2>
-<p class="luci-meet-step__text">Start on the Online Store plan today — <strong>£22/month</strong> for a complete ecommerce website with hosting and SSL.</p>
+<h2 id="luci-online-store-cta-title" class="luci-meet-step__title">Ready to build your shop?</h2>
+<p class="luci-meet-step__text">The Online Store plan is <strong>£22/month</strong> — a self-build ecommerce website with hosting and SSL. You create the site; we provide the platform.</p>
 <p class="luci-online-store-cta__actions">
-<a class="luci-meet-hero__cta" href="{purchase}" target="_blank" rel="noopener noreferrer">Start your online store</a>
-<a class="luci-meet-hero__cta luci-online-store-cta__secondary" href="/contact/">Questions? Contact us</a>
+<a class="luci-meet-hero__cta" href="{purchase}" target="_blank" rel="noopener noreferrer">Start building your store</a>
+<a class="luci-meet-hero__cta luci-online-store-cta__secondary" href="/bespoke/">Prefer bespoke? Get a quote</a>
 </p>
 <p class="luci-online-store-cta__note">Pricing excludes applicable taxes. See the full feature list and sign up at <a class="luci-meet-step__inline-link" href="{purchase}">my.luci.ltd</a>.</p>
 </div></section>"""
@@ -628,7 +634,7 @@ def online_store_page() -> str:
     return (
         head("Start an Online Store — Website Builder from £22/month", bundle="site-landing.css", description=meta)
         + header_html("websites", "luci-online-store-page luci-landing-layout")
-        + shell + intro + features + steps + cta + "</div></div>"
+        + shell + intro + diy_callout + features + steps + cta + "</div></div>"
         + footer_html()
     )
 
