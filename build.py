@@ -152,24 +152,27 @@ CSS_BUNDLE_ORDER = [
     "css/hydra-replacements.css",
     "css/mobile-layout.css",
     "css/home-shell.css",
-    "css/white-shell.css",
 ]
+
+WHITE_SHELL_CSS = "css/white-shell.css"
 
 CSS_HOME_EXTRA = [
     "css/home-page.css",
     "css/portal-hub.css",
     "css/meet-luci.css",
+    WHITE_SHELL_CSS,
 ]
 
 CSS_LANDING_EXTRA = [
     "css/meet-luci.css",
     "css/fabform-landing.css",
+    WHITE_SHELL_CSS,
 ]
 
 CSS_ERROR = [
     "css/godaddy-fonts.css",
     "css/error-pages.css",
-    "css/white-shell.css",
+    WHITE_SHELL_CSS,
 ]
 
 
@@ -780,7 +783,7 @@ def main() -> None:
     copy_assets()
 
     print("Bundling CSS…")
-    bundle_css(CSS_BUNDLE_ORDER, "site.css")
+    bundle_css(CSS_BUNDLE_ORDER + [WHITE_SHELL_CSS], "site.css")
     bundle_css(CSS_BUNDLE_ORDER + CSS_HOME_EXTRA, "site-home.css")
     bundle_css(CSS_BUNDLE_ORDER + CSS_LANDING_EXTRA, "site-landing.css")
     bundle_css(CSS_ERROR, "site-error.css")
