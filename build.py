@@ -152,6 +152,7 @@ CSS_BUNDLE_ORDER = [
     "css/hydra-replacements.css",
     "css/mobile-layout.css",
     "css/home-shell.css",
+    "css/white-shell.css",
 ]
 
 CSS_HOME_EXTRA = [
@@ -168,6 +169,7 @@ CSS_LANDING_EXTRA = [
 CSS_ERROR = [
     "css/godaddy-fonts.css",
     "css/error-pages.css",
+    "css/white-shell.css",
 ]
 
 
