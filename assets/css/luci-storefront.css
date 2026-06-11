@@ -275,7 +275,7 @@ body.luci-turnkey-child article.rstore-list-product {
 
 .luci-btn-primary {
 	background: var(--luci-brown);
-	color: var(--luci-lime);
+	color: var(--luci-white);
 }
 
 .luci-btn-secondary {

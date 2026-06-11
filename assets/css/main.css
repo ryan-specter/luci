@@ -178,7 +178,7 @@ h3 {
 .luci-nav-toggle {
 	display: none;
 	background: var(--luci-brown);
-	color: var(--luci-lime);
+	color: var(--luci-white);
 	border: none;
 	padding: 0.5rem 0.85rem;
 	font-family: var(--luci-font-heading);
@@ -201,7 +201,7 @@ h3 {
 
 .luci-btn-primary {
 	background: var(--luci-brown);
-	color: var(--luci-lime);
+	color: var(--luci-white);
 }
 
 .luci-btn-primary:hover {
@@ -217,7 +217,7 @@ h3 {
 
 .luci-btn-secondary:hover {
 	background: var(--luci-brown);
-	color: var(--luci-lime);
+	color: var(--luci-white);
 	opacity: 1;
 }
 

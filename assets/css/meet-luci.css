@@ -150,7 +150,7 @@
 
 	text-decoration: none;
 
-	color: var(--luci-lime, #c1ff00);
+	color: var(--luci-white, #ffffff);
 
 	background: var(--luci-brown, #602700);
 
@@ -174,7 +174,7 @@
 
 	box-shadow: 6px 6px 0 rgba(96, 39, 0, 0.4);
 
-	color: var(--luci-lime, #c1ff00);
+	color: var(--luci-white, #ffffff);
 
 	text-decoration: none;
 
@@ -413,7 +413,7 @@
 	box-shadow: inset 0 0 0 2px var(--luci-lime, #c1ff00);
 }
 
-/* Search button — match hero CTA (brown + lime) inside pill */
+/* Search button — match hero CTA (brown + white) inside pill */
 .luci-meet-domain-search__submit {
 	flex: 0 0 auto;
 	margin: 0;
@@ -425,7 +425,7 @@
 	font-size: 1rem;
 	font-weight: 800;
 	line-height: 1.35;
-	color: var(--luci-lime, #c1ff00);
+	color: var(--luci-white, #ffffff);
 	background: var(--luci-brown, #602700);
 	cursor: pointer;
 	white-space: nowrap;
@@ -435,7 +435,7 @@
 
 .luci-meet-domain-search__submit:hover,
 .luci-meet-domain-search__submit:focus-visible {
-	color: var(--luci-lime, #c1ff00);
+	color: var(--luci-white, #ffffff);
 	filter: brightness(1.08);
 	transform: none;
 	box-shadow: none;

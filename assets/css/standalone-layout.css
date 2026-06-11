@@ -163,7 +163,7 @@
 	display: none;
 	margin: 0.5rem 0;
 	background: var(--luci-brown, #602700);
-	color: var(--luci-lime, #c1ff00);
+	color: var(--luci-white, #ffffff);
 	border: 2px solid var(--luci-brown, #602700);
 	padding: 0.45rem 0.85rem;
 	font-family: var(--luci-font-heading, "Horizon", Impact, sans-serif);
