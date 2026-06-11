@@ -88,12 +88,6 @@ body.luci-standalone:not(.luci-home-shell) .top {
 	background: var(--luci-white);
 }
 
-body.luci-front-page.luci-standalone .luci-top,
-body.luci-front-page.luci-standalone .top,
-body.luci-front-page.luci-standalone .topnav {
-	background-color: var(--luci-lime, #c1ff00) !important;
-}
-
 /* Legacy category bar (superseded by .secondarynav) */
 .luci-category-bar {
 	display: none;

@@ -18,16 +18,8 @@ body.luci-home-shell .luci-site-main {
 	max-width: none;
 }
 
-/* Header — seamless lime (same as front page) */
-body.luci-home-shell .luci-header-shell .top,
-body.luci-home-shell .luci-header-shell .luci-top,
-body.luci-home-shell #luci-hcs-header.luci-store-header,
-body.luci-home-shell #luci-hcs-header .utility-bar.single-use-header,
-body.luci-home-shell #luci-hcs-header .top.luci-header__nav,
-body.luci-home-shell #luci-hcs-header .top section,
-body.luci-home-shell #luci-hcs-header .topnav,
-body.luci-home-shell #luci-hcs-header .top .product-nav-container,
-body.luci-home-shell #luci-hcs-header .top .product-nav-row {
+/* Header — lime utility toolbar only (product nav is white via white-shell.css) */
+body.luci-home-shell #luci-hcs-header .utility-bar.single-use-header {
 	background-color: var(--luci-lime, #c1ff00) !important;
 	background: var(--luci-lime, #c1ff00) !important;
 	border-bottom-color: rgba(96, 39, 0, 0.1) !important;

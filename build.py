@@ -160,13 +160,11 @@ CSS_HOME_EXTRA = [
     "css/home-page.css",
     "css/portal-hub.css",
     "css/meet-luci.css",
-    WHITE_SHELL_CSS,
 ]
 
 CSS_LANDING_EXTRA = [
     "css/meet-luci.css",
     "css/fabform-landing.css",
-    WHITE_SHELL_CSS,
 ]
 
 CSS_ERROR = [
@@ -218,6 +216,7 @@ def head(
             links.append(f'<link rel="stylesheet" href="/{href}">')
     links.append(f'<link rel="stylesheet" href="{GD_HEADER_CSS}" media="print" onload="this.media=\'all\'">')
     links.append(f'<noscript><link rel="stylesheet" href="{GD_HEADER_CSS}"></noscript>')
+    links.append('<link rel="stylesheet" href="/site-shell.css">')
     boot = """<script>
 (function () {
   var mobile = window.matchMedia('(max-width: 991px)');
@@ -783,10 +782,11 @@ def main() -> None:
     copy_assets()
 
     print("Bundling CSS…")
-    bundle_css(CSS_BUNDLE_ORDER + [WHITE_SHELL_CSS], "site.css")
+    bundle_css(CSS_BUNDLE_ORDER, "site.css")
     bundle_css(CSS_BUNDLE_ORDER + CSS_HOME_EXTRA, "site-home.css")
     bundle_css(CSS_BUNDLE_ORDER + CSS_LANDING_EXTRA, "site-landing.css")
     bundle_css(CSS_ERROR, "site-error.css")
+    bundle_css([WHITE_SHELL_CSS], "site-shell.css")
 
     print("Generating pages…")
     write_page("index.html", home_page())

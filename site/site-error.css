@@ -197,17 +197,25 @@ body.luci-home-shell #luci-hcs-header .utility-bar.single-use-header {
 	border-bottom: 1px solid rgba(96, 39, 0, 0.1) !important;
 }
 
-/* Product nav row (sub-toolbar below utility bar) — white */
+/* Header shell + product nav row — white (not the utility toolbar) */
+#luci-hcs-header.luci-store-header,
+body.luci-home-shell #luci-hcs-header.luci-store-header,
 #luci-hcs-header .top.luci-header__nav,
 #luci-hcs-header .top section,
 #luci-hcs-header .topnav,
 #luci-hcs-header .top .product-nav-container,
 #luci-hcs-header .top .product-nav-row,
+#luci-hcs-header .topnav #luci-topnav-items,
+#luci-hcs-header .topnav .topnav-items,
+.luci-header-shell #luci-topnav-items,
 body.luci-home-shell .luci-header-shell .top,
 body.luci-home-shell .luci-header-shell .luci-top,
 body.luci-home-shell .luci-header-shell .topnav,
 body.luci-home-shell #luci-hcs-header .top.luci-header__nav,
+body.luci-home-shell #luci-hcs-header .top section,
 body.luci-home-shell #luci-hcs-header .topnav,
+body.luci-home-shell #luci-hcs-header .top .product-nav-container,
+body.luci-home-shell #luci-hcs-header .top .product-nav-row,
 body.luci-front-page .luci-header-shell .topnav,
 body.luci-front-page .luci-header-shell .top.luci-header__nav,
 body.luci-front-page.luci-standalone .luci-top,

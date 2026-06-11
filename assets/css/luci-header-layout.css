@@ -30,11 +30,6 @@
 	position: relative;
 }
 
-body.luci-front-page .luci-header-shell .topnav,
-body.luci-front-page .luci-header-shell .top.luci-header__nav {
-	background-color: var(--luci-lime, #c1ff00) !important;
-}
-
 .luci-header-shell .topnav .product-nav-container {
 	overflow: visible !important;
 	width: 100%;

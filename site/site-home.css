@@ -1005,12 +1005,6 @@ body.luci-standalone:not(.luci-home-shell) .top {
 	background: var(--luci-white);
 }
 
-body.luci-front-page.luci-standalone .luci-top,
-body.luci-front-page.luci-standalone .top,
-body.luci-front-page.luci-standalone .topnav {
-	background-color: var(--luci-lime, #c1ff00) !important;
-}
-
 /* Legacy category bar (superseded by .secondarynav) */
 .luci-category-bar {
 	display: none;
@@ -1639,11 +1633,6 @@ body.luci-turnkey-child .site-footer .luci-footer-merch a {
 	height: auto;
 	min-height: var(--nav-height, 64px);
 	position: relative;
-}
-
-body.luci-front-page .luci-header-shell .topnav,
-body.luci-front-page .luci-header-shell .top.luci-header__nav {
-	background-color: var(--luci-lime, #c1ff00) !important;
 }
 
 .luci-header-shell .topnav .product-nav-container {
@@ -3155,16 +3144,8 @@ body.luci-home-shell .luci-site-main {
 	max-width: none;
 }
 
-/* Header — seamless lime (same as front page) */
-body.luci-home-shell .luci-header-shell .top,
-body.luci-home-shell .luci-header-shell .luci-top,
-body.luci-home-shell #luci-hcs-header.luci-store-header,
-body.luci-home-shell #luci-hcs-header .utility-bar.single-use-header,
-body.luci-home-shell #luci-hcs-header .top.luci-header__nav,
-body.luci-home-shell #luci-hcs-header .top section,
-body.luci-home-shell #luci-hcs-header .topnav,
-body.luci-home-shell #luci-hcs-header .top .product-nav-container,
-body.luci-home-shell #luci-hcs-header .top .product-nav-row {
+/* Header — lime utility toolbar only (product nav is white via white-shell.css) */
+body.luci-home-shell #luci-hcs-header .utility-bar.single-use-header {
 	background-color: var(--luci-lime, #c1ff00) !important;
 	background: var(--luci-lime, #c1ff00) !important;
 	border-bottom-color: rgba(96, 39, 0, 0.1) !important;
@@ -4084,147 +4065,3 @@ body.luci-front-page .luci-tax-disclaimer {
 }
 
 
-
-/* css/white-shell.css */
-/**
- * White page shell — lime only on the top utility toolbar (logo, phone, cart).
- * Product nav, secondary nav, and mobile menu drawer stay white.
- * Loaded last in each CSS bundle so it wins over page-specific lime rules.
- */
-
-:root {
-	--luci-page-bg: #ffffff;
-	--luci-header-bg: var(--luci-lime, #c1ff00);
-}
-
-/* Base + homepage shell */
-body,
-html {
-	background-color: var(--luci-page-bg) !important;
-}
-
-body.luci-home-shell.luci-standalone,
-body.luci-home-shell.luci-standalone.ux-app,
-body.luci-home-shell #main.luci-site-main,
-body.luci-home-shell .luci-home-below-hero,
-body.luci-home-shell .luci-home-below-hero__inner,
-body.luci-front-page.luci-standalone,
-body.luci-turnkey-child,
-body.luci-standalone:not(.luci-home-shell) {
-	background-color: var(--luci-page-bg) !important;
-}
-
-body.luci-front-page.luci-standalone {
-	background: var(--luci-page-bg) !important;
-}
-
-/* Top utility toolbar only — logo, phone, help, account, cart */
-#luci-hcs-header .utility-bar.single-use-header,
-body.luci-home-shell #luci-hcs-header .utility-bar.single-use-header {
-	background-color: var(--luci-header-bg) !important;
-	background: var(--luci-header-bg) !important;
-	border-bottom: 1px solid rgba(96, 39, 0, 0.1) !important;
-}
-
-/* Product nav row (sub-toolbar below utility bar) — white */
-#luci-hcs-header .top.luci-header__nav,
-#luci-hcs-header .top section,
-#luci-hcs-header .topnav,
-#luci-hcs-header .top .product-nav-container,
-#luci-hcs-header .top .product-nav-row,
-body.luci-home-shell .luci-header-shell .top,
-body.luci-home-shell .luci-header-shell .luci-top,
-body.luci-home-shell .luci-header-shell .topnav,
-body.luci-home-shell #luci-hcs-header .top.luci-header__nav,
-body.luci-home-shell #luci-hcs-header .topnav,
-body.luci-front-page .luci-header-shell .topnav,
-body.luci-front-page .luci-header-shell .top.luci-header__nav,
-body.luci-front-page.luci-standalone .luci-top,
-body.luci-front-page.luci-standalone .top,
-body.luci-front-page.luci-standalone .topnav,
-.luci-top {
-	background-color: var(--luci-page-bg) !important;
-	background: var(--luci-page-bg) !important;
-	border-bottom: 1px solid rgba(96, 39, 0, 0.1) !important;
-}
-
-/* Homepage sections */
-body.luci-front-page .luci-meet-hero,
-body.luci-front-page .luci-meet-journey,
-.luci-meet-hero,
-.luci-meet-journey,
-.luci-home-hero {
-	background-color: var(--luci-page-bg) !important;
-	background: var(--luci-page-bg) !important;
-}
-
-/* Landing pages */
-body.luci-landing-layout .luci-site-main,
-.luci-landing-page.luci-fabform-page-shell,
-.luci-landing-page.luci-fabform-thank-you-shell,
-.luci-landing-page.luci-bespoke-page-shell,
-.luci-landing-page.luci-bespoke-thank-you-shell,
-.luci-landing-page.luci-online-store-shell,
-.luci-landing-page.luci-contact-shell {
-	background: var(--luci-page-bg) !important;
-}
-
-/* Secondary nav — white strip, brown text */
-.secondarynav.luci-secondarynav,
-.secondarynav.luci-secondarynav::before,
-.secondarynav.luci-secondarynav .secondarynav-items li,
-.secondarynav.luci-secondarynav .secondarynav-items li:first-child {
-	background-color: var(--luci-page-bg) !important;
-	color: var(--luci-brown, #602700) !important;
-	border-bottom: 1px solid rgba(96, 39, 0, 0.1);
-}
-
-.secondarynav.luci-secondarynav .secondarynav-items li a {
-	color: var(--luci-brown, #602700) !important;
-}
-
-.secondarynav.luci-secondarynav .secondarynav-items li.active::before {
-	border-block-start-color: var(--luci-brown, #602700);
-}
-
-/* Tax disclaimer + other pre-footer bands — white */
-.luci-tax-disclaimer,
-body.luci-front-page .luci-tax-disclaimer,
-body.luci-home-shell .luci-tax-disclaimer {
-	background: var(--luci-page-bg) !important;
-	color: var(--luci-brown, #602700) !important;
-	border-top: 1px solid rgba(96, 39, 0, 0.1) !important;
-}
-
-/* Error pages */
-body.luci-error-fullscreen-page,
-html:has(body.luci-error-fullscreen-page) {
-	background-color: var(--luci-page-bg) !important;
-}
-
-/* Mobile hamburger menu drawer — white */
-@media (max-width: 991px) {
-	body.luci-nav-mobile .luci-header-shell #luci-topnav-items,
-	body.luci-nav-mobile #luci-hcs-header .topnav-items,
-	body.luci-home-shell.luci-mobile-nav-open #luci-hcs-header .topnav #luci-topnav-items.is-open,
-	body.luci-home-shell.luci-mobile-nav-open .luci-header-shell #luci-topnav-items.is-open {
-		background: var(--luci-page-bg) !important;
-	}
-}
-
-/* Portal tiles — subtle tint on white */
-body.luci-front-page .luci-portal-tile__icon {
-	background: rgba(96, 39, 0, 0.06);
-}
-
-/* Landing section panels on white */
-.luci-online-store-diy,
-.luci-online-store-features,
-.luci-fabform-details,
-.luci-bespoke-details {
-	background: rgba(96, 39, 0, 0.04) !important;
-}
-
-.luci-online-store-cta {
-	background: rgba(96, 39, 0, 0.03) !important;
-}
