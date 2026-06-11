@@ -54,6 +54,10 @@ def product(slug: str) -> str:
     return f"{STORE}/products/{slug}"
 
 
+# Scroll-to-text fragment highlights the Online Store plan on the Website Builder page.
+ONLINE_STORE_BUILDER = f"{product('website-builder')}#:~:text=Online%20Store"
+
+
 NAV_CATALOG = {
     "domains": {
         "title": "Domains",
@@ -536,7 +540,7 @@ def bespoke_form() -> str:
 
 
 def online_store_page() -> str:
-    builder = product("website-builder")
+    purchase = ONLINE_STORE_BUILDER
     meta = (
         "Start an online store from £22/month with Luci Website Builder. "
         "UK ecommerce website: mobile design, SSL, shopping cart, payments, inventory, SEO and hosting included."
@@ -550,7 +554,7 @@ def online_store_page() -> str:
 <p class="luci-meet-hero__tagline">Luci <strong>Online Store</strong> plan — <strong>£22/month</strong> for a complete ecommerce website.</p>
 <p class="luci-meet-hero__lede">Build a professional shop with Luci Website Builder — transparent UK pricing, hosting and SSL included. Sell physical goods, digital downloads, services, and appointments from one simple dashboard, without wrestling plugins or patchwork hosting.</p>
 <p class="luci-online-store-hero__actions">
-<a class="luci-meet-hero__cta" href="{builder}" target="_blank" rel="noopener noreferrer">Get started for £22/month</a>
+<a class="luci-meet-hero__cta" href="{purchase}" target="_blank" rel="noopener noreferrer">Get started for £22/month</a>
 </p>
 </div></div></section>"""
     features = """<section class="luci-meet-step luci-online-store-features" aria-labelledby="luci-online-store-features-title">
@@ -615,10 +619,10 @@ def online_store_page() -> str:
 <h2 id="luci-online-store-cta-title" class="luci-meet-step__title">Ready to open your shop?</h2>
 <p class="luci-meet-step__text">Start on the Online Store plan today — <strong>£22/month</strong> for a complete ecommerce website with hosting and SSL.</p>
 <p class="luci-online-store-cta__actions">
-<a class="luci-meet-hero__cta" href="{builder}" target="_blank" rel="noopener noreferrer">Start your online store</a>
+<a class="luci-meet-hero__cta" href="{purchase}" target="_blank" rel="noopener noreferrer">Start your online store</a>
 <a class="luci-meet-hero__cta luci-online-store-cta__secondary" href="/contact/">Questions? Contact us</a>
 </p>
-<p class="luci-online-store-cta__note">Pricing excludes applicable taxes. See the full feature list and sign up at <a class="luci-meet-step__inline-link" href="{builder}">my.luci.ltd</a>.</p>
+<p class="luci-online-store-cta__note">Pricing excludes applicable taxes. See the full feature list and sign up at <a class="luci-meet-step__inline-link" href="{purchase}">my.luci.ltd</a>.</p>
 </div></section>"""
     shell = '<div id="primary" class="luci-landing-page luci-page-area luci-site-content luci-online-store-shell luci-fabform-page-shell"><div class="luci-landing-page__inner">'
     return (
