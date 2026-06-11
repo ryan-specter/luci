@@ -1,0 +1,11 @@
+{
+  "name": "luci",
+  "private": true,
+  "scripts": {
+    "build": "python3 build.py",
+    "deploy": "wrangler pages deploy site --project-name=luci"
+  },
+  "devDependencies": {
+    "wrangler": "^4.99.0"
+  }
+}
