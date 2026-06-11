@@ -71,6 +71,7 @@ NAV_CATALOG = {
         "children": [
             ("bespoke", "Let us Design It", "/bespoke/"),
             ("website_builder", "Make Your Own", product("website-builder")),
+            ("online_store", "Start an Online Store", "/online-store/"),
             ("wordpress", "WordPress", product("wordpress")),
         ],
     },
@@ -118,6 +119,7 @@ PORTAL_TILES = [
     ("Microsoft 365", product("microsoft-365"), "email", False),
     ("Let us Design It", "/bespoke/", "design", False),
     ("Make Your Own", product("website-builder"), "websites", False),
+    ("Start an Online Store", "/online-store/", "cart", False),
     ("SSL Certificates", product("ssl"), "ssl", False),
     ("Web Hosting (cPanel)", product("cpanel"), "hosting", False),
     ("Managed Hosting for WordPress", product("wordpress"), "wordpress", False),
@@ -186,7 +188,14 @@ def is_external(href: str) -> bool:
     return href.startswith("http")
 
 
-def head(title: str, *, bundle: str = "site.css", extra_css: list[str] | None = None, preload_reach: bool = False) -> str:
+def head(
+    title: str,
+    *,
+    bundle: str = "site.css",
+    extra_css: list[str] | None = None,
+    preload_reach: bool = False,
+    description: str | None = None,
+) -> str:
     links = [
         f'<link rel="preconnect" href="https://img1.wsimg.com" crossorigin>',
         f'<link rel="preconnect" href="https://img6.wsimg.com" crossorigin>',
@@ -215,13 +224,17 @@ def head(title: str, *, bundle: str = "site.css", extra_css: list[str] | None = 
   }
 })();
 </script>"""
+    meta_description = description or (
+        "Domains, websites, hosting, and email — sorted without the jargon. "
+        "Built in the UK for people who have better things to do."
+    )
     return f"""<!DOCTYPE html>
 <html lang="en-GB" dir="ltr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(title)} — Luci</title>
-<meta name="description" content="Domains, websites, hosting, and email — sorted without the jargon. Built in the UK for people who have better things to do.">
+<meta name="description" content="{esc(meta_description)}">
 {chr(10).join(links)}
 {boot}
 </head>"""
@@ -522,6 +535,100 @@ def bespoke_form() -> str:
 </div></section>"""
 
 
+def online_store_page() -> str:
+    builder = product("website-builder")
+    meta = (
+        "Start an online store from £22/month with GoDaddy Website Builder on Luci. "
+        "UK ecommerce website: mobile design, SSL, shopping cart, payments, inventory, SEO and hosting included."
+    )
+    intro = f"""<section class="luci-meet-hero luci-online-store-hero" aria-labelledby="luci-online-store-title">
+<div class="luci-meet-hero__inner">
+<div class="luci-meet-hero__visual" aria-hidden="true"><img class="luci-meet-hero__reach luci-online-store-hero__img" src="/assets/Treats.svg" alt="" width="400" height="280" decoding="async"></div>
+<div class="luci-meet-hero__copy">
+<p class="luci-online-store-eyebrow">Website Builder · Online Store</p>
+<h1 id="luci-online-store-title" class="luci-meet-hero__title">Start an online store that sells for you</h1>
+<p class="luci-meet-hero__tagline">GoDaddy Website Builder <strong>Online Store</strong> plan — <strong>£22/month</strong> for a complete ecommerce website.</p>
+<p class="luci-meet-hero__lede">Luci is an authorised GoDaddy reseller. Get the same powerful Website Builder used by millions of businesses — with transparent UK pricing, hosting and SSL included. Sell physical goods, digital downloads, services, and appointments from one professional shop, without wrestling plugins or patchwork hosting.</p>
+<p class="luci-online-store-hero__actions">
+<a class="luci-meet-hero__cta" href="{builder}" target="_blank" rel="noopener noreferrer">Get started for £22/month</a>
+</p>
+</div></div></section>"""
+    features = """<section class="luci-meet-step luci-online-store-features" aria-labelledby="luci-online-store-features-title">
+<div class="luci-online-store-features__inner">
+<h2 id="luci-online-store-features-title" class="luci-meet-step__title luci-online-store-features__title">Everything you need to sell online</h2>
+<p class="luci-meet-step__text luci-online-store-features__lead">The Online Store plan bundles hosting, security, and ecommerce tools so you can focus on products — not plugins and patchwork.</p>
+<div class="luci-online-store-features__grid">
+<div class="luci-online-store-features__col">
+<h3 class="luci-online-store-features__heading">Look great on every device</h3>
+<ul class="luci-online-store-features__list">
+<li>Responsive mobile design</li>
+<li>Website hosting included</li>
+<li>Rapid page-load performance</li>
+<li>Security (SSL certificate)</li>
+<li>Create a blog</li>
+</ul>
+</div>
+<div class="luci-online-store-features__col">
+<h3 class="luci-online-store-features__heading">Get found and stay connected</h3>
+<ul class="luci-online-store-features__list">
+<li>Search engine optimisation (SEO)</li>
+<li>Social media integration</li>
+<li>Share content to Facebook</li>
+<li>Online appointments</li>
+<li>PayPal Buy Now or Donate button</li>
+</ul>
+</div>
+<div class="luci-online-store-features__col">
+<h3 class="luci-online-store-features__heading">Sell with confidence</h3>
+<ul class="luci-online-store-features__list">
+<li>Built-in shopping cart</li>
+<li>Sell physical and digital products</li>
+<li>Accept credit and debit cards, PayPal and more</li>
+<li>Flexible shipping options</li>
+<li>Discounts and promotions</li>
+<li>Manage inventory</li>
+</ul>
+</div>
+</div>
+</div></section>"""
+    steps = """<section class="luci-meet-step luci-online-store-steps" aria-labelledby="luci-online-store-steps-title">
+<div class="luci-online-store-steps__inner">
+<div class="luci-online-store-steps__col">
+<h2 id="luci-online-store-steps-title" class="luci-meet-step__title">How it works</h2>
+<ol class="luci-online-store-steps__list">
+<li>Choose the <strong>Online Store</strong> plan on our secure storefront — setup takes minutes.</li>
+<li>Pick a template, add your products, and connect payments.</li>
+<li>Publish your shop and start taking orders — we are here if you get stuck.</li>
+</ol>
+</div>
+<div class="luci-online-store-steps__col">
+<h2 class="luci-meet-step__title">Why Luci?</h2>
+<ul class="luci-online-store-steps__list luci-online-store-steps__list--bullets">
+<li>Transparent UK pricing in GBP — no surprise checkout fees from us.</li>
+<li>GoDaddy Website Builder power, explained in plain English.</li>
+<li>Domains, hosting, email, and SSL available in the same place when you grow.</li>
+</ul>
+</div>
+</div></section>"""
+    cta = f"""<section class="luci-online-store-cta" aria-labelledby="luci-online-store-cta-title">
+<div class="luci-online-store-cta__inner">
+<h2 id="luci-online-store-cta-title" class="luci-meet-step__title">Ready to open your shop?</h2>
+<p class="luci-meet-step__text">Start on the Online Store plan today — <strong>£22/month</strong> for a complete ecommerce website with hosting and SSL.</p>
+<p class="luci-online-store-cta__actions">
+<a class="luci-meet-hero__cta" href="{builder}" target="_blank" rel="noopener noreferrer">Start your online store</a>
+<a class="luci-meet-hero__cta luci-online-store-cta__secondary" href="/contact/">Questions? Contact us</a>
+</p>
+<p class="luci-online-store-cta__note">Pricing excludes applicable taxes. Product features provided by GoDaddy Website Builder via Luci's reseller storefront at <a class="luci-meet-step__inline-link" href="{builder}">my.luci.ltd</a>.</p>
+</div></section>"""
+    shell = '<div id="primary" class="luci-landing-page luci-page-area luci-site-content luci-online-store-shell luci-fabform-page-shell"><div class="luci-landing-page__inner">'
+    return (
+        head("Start an Online Store — Website Builder from £22/month", bundle="site-landing.css", description=meta)
+        + header_html("websites", "luci-online-store-page luci-landing-layout")
+        + shell + intro + features + steps + cta + "</div></div>"
+        + footer_html()
+    )
+
+
 def bespoke_page() -> str:
     intro = """<section class="luci-meet-hero luci-bespoke-hero" aria-labelledby="luci-bespoke-title">
 <div class="luci-meet-hero__inner">
@@ -686,6 +793,7 @@ def main() -> None:
             "Send another message",
         ),
     )
+    write_page("online-store/index.html", online_store_page())
     write_page("bespoke/index.html", bespoke_page())
     write_page(
         "bespoke/thank-you/index.html",
