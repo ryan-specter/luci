@@ -127,7 +127,7 @@ PORTAL_TILES = [
 
 HUB_CONTENT = {
     "domains": ("Search, register, transfer, or move domains in bulk on our secure storefront.", "domains"),
-    "hosting": ("cPanel, WordPress, Web Hosting Plus, and VPS — hosted on Luci's reseller storefront.", "hosting"),
+    "hosting": ("cPanel, WordPress, Web Hosting Plus, and VPS — available from Luci.", "hosting"),
     "websites": ("Launch a site without touching code — builders and WordPress on my.luci.ltd.", "websites"),
     "email": ("Professional email on your domain — Microsoft 365 for teams of every size.", "email"),
     "security": ("Protect visitors and recover quickly — SSL, website security, and backups.", "security"),
@@ -538,17 +538,17 @@ def bespoke_form() -> str:
 def online_store_page() -> str:
     builder = product("website-builder")
     meta = (
-        "Start an online store from £22/month with GoDaddy Website Builder on Luci. "
+        "Start an online store from £22/month with Luci Website Builder. "
         "UK ecommerce website: mobile design, SSL, shopping cart, payments, inventory, SEO and hosting included."
     )
     intro = f"""<section class="luci-meet-hero luci-online-store-hero" aria-labelledby="luci-online-store-title">
 <div class="luci-meet-hero__inner">
 <div class="luci-meet-hero__visual" aria-hidden="true"><img class="luci-meet-hero__reach luci-online-store-hero__img" src="/assets/Treats.svg" alt="" width="400" height="280" decoding="async"></div>
 <div class="luci-meet-hero__copy">
-<p class="luci-online-store-eyebrow">Website Builder · Online Store</p>
+<p class="luci-online-store-eyebrow">Luci Website Builder · Online Store</p>
 <h1 id="luci-online-store-title" class="luci-meet-hero__title">Start an online store that sells for you</h1>
-<p class="luci-meet-hero__tagline">GoDaddy Website Builder <strong>Online Store</strong> plan — <strong>£22/month</strong> for a complete ecommerce website.</p>
-<p class="luci-meet-hero__lede">Luci is an authorised GoDaddy reseller. Get the same powerful Website Builder used by millions of businesses — with transparent UK pricing, hosting and SSL included. Sell physical goods, digital downloads, services, and appointments from one professional shop, without wrestling plugins or patchwork hosting.</p>
+<p class="luci-meet-hero__tagline">Luci <strong>Online Store</strong> plan — <strong>£22/month</strong> for a complete ecommerce website.</p>
+<p class="luci-meet-hero__lede">Build a professional shop with Luci Website Builder — transparent UK pricing, hosting and SSL included. Sell physical goods, digital downloads, services, and appointments from one simple dashboard, without wrestling plugins or patchwork hosting.</p>
 <p class="luci-online-store-hero__actions">
 <a class="luci-meet-hero__cta" href="{builder}" target="_blank" rel="noopener noreferrer">Get started for £22/month</a>
 </p>
@@ -605,7 +605,7 @@ def online_store_page() -> str:
 <h2 class="luci-meet-step__title">Why Luci?</h2>
 <ul class="luci-online-store-steps__list luci-online-store-steps__list--bullets">
 <li>Transparent UK pricing in GBP — no surprise checkout fees from us.</li>
-<li>GoDaddy Website Builder power, explained in plain English.</li>
+<li>Luci Website Builder — powerful and straightforward, explained in plain English.</li>
 <li>Domains, hosting, email, and SSL available in the same place when you grow.</li>
 </ul>
 </div>
@@ -618,7 +618,7 @@ def online_store_page() -> str:
 <a class="luci-meet-hero__cta" href="{builder}" target="_blank" rel="noopener noreferrer">Start your online store</a>
 <a class="luci-meet-hero__cta luci-online-store-cta__secondary" href="/contact/">Questions? Contact us</a>
 </p>
-<p class="luci-online-store-cta__note">Pricing excludes applicable taxes. Product features provided by GoDaddy Website Builder via Luci's reseller storefront at <a class="luci-meet-step__inline-link" href="{builder}">my.luci.ltd</a>.</p>
+<p class="luci-online-store-cta__note">Pricing excludes applicable taxes. See the full feature list and sign up at <a class="luci-meet-step__inline-link" href="{builder}">my.luci.ltd</a>.</p>
 </div></section>"""
     shell = '<div id="primary" class="luci-landing-page luci-page-area luci-site-content luci-online-store-shell luci-fabform-page-shell"><div class="luci-landing-page__inner">'
     return (
