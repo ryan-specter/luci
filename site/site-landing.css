@@ -4318,12 +4318,13 @@ body.luci-landing-layout .luci-home-below-hero__inner {
 
 /* css/white-shell.css */
 /**
- * White page shell — lime only on the pre-footer tax disclaimer band.
+ * White page shell — lime only on the header toolbar (utility + product nav).
  * Loaded last in each CSS bundle so it wins over page-specific lime rules.
  */
 
 :root {
 	--luci-page-bg: #ffffff;
+	--luci-header-bg: var(--luci-lime, #c1ff00);
 }
 
 /* Base + homepage shell */
@@ -4347,10 +4348,10 @@ body.luci-front-page.luci-standalone {
 	background: var(--luci-page-bg) !important;
 }
 
-/* Header + product nav — white */
+/* Header toolbar — lime utility row + product nav */
+#luci-hcs-header.luci-store-header,
 body.luci-home-shell .luci-header-shell .top,
 body.luci-home-shell .luci-header-shell .luci-top,
-body.luci-home-shell #luci-hcs-header.luci-store-header,
 body.luci-home-shell #luci-hcs-header .utility-bar.single-use-header,
 body.luci-home-shell #luci-hcs-header .top.luci-header__nav,
 body.luci-home-shell #luci-hcs-header .top section,
@@ -4363,9 +4364,9 @@ body.luci-front-page.luci-standalone .luci-top,
 body.luci-front-page.luci-standalone .top,
 body.luci-front-page.luci-standalone .topnav,
 .luci-top {
-	background-color: var(--luci-page-bg) !important;
-	background: var(--luci-page-bg) !important;
-	border-bottom: 1px solid rgba(96, 39, 0, 0.12) !important;
+	background-color: var(--luci-header-bg) !important;
+	background: var(--luci-header-bg) !important;
+	border-bottom-color: rgba(96, 39, 0, 0.1) !important;
 }
 
 body.luci-home-shell #luci-hcs-header .utility-bar.single-use-header {
@@ -4411,11 +4412,13 @@ body.luci-landing-layout .luci-site-main,
 	border-block-start-color: var(--luci-brown, #602700);
 }
 
-/* Pre-footer tax disclaimer — keep lime above black footer */
-.luci-tax-disclaimer {
-	background: var(--luci-lime, #c1ff00) !important;
+/* Tax disclaimer + other pre-footer bands — white */
+.luci-tax-disclaimer,
+body.luci-front-page .luci-tax-disclaimer,
+body.luci-home-shell .luci-tax-disclaimer {
+	background: var(--luci-page-bg) !important;
 	color: var(--luci-brown, #602700) !important;
-	border-top: 1px solid rgba(96, 39, 0, 0.12) !important;
+	border-top: 1px solid rgba(96, 39, 0, 0.1) !important;
 }
 
 /* Error pages */
@@ -4424,11 +4427,11 @@ html:has(body.luci-error-fullscreen-page) {
 	background-color: var(--luci-page-bg) !important;
 }
 
-/* Mobile nav drawer */
+/* Mobile nav drawer — part of header toolbar */
 @media (max-width: 991px) {
 	body.luci-nav-mobile .luci-header-shell #luci-topnav-items,
 	body.luci-nav-mobile #luci-hcs-header .topnav-items {
-		background: var(--luci-page-bg) !important;
+		background: var(--luci-header-bg) !important;
 	}
 }
 
